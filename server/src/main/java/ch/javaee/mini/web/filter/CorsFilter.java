@@ -17,7 +17,7 @@ public class CorsFilter implements ContainerResponseFilter{
 
     private static final String METHODS = "GET, POST, PUT, DELETE, OPTIONS, HEAD";
     private final static int MAX_AGE = 24 * 60 * 60;
-    private final static String HEADERS_ALLOWED = "origin,accept,content-type";
+    private final static String HEADERS_ALLOWED = "Authorization, Content-Type, x-requested-with";
 
     @Override
     public void filter(ContainerRequestContext containerRequestContext, ContainerResponseContext containerResponseContext) throws IOException {

@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>parent</artifactId>
-        <groupId>javaee-angular-cli-starter</groupId>
+        <groupId>java-demo</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <packaging>war</packaging>
@@ -21,18 +21,68 @@
     <artifactId>server</artifactId>
 
     <dependencies>
+
+        <dependency>
+            <groupId>java-demo</groupId>
+            <artifactId>client</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.0.Alpha2</version>
+        </dependency>
+        <!-- comes with HV
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+             <version>2.0.0.Alpha2</version>
+        </dependency>
+        -->
+
+        <!-- json-b -->
+        <!-- comes with yasson -->
+        <dependency>
+            <groupId>javax.json.bind</groupId>
+            <artifactId>javax.json.bind-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse</groupId>
+            <artifactId>yasson</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>1.1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator-cdi</artifactId>
+            <version>6.0.0.Alpha2</version>
+        </dependency>
+
+        <!-- THIS HAS TO STAY IN THE LAST POSITION -->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.validation</groupId>
+                    <artifactId>validation-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-        <dependency>
-            <groupId>javaee-angular-cli-starter</groupId>
-            <artifactId>client</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <type>war</type>
-        </dependency>
+
     </dependencies>
 
     <build>
@@ -46,4 +96,25 @@
         </plugins>
     </build>
 
+
+        <repositories>
+            <!-- Needed for JSON-B API -->
+            <repository>
+                <id>java.net-Public</id>
+                <name>Maven Java Net Snapshots and Releases</name>
+                <url>https://maven.java.net/content/groups/public/</url>
+            </repository>
+
+            <!-- Needed for Yasson -->
+            <repository>
+                <id>yasson-snapshots</id>
+                <name>Yasson Snapshots repository</name>
+                <url>https://repo.eclipse.org/content/repositories/yasson-snapshots</url>
+            </repository>
+            <repository>
+                <id>jboss-maven2-release-repository</id>
+                <name>JBoss</name>
+                <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+            </repository>
+        </repositories>
 </project>

@@ -1,0 +1,17 @@
+
+.idea
+*.iml
+out
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+/.idea/
+target/
+dist/
+node_modules/
+.DS_Store
+!/client/src/main/

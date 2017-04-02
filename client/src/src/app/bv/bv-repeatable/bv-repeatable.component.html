@@ -1,0 +1,48 @@
+<div class="panel panel-primary" >
+  <div class="panel-heading">
+    <div class="panel-title">Repeatable and JAX-RS validation</div>
+    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Documentation</a></div>
+  </div>
+  <div style="padding-top:0px;"  class="panel-body" >
+
+<form class="form-horizontal" (ngSubmit)="doRepeatableOne()" #userForm="ngForm">
+
+  <div class="form-group">
+    <label for="formOneType" class="col-sm-2 control-label">User Type</label>
+    <div class="col-sm-6">
+      <label class="radio-inline">
+           <input type="radio"  [(ngModel)]="model.type" name="type" id="formOneType" value="default" checked="checked">Default<br>
+      </label>
+      <label class="radio-inline">
+        <input type="radio"  [(ngModel)]="model.type" name="type" value="admin">Admin
+      </label>
+    </div>
+    </div>
+
+  <div class="form-group">
+    <label for="passwordInput" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-6">
+    <input type="password" class="form-control" id="passwordInput" placeholder="Password"
+           [(ngModel)]="model.password" name="password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+  <button  type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
+  </div>
+  <div class="panel-footer">
+    <div class="row">On the server 2 validations are performed :</div>
+    <div class="row">1) JAX-RS verifies that all the fields are filled</div>
+    <div class="row">2) Bean Validation verifies that the fields are conform to the requirements.
+    </div>
+</div>
+</div>
+
+<app-technical-info
+  [code] = "code"
+  [response] = "response"
+  [request] = "request"
+></app-technical-info>

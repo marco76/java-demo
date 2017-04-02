@@ -1,0 +1,23 @@
+<div class="col-md-12">
+   <div *ngFor="let alert of alerts">
+    <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout" dismissible="true">{{ alert.msg }}</alert>
+  </div>
+ <div class="col-md-6">
+  <section> <h3>Java code</h3></section>
+  <section [innerHTML]="code" highlight-js-content=".highlight"></section>
+</div>
+<div class="col-md-6">
+  <div>
+    <h3>Request JSON:</h3>
+  </div>
+  <div>
+    <div [innerHTML]="request" highlight-js-content=".highlight"></div>
+  </div>
+  <div>
+    <h3 class>Response JSON:</h3>
+  </div>
+  <div>
+    <div  [innerHTML]="response" highlight-js-content=".highlight"></div>
+  </div>
+</div>
+</div>
