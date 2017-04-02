@@ -7,7 +7,7 @@ import { AlertModule } from 'ng2-bootstrap';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BvSimpleOneComponent } from './bv/bv-simple-one/bv-simple-one';
-import { BsDropdownModule } from 'ng2-bootstrap/dropdown';
+import { DropdownModule } from 'ng2-bootstrap/dropdown';
 import { PrettyJsonPipe } from './common/pretty-json/prettyJson.pipe';
 import { HighlightJsModule, HighlightJsService } from '../../node_modules/angular2-highlight-js';
 import { BvDateComponent } from './bv/bv-date/bv-date.component';
@@ -36,7 +36,7 @@ const routes : Routes = [
     BrowserModule,
     FormsModule,
     HighlightJsModule,
-    BsDropdownModule.forRoot(),
+    DropdownModule.forRoot(),
     AlertModule.forRoot(),
     RouterModule.forRoot(routes),
     HttpModule
