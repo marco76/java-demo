@@ -28,8 +28,8 @@ RUN mvn generate-resources package
 # install WildFly (patched custom version)
 RUN mkdir /opt/wildfly
 WORKDIR /opt/wildfly
-#RUN wget https://s3.eu-central-1.amazonaws.com/molteni/java-demo/wildfly-custom/wildfly-11.0.0.Beta1-SNAPSHOT.tar.gz
-RUN wget https://drive.google.com/uc?id=0B1OW861bv3wvTFBXc2tHd0t4N0E&export=download
+RUN wget https://s3.eu-central-1.amazonaws.com/molteni/java-demo/wildfly-custom/wildfly-11.0.0.Beta1-SNAPSHOT.tar.gz
+#RUN wget https://drive.google.com/uc?id=0B1OW861bv3wvTFBXc2tHd0t4N0E&export=download
 RUN tar xzf ./wildfly-11.0.0.Beta1-SNAPSHOT.tar.gz
 
 RUN yes | cp -rf /usr/src/myapp/java-demo/server/target/ROOT.war /opt/wildfly/wildfly-11.0.0.Beta1-SNAPSHOT/standalone/deployments/

@@ -9,7 +9,7 @@ import {BvService} from "../common/bv.service";
 export class BvDateComponent implements OnInit {
 
 
-  model = new Object();
+  model = {name :null, email:null};
   code: string = "";
   request: string = "";
   response: string = "";

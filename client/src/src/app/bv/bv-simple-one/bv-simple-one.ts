@@ -9,7 +9,7 @@ import {BvService} from "../common/bv.service";
 })
 export class BvSimpleOneComponent implements OnInit {
 
-  model = new Object();
+  model = {email : null, name:null};
   code: string = "";
   request: string = "";
   response: string = "";
