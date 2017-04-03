@@ -40,7 +40,7 @@ CMD ["/opt/wildfly/wildfly-11.0.0.Beta1-SNAPSHOT/bin/standalone.sh", "-b", "0.0.
 EXPOSE 80
 ####
 # build with:
-# docker build -t java-demo .
+# docker build -t javaee/java-demo .
 #
 # run with:
-# docker run --rm -it -p 80:80  java-demo
+# docker run --rm -it -p 80:80  javaee/java-demo
