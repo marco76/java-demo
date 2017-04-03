@@ -13,6 +13,7 @@ import { HighlightJsModule, HighlightJsService } from '../../node_modules/angula
 import { BvDateComponent } from './bv/bv-date/bv-date.component';
 import { BvRepeatableComponent } from './bv/bv-repeatable/bv-repeatable.component';
 import { TechnicalInfo } from './common/technical-info/technical-info.component';
+import { MaskDirective } from './common/mask/mask-directive';
 
 const routes : Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
@@ -30,7 +31,8 @@ const routes : Routes = [
     PrettyJsonPipe,
     BvDateComponent,
     BvRepeatableComponent,
-    TechnicalInfo
+    TechnicalInfo,
+    MaskDirective
   ],
   imports: [
     BrowserModule,

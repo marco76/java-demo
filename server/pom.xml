@@ -83,6 +83,13 @@
             </exclusions>
         </dependency>
 
+        <!-- These dependencies shoul be eliminated with the final version of Java EE -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.8.5</version>
+        </dependency>
+
     </dependencies>
 
     <build>

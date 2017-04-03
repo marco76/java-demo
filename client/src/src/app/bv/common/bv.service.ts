@@ -30,6 +30,19 @@ export class BvService {
     })
   }
 
+  savePatient(model : any) : Observable<any> {
+
+    let options = new RequestOptions({ headers: this.headers });
+
+    return this.http
+      .post(this.serverUrl + "/rest/bv/time/patient", model, options)
+      .map((response: Response) => {
+        return response.json();
+      }, (error) => {
+        error.json();
+      })
+  }
+
   repeatableDemo1(model : any) :Observable<any> {
 
     let options = new RequestOptions({ headers: this.headers });

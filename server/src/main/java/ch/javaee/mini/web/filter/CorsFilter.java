@@ -9,7 +9,8 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by marco on 12.03.17.
+ *
+ * This filter allows the requests from the dev client (node.js on localhost:4200)
  */
 
 @Provider
