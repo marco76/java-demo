@@ -74,13 +74,13 @@ export class TechnicalInfo implements OnInit {
       this.alerts.push({
         type: 'success',
         msg: `The request is valid (added: ${(new Date()).toLocaleTimeString()})`,
-        timeout: 5000
+        timeout: 20000
       });
     } else {
       this.alerts.push({
         type: 'danger',
         msg: `The request is NOT Valid (added: ${(new Date()).toLocaleTimeString()})`,
-        timeout: 5000
+        timeout: 20000
       });
     }
   }
