@@ -11,6 +11,8 @@ import { DropdownModule } from 'ng2-bootstrap/dropdown';
 import { PrettyJsonPipe } from './common/pretty-json/prettyJson.pipe';
 import { HighlightJsModule, HighlightJsService } from '../../node_modules/angular2-highlight-js';
 import { BvDateComponent } from './bv/bv-date/bv-date.component';
+import { BvListEmail } from './bv/bv-list-email/bv-list-email.component';
+
 import { BvRepeatableComponent } from './bv/bv-repeatable/bv-repeatable.component';
 import { TechnicalInfo } from './common/technical-info/technical-info.component';
 import { MaskDirective } from './common/mask/mask-directive';
@@ -20,7 +22,8 @@ const routes : Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'bv', component: BvSimpleOneComponent },
   { path: 'bv-date', component: BvDateComponent },
-  { path: 'bv-repeatable', component: BvRepeatableComponent }
+  { path: 'bv-repeatable', component: BvRepeatableComponent },
+  { path: 'bv-list-email', component: BvListEmail }
 ];
 
 @NgModule({
@@ -31,6 +34,7 @@ const routes : Routes = [
     PrettyJsonPipe,
     BvDateComponent,
     BvRepeatableComponent,
+    BvListEmail,
     TechnicalInfo,
     MaskDirective
   ],

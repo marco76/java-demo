@@ -68,6 +68,14 @@
             <artifactId>hibernate-validator-cdi</artifactId>
             <version>6.0.0.Alpha2</version>
         </dependency>
+      <!--
+       ERROR : "WFLYCTL0412: Required services that are not installed:" => ["jboss.deployment.unit.\"ROOT.war\".WeldStartService"]}
+        <dependency>
+            <groupId>org.glassfish.soteria</groupId>
+            <artifactId>soteria</artifactId>
+            <version>1.0-m03-SNAPSHOT</version>
+        </dependency>
+        -->
 
         <!-- THIS HAS TO STAY IN THE LAST POSITION -->
         <dependency>
@@ -81,9 +89,10 @@
                     <artifactId>validation-api</artifactId>
                 </exclusion>
             </exclusions>
+
         </dependency>
 
-        <!-- These dependencies shoul be eliminated with the final version of Java EE -->
+        <!-- These dependencies should be eliminated with the final version of Java EE and JSON-B -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -123,5 +132,16 @@
                 <name>JBoss</name>
                 <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
             </repository>
-        </repositories>
+
+            <!-- used for soteria -->
+            <repository>
+                <snapshots>
+                    <enabled>true</enabled>
+                </snapshots>
+                <id>bintray-snapshot</id>
+                <name>libs-snapshot</name>
+                <url>http://oss.jfrog.org/artifactory/libs-snapshot</url>
+            </repository>
+            </repositories>
+
 </project>

@@ -55,6 +55,19 @@ export class BvService {
       })
   }
 
+  saveListEmail(model : any) : Observable<any> {
+
+    let options = new RequestOptions({ headers: this.headers });
+
+    return this.http
+      .post(this.serverUrl + "/rest/bv/email/list", model, options)
+      .map((response: Response) => {
+        return response.json();
+      }, (error) => {
+        error.json();
+      })
+  }
+
   ngOnInit() {
 
     this.headers = new Headers({ 'Content-Type': 'application/json' });
