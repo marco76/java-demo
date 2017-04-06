@@ -1,6 +1,6 @@
-package ch.javaee.demo.examples.bv.emailList;
+package io.javademo.examples.bv.emailList;
 
-import ch.javaee.demo.common.web.json.JsonResponseFactory;
+import io.javademo.common.web.json.JsonResponseFactory;
 
 import javax.inject.Inject;
 import javax.json.JsonArrayBuilder;

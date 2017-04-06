@@ -1,4 +1,4 @@
-package ch.javaee.demo.examples.bv.emailList;
+package io.javademo.examples.bv.emailList;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
