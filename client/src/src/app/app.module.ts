@@ -16,6 +16,9 @@ import { BvListEmail } from './bv/bv-list-email/bv-list-email.component';
 import { BvRepeatableComponent } from './bv/bv-repeatable/bv-repeatable.component';
 import { TechnicalInfo } from './common/technical-info/technical-info.component';
 import { MaskDirective } from './common/mask/mask-directive';
+import { JsrStatusComponent } from './jsr-status/jsr-status.component';
+import {HttpClient} from "./common/http/HttpClient";
+import { CacheFileComponent } from './extra/cache-file/cache-file.component';
 
 const routes : Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
@@ -23,7 +26,8 @@ const routes : Routes = [
   { path: 'bv', component: BvSimpleOneComponent },
   { path: 'bv-date', component: BvDateComponent },
   { path: 'bv-repeatable', component: BvRepeatableComponent },
-  { path: 'bv-list-email', component: BvListEmail }
+  { path: 'bv-list-email', component: BvListEmail },
+  { path: 'extra-cache', component: CacheFileComponent}
 ];
 
 @NgModule({
@@ -36,7 +40,9 @@ const routes : Routes = [
     BvRepeatableComponent,
     BvListEmail,
     TechnicalInfo,
-    MaskDirective
+    MaskDirective,
+    JsrStatusComponent,
+    CacheFileComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,7 @@ const routes : Routes = [
     RouterModule.forRoot(routes),
     HttpModule
   ],
-  providers: [HighlightJsService],
+  providers: [HighlightJsService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

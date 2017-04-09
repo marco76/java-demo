@@ -35,13 +35,6 @@
             <artifactId>hibernate-validator</artifactId>
             <version>6.0.0.Alpha2</version>
         </dependency>
-        <!-- comes with HV
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-             <version>2.0.0.Alpha2</version>
-        </dependency>
-        -->
 
         <!-- json-b -->
         <!-- comes with yasson -->
@@ -70,12 +63,13 @@
         </dependency>
       <!--
        ERROR : "WFLYCTL0412: Required services that are not installed:" => ["jboss.deployment.unit.\"ROOT.war\".WeldStartService"]}
+
         <dependency>
             <groupId>org.glassfish.soteria</groupId>
             <artifactId>soteria</artifactId>
             <version>1.0-m03-SNAPSHOT</version>
         </dependency>
-        -->
+ -->
 
         <!-- THIS HAS TO STAY IN THE LAST POSITION -->
         <dependency>
