@@ -11,8 +11,8 @@ import {Message} from "./Message";
 export class ChatbotComponent implements OnInit {
 
   constructor(private chatbotService : ChatbotService) { }
-  private messages : string[];
-  private lastMessage : string;
+  messages : string[];
+  lastMessage : string;
 
   ngOnInit() {
     this.messages = [];
