@@ -19,6 +19,8 @@ import { MaskDirective } from './common/mask/mask-directive';
 import { JsrStatusComponent } from './jsr-status/jsr-status.component';
 import {HttpClient} from "./common/http/HttpClient";
 import { CacheFileComponent } from './extra/cache-file/cache-file.component';
+import { ChatbotComponent } from './websocket/chatbot/chatbot.component';
+import {WebSocketService} from "./websocket/chatbot/websocket.service";
 
 const routes : Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
@@ -27,7 +29,8 @@ const routes : Routes = [
   { path: 'bv-date', component: BvDateComponent },
   { path: 'bv-repeatable', component: BvRepeatableComponent },
   { path: 'bv-list-email', component: BvListEmail },
-  { path: 'extra-cache', component: CacheFileComponent}
+  { path: 'extra-cache', component: CacheFileComponent},
+  { path: 'chatbot', component:ChatbotComponent}
 ];
 
 @NgModule({
@@ -42,7 +45,8 @@ const routes : Routes = [
     TechnicalInfo,
     MaskDirective,
     JsrStatusComponent,
-    CacheFileComponent
+    CacheFileComponent,
+    ChatbotComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,7 @@ const routes : Routes = [
     RouterModule.forRoot(routes),
     HttpModule
   ],
-  providers: [HighlightJsService, HttpClient],
+  providers: [HighlightJsService, HttpClient, WebSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

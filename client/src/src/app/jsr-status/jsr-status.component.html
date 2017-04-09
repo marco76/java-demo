@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">What is new in Java EE 8?</h3>
+    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a routerLink="/extra-cache">How this table works?</a></div>
+
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>JSR</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>New / Updated</th>
+        <th>Demo examples</th>
+        <th>Website / RI</th>
+        <th>JSR Link</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let status of jsrStatusList">
+        <td>{{status.number}}</td>
+        <td>{{status.name}}</td>
+        <td>{{status.status}}</td>
+        <td>{{status['new-updated']}}</td>
+        <td>{{status['demo-page']}}</td>
+        <td><a href="{{status.website}}" target="_blank"><span *ngIf="status.website" class="glyphicon glyphicon-globe"></span></a></td>
+        <td><a href="{{status['jsr-link']}}" target="_blank"><span class="glyphicon glyphicon-globe"></span></a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

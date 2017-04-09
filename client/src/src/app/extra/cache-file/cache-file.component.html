@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">A simple cache using @Schedule</h3>
+  </div>
+  <div class="panel-body">
+    To update the table in the home page with the current status of the JSR we load a JSON file with the data.
+    <br>
+    The file is updated daily and stored in an external repository (e.g. AWS S3, Dropbox etc.).
+    <br>
+    To avoid an expensive communication with the external repository for each request we receive we store the JSON file in memory and we update it every 24h using <b>@Schedule</b>.
+    <br>
+    <b>@Schedule</b> is part of the Timer Service offered by the EBJ container and it allows you to create Programmatic and Automatic timers.
+    <br>
+    More informations here: <a href ="https://docs.oracle.com/javaee/7/tutorial/ejb-basicexamples004.htm#BNBOY" target="_blank">Java Tutorial : Using the Timer Service</a>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <section> <h3>Timer</h3></section>
+  <section [innerHTML]="code" highlight-js-content=".highlight"></section>
+</div>
+<div class="col-md-6">
+  <section> <h3>Read file</h3></section>
+  <section [innerHTML]="codeRest" highlight-js-content=".highlight"></section>
+</div>
+<br>
+<div class="col-md-12">
+  <h3>Result</h3>
+<app-jsr-status></app-jsr-status>
+</div>
