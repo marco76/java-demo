@@ -1,0 +1,98 @@
+[{
+      "number" : "366",
+      "name" : "Java EE 8",
+      "status":"Early Draft Review",
+      "new-updated" : "Updated",
+      "demo-page" : "",
+      "website" :"",
+      "jsr-link" : "https://jcp.org/en/jsr/detail?id=366",
+      "comment" :"",
+      "last-update":""
+  }, {
+      "number" : "380",
+      "name" : "Bean Validation 2.0",
+      "new-updated" : "Updated",
+      "status":"Early Draft Review",
+      "demo-page" : "",
+      "website" : "http://beanvalidation.org",
+      "jsr-link" : "https://jcp.org/en/jsr/detail?id=380",
+      "comment" :"",
+      "last-update":""
+    },{
+      "number" : "369",
+      "name" : "Servlet 4.0",
+      "new-updated" : "Updated",
+      "demo-page" : "",
+      "website" :"",
+      "jsr-link" : "https://jcp.org/en/jsr/detail?id=369",
+      "comment" :"",
+      "last-update":"",
+      "status":"JSR Renewal Ballot"
+    },{
+      "number" : "372",
+      "name" : "JSF 2.3",
+      "new-updated" : "Updated",
+      "demo-page" : "",
+      "website" :"",
+      "jsr-link" : "https://jcp.org/en/jsr/detail?id=372",
+      "comment" :"",
+      "last-update":"",
+      "status":"Final Approval Ballot"
+    },
+    {
+      "number" : "365",
+      "name" : "CDI 2.0",
+      "status" : "Final Draft",
+      "new-updated" : "Updated",
+      "demo-page" : "",
+      "website" :"http://www.cdi-spec.org",
+      "jsr-link" : "https://jcp.org/en/jsr/detail?id=365",
+      "comment" :"",
+      "last-update":""
+    },
+    {
+      "number" : "370",
+      "name" : "JAX-RS 2.1",
+      "new-updated" : "Updated",
+      "demo-page" : "",
+      "website" :"https://jax-rs-spec.java.net",
+      "jsr-link" : "https://jcp.org/en/jsr/detail?id=370",
+      "comment" :"",
+      "last-update":"",
+      "status":"Proposed Final Draft"
+    },
+    {
+      "number" : "374",
+      "name" : "JSON-P 1.1",
+      "new-updated" : "Updated",
+      "demo-page" : "",
+      "website" :"https://jsonp.java.net",
+      "jsr-link" : "https://jcp.org/en/jsr/detail?id=374",
+      "comment" :"",
+      "last-update":"",
+      "status":"Proposed Final Draft"
+    },
+    {
+      "number" : "367",
+      "name" : "JSON-B 1.0",
+      "status": "Public review",
+      "new-updated" : "New",
+      "demo-page" : "",
+      "website" :"https://json-b.net",
+      "jsr-link" : "https://jcp.org/en/jsr/detail?id=367",
+      "comment" :"",
+      "last-update":"",
+      "status":"Proposed Final Draft"
+    },
+    {
+      "number" : "375",
+      "name" : "Security 1.0",
+      "new-updated" : "New",
+      "demo-page" : "",
+      "website" :"https://github.com/javaee-security-spec/soteria",
+      "jsr-link" : "https://jcp.org/en/jsr/detail?id=375",
+      "comment" :"",
+      "last-update":"",
+      "status":"Early Draft Review"
+    }
+  ]
