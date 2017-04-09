@@ -4,8 +4,10 @@ import {WebSocketService} from './websocket.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 import {Message} from "./Message";
+import {environment} from '../../../environments/environment';
 
-const CHAT_URL = 'ws://localhost:8080/chatbot';
+
+const CHAT_URL = environment.WS_BACKEND_URL+"/chatbot";
 
 @Injectable()
 export class ChatbotService {
