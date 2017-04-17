@@ -2,6 +2,8 @@ import {Component, OnInit, Input} from '@angular/core';
 import { PrettyJsonPipe } from "../pretty-json/prettyJson.pipe";
 
 import { HighlightJsService } from '../../../../node_modules/angular2-highlight-js/lib/highlight-js.module';
+import ResponseInfo from "./ResponseInfo";
+import {isNullOrUndefined} from "util";
 
 @Component({
   selector: 'app-technical-info',
@@ -14,10 +16,9 @@ export class TechnicalInfo implements OnInit {
    _code : string;
    _response : any;
    _request: any;
-   _rawResponse: any;
+   _responseInfo : ResponseInfo;
 
   public alerts: any = [];
-
 
   isValid : boolean = undefined;
 
@@ -29,10 +30,21 @@ export class TechnicalInfo implements OnInit {
 
   @Input()
    set response(response : any) {
-       this._rawResponse = response;
        this._response = this.formatToJson(response);
        this.doOnResponse();
    }
+
+  @Input()
+  set responseInfo(responseInfo : ResponseInfo) {
+    if (!responseInfo) {
+      return;
+    }
+    this._responseInfo = responseInfo;
+    this._response = this.formatToJson(responseInfo.text);
+    this.isValid = !responseInfo.error;
+    this.doOnResponse();
+  }
+
 
    @Input()
    set request(request : any) {
@@ -57,19 +69,13 @@ export class TechnicalInfo implements OnInit {
 
 
    doOnResponse(): void {
-     if (typeof this._rawResponse == 'undefined' || this._rawResponse === "") {
-       return;
-     } else {
-       if (this._rawResponse.length == 0) {
-         this.isValid = true;
-       } else {
-         this.isValid = false;
-       }
-
        this.showAlert();
-     }
   }
+
   showAlert() {
+    if (isNullOrUndefined(this._responseInfo)) {
+      return;
+    }
     if (this.isValid) {
       this.alerts.push({
         type: 'success',
@@ -84,5 +90,6 @@ export class TechnicalInfo implements OnInit {
       });
     }
   }
+
 
 }

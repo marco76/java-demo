@@ -17,10 +17,11 @@ import { BvRepeatableComponent } from './bv/bv-repeatable/bv-repeatable.componen
 import { TechnicalInfo } from './common/technical-info/technical-info.component';
 import { MaskDirective } from './common/mask/mask-directive';
 import { JsrStatusComponent } from './jsr-status/jsr-status.component';
-import {HttpClient} from "./common/http/HttpClient";
+import { HttpClient } from "./common/http/HttpClient";
 import { CacheFileComponent } from './extra/cache-file/cache-file.component';
 import { ChatbotComponent } from './websocket/chatbot/chatbot.component';
-import {WebSocketService} from "./websocket/chatbot/websocket.service";
+import { WebSocketService } from "./websocket/chatbot/websocket.service";
+import { ObserverComponent } from './cdi/event/event.component';
 
 const routes : Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
@@ -30,7 +31,8 @@ const routes : Routes = [
   { path: 'bv-repeatable', component: BvRepeatableComponent },
   { path: 'bv-list-email', component: BvListEmail },
   { path: 'extra-cache', component: CacheFileComponent},
-  { path: 'chatbot', component:ChatbotComponent}
+  { path: 'chatbot', component: ChatbotComponent},
+  { path: 'cdi-weather', component: ObserverComponent}
 ];
 
 @NgModule({
@@ -46,7 +48,8 @@ const routes : Routes = [
     MaskDirective,
     JsrStatusComponent,
     CacheFileComponent,
-    ChatbotComponent
+    ChatbotComponent,
+    ObserverComponent
   ],
   imports: [
     BrowserModule,

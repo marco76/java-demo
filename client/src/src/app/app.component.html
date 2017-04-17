@@ -23,6 +23,19 @@
 
         </ul>
       </li>
+           <li class="btn-group" dropdown placement="bottom right">
+             <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+               CDI<span class="caret"></span>
+             </a>
+             <ul dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+               <li role="menuitem"><a class="dropdown-item" routerLink="/cdi-weather">CDI : Event - Weather</a></li>
+               <li class="divider dropdown-divider"></li>
+               <li role="menuitem"><a class="dropdown-item" href="http://www.cdi-spec.org/" target="_blank">website</a></li>
+               <li role="menuitem"><a class="dropdown-item" href="http://weld.cdi-spec.org/" target="_blank">RI - Weld</a></li>
+               <li role="menuitem"><a class="dropdown-item" href=" https://jcp.org/en/jsr/detail?id=365" target="_blank">JSR 365</a></li>
+
+             </ul>
+               </li>
            <!--
            <li class="btn-group" dropdown placement="bottom right">
              <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
@@ -38,7 +51,7 @@
                <li role="menuitem"><a class="dropdown-item" routerLink="/extra-cache">@Schedule, file caching example</a></li>
              </ul>
 
-               </li>
+           </li>
            <li class="btn-group" dropdown placement="bottom right">
              <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
                WebSocket<span class="caret"></span>
@@ -48,14 +61,13 @@
 
            <li class="divider dropdown-divider"></li>
            <li role="menuitem"><a class="dropdown-item" href="https://tyrus.java.net" target="_blank">RI</a></li>
-           <li role="menuitem"><a class="dropdown-item" href=" https://jcp.org/en/jsr/detail?id=356" target="_blank">JSR 380</a></li>
+           <li role="menuitem"><a class="dropdown-item" href=" https://jcp.org/en/jsr/detail?id=356" target="_blank">JSR 356</a></li>
              </ul>
            </li>
          </ul>
 
     </div>
   </div>
-
 </nav>
 <div class="container-fluid">
     <router-outlet></router-outlet>

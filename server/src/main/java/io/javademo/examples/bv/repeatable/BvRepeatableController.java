@@ -1,9 +1,8 @@
 package io.javademo.examples.bv.repeatable;
 
-import io.javademo.common.web.json.JsonResponseFactory;
+import io.javademo.common.web.response.ResponseFactory;
 
 import javax.inject.Inject;
-import javax.json.JsonArrayBuilder;
 import javax.validation.ConstraintViolation;
 import javax.validation.Valid;
 import javax.validation.Validator;
@@ -18,6 +17,8 @@ public class BvRepeatableController {
 
     @Inject
     Validator validator;
+    @Inject
+    ResponseFactory<User> responseFactory;
 
     public BvRepeatableController() {
 
@@ -39,8 +40,6 @@ public class BvRepeatableController {
             constraintViolationSet = validator.validate(user);
         }
 
-        JsonArrayBuilder errorList = new JsonResponseFactory<User>().buildJsonResponse(constraintViolationSet);
-
-        return Response.ok().entity(errorList.build()).build();
+        return responseFactory.buildResponse(constraintViolationSet);
     }
 }

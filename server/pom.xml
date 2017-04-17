@@ -29,12 +29,40 @@
             <type>war</type>
         </dependency>
 
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.0.Alpha2</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>6.0.0.Alpha2</version>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator-cdi</artifactId>
+            <version>6.0.0.Alpha2</version>
+        </dependency>
+
+        <!-- CDI 2.0 -->
+        <!-- https://mvnrepository.com/artifact/org.jboss.weld/weld-api -->
+        <dependency>
+            <groupId>org.jboss.weld</groupId>
+            <artifactId>weld-api</artifactId>
+            <version>3.0.CR2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.enterprise/cdi-api -->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>2.0-PFD2</version>
+        </dependency>
+
+
 
         <!-- json-b -->
         <!-- comes with yasson -->
@@ -56,11 +84,7 @@
             <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator-cdi</artifactId>
-            <version>6.0.0.Alpha2</version>
-        </dependency>
+
       <!--
        ERROR : "WFLYCTL0412: Required services that are not installed:" => ["jboss.deployment.unit.\"ROOT.war\".WeldStartService"]}
 
@@ -81,6 +105,10 @@
                 <exclusion>
                     <groupId>javax.validation</groupId>
                     <artifactId>validation-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.enterprise</groupId>
+                    <artifactId>cdi-api</artifactId>
                 </exclusion>
             </exclusions>
 

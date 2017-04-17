@@ -12,6 +12,11 @@ import java.util.List;
  */
 public class Addresses {
 
+    /**
+     * The list can have at maximum 2 string.
+     * The strings should have an email format
+     */
+
     @Size(max = 2)
     private List<@Email @NotNull String> emailList = new ArrayList<>();
 

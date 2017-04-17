@@ -1,15 +1,12 @@
 package io.javademo.examples.bv.simple;
 
-import javax.json.Json;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObjectBuilder;
-import javax.json.bind.Jsonb;
-import javax.json.bind.JsonbBuilder;
+import io.javademo.common.web.response.ResponseFactory;
+
+import javax.inject.Inject;
 import javax.validation.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -20,6 +17,9 @@ import java.util.Set;
  */
 @javax.ws.rs.Path("bv")
 public class BvController {
+
+    @Inject
+    ResponseFactory<Participant> responseFactory;
 
     public BvController() {
 
@@ -35,33 +35,7 @@ public class BvController {
 
         Set<ConstraintViolation<Participant>> constraintViolationSet = validator.validate(participant);
 
-        Iterator violationsIterator = constraintViolationSet.iterator();
-
-        JsonArrayBuilder errorList = Json.createArrayBuilder();
-
-        while (violationsIterator.hasNext()) {
-            ConstraintViolation<Participant> violation = (ConstraintViolation<Participant>) violationsIterator.next();
-
-            Jsonb jsonb = JsonbBuilder.create();
-            String rootBean = jsonb.toJson(violation.getRootBean());
-
-            JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder()
-                    .add("message", violation.getMessage())
-                    .add("property path",violation.getPropertyPath().toString())
-                    .add("messageTemplate", violation.getMessageTemplate())
-                    .add("rootBean",  rootBean );
-            if(violation.getInvalidValue()!= null) {
-                jsonObjectBuilder.add("invalid value", violation.getInvalidValue().toString());
-
-        }
-            errorList.add(jsonObjectBuilder.build());
-        }
-
-
-
-
-        return Response.ok().entity(errorList.build()).build();
-
+        return responseFactory.buildResponse(constraintViolationSet);
     }
 
     @POST

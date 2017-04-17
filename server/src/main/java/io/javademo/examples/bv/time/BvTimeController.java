@@ -1,9 +1,8 @@
 package io.javademo.examples.bv.time;
 
-import io.javademo.common.web.json.JsonResponseFactory;
+import io.javademo.common.web.response.ResponseFactory;
 
 import javax.inject.Inject;
-import javax.json.JsonArrayBuilder;
 import javax.validation.ConstraintViolation;
 import javax.validation.Valid;
 import javax.validation.Validator;
@@ -22,6 +21,8 @@ public class BvTimeController {
 
     @Inject
     Validator validator;
+    @Inject
+    ResponseFactory<Patient> responseFactory;
 
     public BvTimeController() {
 
@@ -41,9 +42,7 @@ public class BvTimeController {
         Set<ConstraintViolation<Patient>> constraintViolationSet;
         constraintViolationSet = validator.validate(patient);
 
-        JsonArrayBuilder errorList = new JsonResponseFactory<Patient>().buildJsonResponse(constraintViolationSet);
-
-        return Response.ok().entity(errorList.build()).build();
+        return responseFactory.buildResponse(constraintViolationSet);
     }
 
     private LocalDate convertDate(String dateAsString) {
