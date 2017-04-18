@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import {BvService} from "../common/bv.service";
-import {PrettyJsonPipe} from "../../common/pretty-json/prettyJson.pipe";
+import { PrettyJsonPipe } from "../../common/pretty-json/prettyJson.pipe";
+import {RequestService} from "../../common/http/request.service";
+import ResponseInfo from "../../common/technical-info/ResponseInfo";
 
 @Component({
   selector: 'app-bv-list-email',
   templateUrl: './bv-list-email.component.html',
   styleUrls: ['./bv-list-email.component.css'],
-  providers: [BvService, PrettyJsonPipe]
+  providers: [RequestService, PrettyJsonPipe]
 })
 export class BvListEmail implements OnInit {
 
   addresses = {email : [null, null, null]};
 
-  response : any;
+  responseInfo : ResponseInfo;
   code :string = "";
   request : any;
 
-  constructor(private bvService : BvService) { }
+  constructor(private requestService : RequestService) { }
 
   ngOnInit() {
 
@@ -41,11 +42,7 @@ export class BvListEmail implements OnInit {
     // trick to fire the update field event
     this.request = JSON.stringify(emailList);
 
-
-
-    this.bvService.saveListEmail(emailList).subscribe(
-      result => { this.response = result },
-      error => { this.response = error._body }
-    );
+    this.requestService.sendRequest('/rest/bv/email/list', emailList).subscribe(
+      result => {this.responseInfo = result});
   }
 }

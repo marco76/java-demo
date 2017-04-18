@@ -29,6 +29,4 @@ export class ChatbotComponent implements OnInit {
     this.chatbotService.messages.next({"author":"", "message": this.lastMessage});
     this.lastMessage = '';
   }
-
-
 }

@@ -20,7 +20,6 @@ public class Participant {
     @NotNull @Email
     private CharSequence email;
 
-
     public String getName() {
         return name;
     }

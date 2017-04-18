@@ -1,7 +1,7 @@
 [{
       "number" : "366",
       "name" : "Java EE 8",
-      "status":"Early Draft Review",
+      "status":"Early Draft Review 2",
       "new-updated" : "Updated",
       "demo-page" : "",
       "website" :"",
@@ -42,7 +42,7 @@
     {
       "number" : "365",
       "name" : "CDI 2.0",
-      "status" : "Final Draft",
+      "status" : "Proposed Final Draft",
       "new-updated" : "Updated",
       "demo-page" : "",
       "website" :"http://www.cdi-spec.org",
@@ -59,7 +59,7 @@
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=370",
       "comment" :"",
       "last-update":"",
-      "status":"Proposed Final Draft"
+      "status":"Early Draft Review"
     },
     {
       "number" : "374",
@@ -75,14 +75,13 @@
     {
       "number" : "367",
       "name" : "JSON-B 1.0",
-      "status": "Public review",
+      "status": "Public Review Ballot",
       "new-updated" : "New",
       "demo-page" : "",
       "website" :"https://json-b.net",
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=367",
       "comment" :"",
-      "last-update":"",
-      "status":"Proposed Final Draft"
+      "last-update":""
     },
     {
       "number" : "375",

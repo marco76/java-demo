@@ -1,4 +1,4 @@
-package io.javademo.common.web.json;
+package io.javademo.common.web.response;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,9 +14,12 @@ import java.util.Set;
 
 
 /**
+ * This class prepare a JSON response that contains the errors found by Bean Validation.
+ *
  * Created by marco on 03.04.17.
  */
-public class JsonResponseFactory<T> {
+
+public class BVJsonResponseFactory<T> {
 
     public JsonArrayBuilder buildJsonResponse(Set<ConstraintViolation<T>> constraintViolationSet) {
         JsonArrayBuilder errorList = Json.createArrayBuilder();

@@ -1,9 +1,8 @@
 package io.javademo.examples.bv.emailList;
 
-import io.javademo.common.web.json.JsonResponseFactory;
+import io.javademo.common.web.response.ResponseFactory;
 
 import javax.inject.Inject;
-import javax.json.JsonArrayBuilder;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import javax.ws.rs.POST;
@@ -18,6 +17,8 @@ public class BvEmailListController {
 
     @Inject
     Validator validator;
+    @Inject
+    ResponseFactory<Addresses> responseFactory;
 
     public BvEmailListController() {
 
@@ -39,8 +40,6 @@ public class BvEmailListController {
         Set<ConstraintViolation<Addresses>> constraintViolationSet;
             constraintViolationSet = validator.validate(addresses);
 
-        JsonArrayBuilder errorList = new JsonResponseFactory<Addresses>().buildJsonResponse(constraintViolationSet);
-
-        return Response.ok().entity(errorList.build()).build();
+        return responseFactory.buildResponse(constraintViolationSet);
     }
 }

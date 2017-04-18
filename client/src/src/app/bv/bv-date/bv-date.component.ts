@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { BvService } from "../common/bv.service";
+import {RequestService} from "../../common/http/request.service";
+import ResponseInfo from "../../common/technical-info/ResponseInfo";
+
 
 @Component({
   selector: 'app-bv-date',
   templateUrl: './bv-date.component.html',
   styleUrls: ['./bv-date.component.css'],
-  providers: [BvService]
+  providers: [RequestService]
 })
 export class BvDateComponent implements OnInit {
 
   model = {name :null, nextAppointment:null, yearOfBirth: null};
   code: string = "";
   request: string = "";
-  response: string = "";
+  responseInfo : ResponseInfo;
   datee : any;
 
-  constructor(private bvService: BvService) {
+  constructor(private requestService : RequestService) {
     this.model.nextAppointment = new Date();
   }
 
@@ -27,14 +29,8 @@ export class BvDateComponent implements OnInit {
 
     this.request = JSON.stringify(this.model);
 
-    this.bvService.savePatient(this.model).subscribe(
-      result => {
-        this.response = result
-      },
-      error => {
-        this.response = error._body
-      }
-    );
+    this.requestService.sendRequest('/rest/bv/time/patient', this.model).subscribe(
+      result => {this.responseInfo = result});
   }
 
   ngOnInit() {
@@ -66,5 +62,4 @@ export class BvDateComponent implements OnInit {
     private String nextAppointment;</code></pre>
     `
   }
-
 }

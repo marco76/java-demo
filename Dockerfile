@@ -18,7 +18,7 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -y nodejs
 
 # clone the repository with the code
-RUN git clone git://github.com/marco76/java-demo.git
+RUN git clone -b stable git://github.com/marco76/java-demo.git
 
 # install npm modules
 WORKDIR /usr/src/myapp/java-demo/
