@@ -12,6 +12,7 @@ import { PrettyJsonPipe } from './common/pretty-json/prettyJson.pipe';
 import { HighlightJsModule, HighlightJsService } from '../../node_modules/angular2-highlight-js';
 import { BvDateComponent } from './bv/bv-date/bv-date.component';
 import { BvListEmail } from './bv/bv-list-email/bv-list-email.component';
+import { HelloComponent } from './minimalistic/hello/hello.component';
 
 import { BvRepeatableComponent } from './bv/bv-repeatable/bv-repeatable.component';
 import { TechnicalInfo } from './common/technical-info/technical-info.component';
@@ -32,7 +33,8 @@ const routes : Routes = [
   { path: 'bv-list-email', component: BvListEmail },
   { path: 'extra-cache', component: CacheFileComponent},
   { path: 'chatbot', component: ChatbotComponent},
-  { path: 'cdi-weather', component: ObserverComponent}
+  { path: 'cdi-weather', component: ObserverComponent},
+  { path: 'hello', component: HelloComponent}
 ];
 
 @NgModule({
@@ -49,7 +51,8 @@ const routes : Routes = [
     JsrStatusComponent,
     CacheFileComponent,
     ChatbotComponent,
-    ObserverComponent
+    ObserverComponent,
+    HelloComponent
   ],
   imports: [
     BrowserModule,

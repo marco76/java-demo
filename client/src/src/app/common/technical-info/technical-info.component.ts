@@ -17,6 +17,7 @@ export class TechnicalInfo implements OnInit {
    _response : any;
    _request: any;
    _responseInfo : ResponseInfo;
+   _format : string = 'json';
 
   public alerts: any = [];
 
@@ -40,11 +41,15 @@ export class TechnicalInfo implements OnInit {
       return;
     }
     this._responseInfo = responseInfo;
-    this._response = this.formatToJson(responseInfo.text);
+    if (this._responseInfo.format == "json") {
+      this._response = this.formatToJson(responseInfo.text);
+    } else {
+      this._response = this.formatToXML(responseInfo.text);
+    }
+    this._format = this._responseInfo.format;
     this.isValid = !responseInfo.error;
     this.doOnResponse();
   }
-
 
    @Input()
    set request(request : any) {
@@ -64,11 +69,22 @@ export class TechnicalInfo implements OnInit {
     return  `<pre><code class="json highlight">` +
             this.prettyJson.transform(json)+ `</code></pre>`;
   }
+  formatToXML(xml : any) : string {
+    return xml;
+  }
 
   get code(): string { return this._code}
 
 
-   doOnResponse(): void {
+  get format(): string {
+    return this._format;
+  }
+
+  set format(value: string) {
+    this._format = value;
+  }
+
+  doOnResponse(): void {
        this.showAlert();
   }
 

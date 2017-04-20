@@ -1,0 +1,39 @@
+<div class="panel panel-primary" >
+  <div class="panel-heading">
+    <div class="panel-title">How difficult is to ... create REST Services ?</div>
+  </div>
+  <div  class="panel-body" >
+
+    <form class="form" (ngSubmit)="onSubmit()" #participantForm="ngForm">
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input type="radio" [(ngModel)]="feature" name="feature" value="getHello"> Create a GET Response
+          <br>
+          <input type="radio" [(ngModel)]="feature" name="feature" value="postPerson"> Post and receive a Person
+          <input type="text" [(ngModel)]="person.name" name = "person-name" placeholder="Name (size 3-20)">
+          <input type="number" [(ngModel)]="person.age" name = "person-age" placeholder="Age (between 14-150)">
+          <input type="checkbox" [(ngModel)]="xml" name="xml">XML
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-0 col-sm-12">
+          <button  type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="panel-footer">
+    <div class="row"></div>
+    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="" target="_blank">Documentation</a></div>
+
+  </div>
+</div>
+
+<app-technical-info
+  [code] = "code"
+  [responseInfo] = "responseInfo"
+  [request] = "request"
+></app-technical-info>
