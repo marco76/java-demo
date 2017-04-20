@@ -36,7 +36,6 @@ Event<WeatherEvent> weatherEvent;
 Event<WeatherEvent> emergencyEvent;
 
 @POST
-// TODO JAVA EE 8: JAX-RS doesn't support yet the new annotations BV
 public Response transmitWeatherInformation(
     @Valid final WeatherRequestBean weatherRequestBean) {
 

@@ -38,7 +38,7 @@ public class WeatherSubjectController {
             weatherEvent.fire(weatherSubject);
             weatherEvent.fireAsync(weatherSubject);
         }
-        if (weatherRequestBean.getWaitForAsynchEvents()) {
+        if (weatherRequestBean.getWaitForEmail()) {
             waitForAsync();
         }
 
@@ -47,7 +47,7 @@ public class WeatherSubjectController {
 
     private void waitForAsync() {
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

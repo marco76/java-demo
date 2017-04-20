@@ -11,7 +11,7 @@ public class WeatherRequestBean {
     @NotEmpty
     private String weather;
     @NotNull
-    private Boolean waitForAsynchEvents = Boolean.FALSE;
+    private Boolean waitForEmail = Boolean.FALSE;
     @NotNull
     private Boolean isEmergency = Boolean.FALSE;
 
@@ -23,12 +23,12 @@ public class WeatherRequestBean {
         this.weather = weather;
     }
 
-    public Boolean getWaitForAsynchEvents() {
-        return waitForAsynchEvents;
+    public Boolean getWaitForEmail() {
+        return waitForEmail;
     }
 
-    public void setWaitForAsynchEvents(Boolean waitForAsynchEvents) {
-        this.waitForAsynchEvents = waitForAsynchEvents;
+    public void setWaitForEmail(Boolean waitForAsynchEvents) {
+        this.waitForEmail = waitForAsynchEvents;
     }
 
     public Boolean getEmergency() {
