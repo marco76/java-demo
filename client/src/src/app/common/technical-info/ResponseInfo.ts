@@ -3,6 +3,7 @@ export default class ResponseInfo {
   private _status : number = 200;
   private _text : string = '';
   private _error : boolean = false;
+  _format : string = 'json';
 
   constructor() {
 
@@ -30,5 +31,13 @@ export default class ResponseInfo {
 
   get error() {
     return this._error;
+  }
+
+  get format(): string {
+    return this._format;
+  }
+
+  set format(value: string) {
+    this._format = value;
   }
 }

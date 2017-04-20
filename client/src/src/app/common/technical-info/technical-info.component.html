@@ -13,11 +13,22 @@
   <div>
     <div [innerHTML]="request" highlight-js-content=".highlight"></div>
   </div>
+  <div   *ngIf = "format == 'json'">
   <div>
     <h3 class>Response JSON:</h3>
   </div>
   <div>
     <div [innerHTML]="response" highlight-js-content=".highlight"></div>
   </div>
+  </div>
+  <div  *ngIf="format == 'xml'">
+    <div>
+      <h3 class>Response XML:</h3>
+    </div>
+    <div>The XML response is not formatted for security reasons.</div>
+    <div>
+        {{response}}
+    </div>
+</div>
 </div>
 </div>
