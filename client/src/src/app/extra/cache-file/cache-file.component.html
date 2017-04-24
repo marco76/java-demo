@@ -21,7 +21,7 @@
 </div>
 <div class="col-md-6">
   <section> <h3>Read file</h3></section>
-  <section [innerHTML]="codeRest" highlight-js-content=".highlight"></section>
+  <section [innerHTML]="codeRest | prettyXML" highlight-js-content=".highlight"></section>
 </div>
 <br>
 <div class="col-md-12">

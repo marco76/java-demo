@@ -1,0 +1,42 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">From JPA to JSON how to show the data from your database</h3>
+  </div>
+  <div class="panel-body">
+    The events calendar is loaded using JPA from an H2 (file) database.
+    <br>
+    In the first version of this demo the data is stored in sql files and inserted in the database by the container during the deployment phase.<br>
+    This solution is particularly beneficial to create sample database for the integration tests and for demos like this one.
+   </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+<div class="col-md-6">
+  <section> <h3>The REST controller (JAX-RS, JSON-B)</h3></section>
+  <section>
+    <div [innerHTML]="code | prettyXML" highlight-js-content=".highlight"></div></section>
+</div>
+<div class="col-md-6">
+  <section> <h3>The Service (EJB)</h3></section>
+  <section [innerHTML]="codeRight | prettyXML" highlight-js-content=".highlight"></section>
+</div>
+  </div>
+  <div class="row">
+<div class="col-md-6">
+  <section> <h3>The Query (JPA)</h3></section>
+  <section [innerHTML]="dataJpa | prettyXML" highlight-js-content=".highlight"></section>
+</div>
+
+<div class="col-md-6">
+<section> <h3>The Configuration (JPA)</h3></section>
+<section [innerHTML]="config | prettyXML" highlight-js-content=".highlight"></section>
+</div>
+</div>
+</div>
+<br>
+<div class="col-md-12">
+  <h3>The Result</h3>
+  <conference-table></conference-table>
+</div>
+
+
