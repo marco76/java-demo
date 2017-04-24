@@ -1,0 +1,8 @@
+INSERT INTO Conference (name, edition, website, languages, begin, end, city, country, cfp) VALUES ('JavaOne', 2017,'https://www.oracle.com/javaone/index.html', 'EN', DATE '2017-10-01', DATE '2017-10-05', 'San Francisco', 'U.S.A', DATE '2017-04-23');
+INSERT INTO Conference (name, edition, website, languages, begin, end, city, country, cfp) VALUES ('Java Forum Nord', 2017, 'http://javaforumnord.de/site/2017/page/startpage', 'DE', DATE '2017-09-12', DATE '2017-09-12', 'Hannover', 'Germany', DATE '2017-04-23');
+
+INSERT INTO Conference (name,edition,  website, languages, begin, end, city, country, cfp) VALUES ('Berlin Expert Days',2017, 'http://bed-con.org', 'DE, EN', DATE '2017-09-21', DATE '2017-09-22', 'Berlin', 'Germany', DATE '2017-05-15');
+INSERT INTO Conference (name,edition, website, languages, begin, end, city, country, cfp) VALUES ('JUG Saxony Day',2017,'https://jug-saxony-day.org', 'DE ', DATE '2017-09-29', DATE '2017-09-29', 'Dresden', 'Germany', DATE '2017-04-23');
+INSERT INTO Conference (name,edition, website, languages, begin, end, city, country, cfp) VALUES ('BaselOne',2017,'http://baselone.ch', 'DE, EN', DATE '2017-10-19', DATE '2017-10-19', 'Basel', 'Switzerland', DATE '2017-04-23');
+INSERT INTO Conference (name,edition, website, languages, begin, end, city, country, cfp) VALUES ('JavaZone',2017,'https://2017.javazone.no', 'EN', DATE '2017-09-13', DATE '2017-09-14', 'Oslo', 'Norway', DATE '2017-04-24');
+INSERT INTO Conference (name,edition, website, languages, begin, end, city, country) VALUES ('Spring I/O',2017,'http://2017.springio.net', 'EN', DATE '2017-05-18', DATE '2017-05-19', 'Barcelona', 'Spain');

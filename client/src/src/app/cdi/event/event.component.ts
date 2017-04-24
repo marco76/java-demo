@@ -29,11 +29,11 @@ export class ObserverComponent implements OnInit {
     takes care of the communication.
     
     <pre><code class="java highlight">@Inject
-Event<WeatherEvent> weatherEvent;
+Event<<WeatherEvent>> weatherEvent;
 
 @Inject
 @WeatherType(value = "emergency")
-Event<WeatherEvent> emergencyEvent;
+Event<<WeatherEvent>> emergencyEvent;
 
 @POST
 public Response transmitWeatherInformation(

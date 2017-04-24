@@ -7,10 +7,17 @@
          <ul class="nav navbar-nav">
            <li> <a routerLink="/">Home</a></li>
 
-      <li class="btn-group" dropdown placement="bottom right">
+           <li class="btn-group" dropdown placement="bottom right">
+             <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" routerLink="/conferences">
+              <span class="glyphicon glyphicon-calendar"></span> Conferences
+             </a>
+           </li>
+               <li class="btn-group" dropdown placement="bottom right">
         <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
           Bean Validation<span class="caret"></span>
         </a>
+
+
         <ul dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
           <li role="menuitem"><a class="dropdown-item" routerLink="/bv">Simple validation</a></li>
           <li role="menuitem"><a class="dropdown-item" routerLink="/bv-date">Dates</a></li>
@@ -45,22 +52,16 @@
            </li>-->
            <li class="btn-group" dropdown placement="bottom right">
              <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-               Complicated???<span class="caret"></span>
+               Tutorials (Easy)<span class="caret"></span>
              </a>
              <ul dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
-               <li role="menuitem"><a class="dropdown-item" routerLink="/hello">REST Services</a></li>
-             </ul>
+               <li role="menuitem"><a class="dropdown-item" routerLink="/hello"><strong>REST</strong>: Answer to Web requests</a></li>
+               <li role="menuitem"><a class="dropdown-item" routerLink="/jpa-conferences"><strong>JPA</strong>: Conferences - From the DB to the Web</a></li>
+               <li role="menuitem"><a class="dropdown-item" routerLink="/extra-cache"><strong>@Schedule</strong>: file caching example</a></li>
+   </ul>
 
            </li>
-           <li class="btn-group" dropdown placement="bottom right">
-             <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-               Extra<span class="caret"></span>
-             </a>
-             <ul dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
-               <li role="menuitem"><a class="dropdown-item" routerLink="/extra-cache">@Schedule, file caching example</a></li>
-             </ul>
 
-           </li>
            <li class="btn-group" dropdown placement="bottom right">
              <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
                WebSocket<span class="caret"></span>

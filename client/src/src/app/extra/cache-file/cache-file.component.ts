@@ -27,7 +27,7 @@ private void loadData() {
     this.codeRest = `
     The file is read with the following code:
     <pre><code class="java highlight">URL url = new URL(STATUS_URL);
-Stream<String> lines = new BufferedReader(
+Stream<<String>> lines = new BufferedReader(
     new InputStreamReader(url.openStream(), "UTF-8"))
     .lines();
 return lines.map(Object::toString)

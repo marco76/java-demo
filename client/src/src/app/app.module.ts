@@ -23,6 +23,9 @@ import { CacheFileComponent } from './extra/cache-file/cache-file.component';
 import { ChatbotComponent } from './websocket/chatbot/chatbot.component';
 import { WebSocketService } from "./websocket/chatbot/websocket.service";
 import { ObserverComponent } from './cdi/event/event.component';
+import { ConferenceComponent } from './jpa/conference/conference.component';
+import {ConferenceTableComponent} from "./jpa/conference/conference-table/conference-table.component";
+import {PrettyXMLPipe} from "./common/pretty-json/prettyXML.pipe";
 
 const routes : Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
@@ -34,7 +37,9 @@ const routes : Routes = [
   { path: 'extra-cache', component: CacheFileComponent},
   { path: 'chatbot', component: ChatbotComponent},
   { path: 'cdi-weather', component: ObserverComponent},
-  { path: 'hello', component: HelloComponent}
+  { path: 'hello', component: HelloComponent},
+  { path: 'conferences', component:ConferenceTableComponent},
+  { path: 'jpa-conferences', component : ConferenceComponent}
 ];
 
 @NgModule({
@@ -43,6 +48,7 @@ const routes : Routes = [
     HomeComponent,
     BvSimpleOneComponent,
     PrettyJsonPipe,
+    PrettyXMLPipe,
     BvDateComponent,
     BvRepeatableComponent,
     BvListEmail,
@@ -52,7 +58,9 @@ const routes : Routes = [
     CacheFileComponent,
     ChatbotComponent,
     ObserverComponent,
-    HelloComponent
+    HelloComponent,
+    ConferenceComponent,
+    ConferenceTableComponent
   ],
   imports: [
     BrowserModule,

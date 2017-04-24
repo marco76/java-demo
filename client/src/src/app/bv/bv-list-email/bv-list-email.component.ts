@@ -27,7 +27,7 @@ export class BvListEmail implements OnInit {
     <code class="java highlight">
     public class Addresses {
     @Size(max = 2)
-    private List<@Email @NotNull String> emailList = new ArrayList<>();
+    private List<<@Email @NotNull String>> emailList = new ArrayList<>();
     </code></pre></div>`
   }
 

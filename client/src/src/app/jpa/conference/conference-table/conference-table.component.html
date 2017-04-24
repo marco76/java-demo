@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Next Java Conferences in the world</h3>
+    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a  routerLink="/jpa-conferences">How this table works?</a></div>
+
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Days left</th>
+        <th>From</th>
+        <th>To</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Website</th>
+        <th>CFP</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let conference of conferenceList">
+        <td>{{conference.name}}</td>
+        <td>{{conference.daysLeft}}</td>
+        <td class="date">{{conference.begin | date: 'yMMMd'}}</td>
+        <td class="date">{{conference.end | date: 'yMMMd'}}</td>
+        <td>{{conference.city}}</td>
+        <td>{{conference.country}}</td>
+
+        <td class="icon"><a href="{{conference.website}}" target="_blank"><span *ngIf="conference.website" class="glyphicon glyphicon-globe"></span></a></td>
+        <td class="date">{{conference.cfp | date: 'yMMMd'}}</td>
+
+      </tr>
+      </tbody>
+    </table>
+    <div>
+      To announce conferences (a form will come): <a href="https://twitter.com/marcomolteni" target="_blank">@marcomolteni</a> or email to <a href="mailto:&#109;&#111;&#108;&#116;&#101;&#110;&#109;&#097;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;" target="_top">marco</a>
+      <br>
+    </div>
+  </div>
+</div>

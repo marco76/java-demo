@@ -27,7 +27,7 @@
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=369",
       "comment" :"",
       "last-update":"",
-      "status":"JSR Renewal Ballot"
+      "status":"Public Review Ballot"
     },{
       "number" : "372",
       "name" : "JSF 2.3",
@@ -37,7 +37,7 @@
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=372",
       "comment" :"",
       "last-update":"",
-      "status":"Final Approval Ballot"
+      "status":"Final Release"
     },
     {
       "number" : "365",
@@ -59,7 +59,7 @@
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=370",
       "comment" :"",
       "last-update":"",
-      "status":"Early Draft Review"
+      "status":"Public Review"
     },
     {
       "number" : "374",
@@ -70,12 +70,12 @@
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=374",
       "comment" :"",
       "last-update":"",
-      "status":"Proposed Final Draft"
+      "status":"Final Approval Ballot"
     },
     {
       "number" : "367",
       "name" : "JSON-B 1.0",
-      "status": "Public Review Ballot",
+      "status": "Proposed Final Draft",
       "new-updated" : "New",
       "demo-page" : "",
       "website" :"https://json-b.net",
