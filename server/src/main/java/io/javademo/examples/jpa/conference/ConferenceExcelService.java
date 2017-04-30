@@ -1,4 +1,4 @@
-package io.javademo.examples.jpa.model;
+package io.javademo.examples.jpa.conference;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;

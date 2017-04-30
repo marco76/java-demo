@@ -8,6 +8,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.logging.Logger;
 
 /**
  * Created by marcomolteni on 14.04.17.
@@ -15,6 +16,8 @@ import javax.ws.rs.core.Response;
 
 @javax.ws.rs.Path("/cdi/weather-event")
 public class WeatherSubjectController {
+
+    private static final Logger LOGGER = Logger.getLogger(WeatherSubjectController.class.getName());
 
     @Inject
     Event<WeatherEvent> weatherEvent;
@@ -28,6 +31,7 @@ public class WeatherSubjectController {
     @Consumes(MediaType.APPLICATION_JSON)
     // TODO JAVA EE 8: JAX-RS doesn't support yet the new annotations BV
     public Response transmitWeatherInformation(@Valid final WeatherRequestBean weatherRequestBean) {
+        LOGGER.info("transmitWeatherInformation");
 
         WeatherEvent weatherSubject = new WeatherEvent(weatherRequestBean.getWeather());
 

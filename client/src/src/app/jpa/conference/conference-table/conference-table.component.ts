@@ -50,12 +50,12 @@ export class ConferenceTableComponent implements OnInit {
     let blob = new Blob([data], {type: format});
 
     if (window.navigator.msSaveOrOpenBlob) {
-      window.navigator.msSaveBlob(blob, "text.xls");
+      window.navigator.msSaveBlob(blob, "conferences.xls");
 
     } else {
       let element = window.document.createElement('a');
       element.href=window.URL.createObjectURL(blob);
-      element.download = "text.xls";
+      element.download = "conferences.xls";
       element.click();
       document.body.removeChild(element);
     }

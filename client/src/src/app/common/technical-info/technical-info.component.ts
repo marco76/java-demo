@@ -106,6 +106,4 @@ export class TechnicalInfo implements OnInit {
       });
     }
   }
-
-
 }

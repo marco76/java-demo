@@ -1,4 +1,4 @@
-package io.javademo.examples.jpa.model;
+package io.javademo.examples.jpa.conference;
 
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;

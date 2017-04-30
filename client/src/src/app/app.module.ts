@@ -26,6 +26,8 @@ import { ObserverComponent } from './cdi/event/event.component';
 import { ConferenceComponent } from './jpa/conference/conference.component';
 import {ConferenceTableComponent} from "./jpa/conference/conference-table/conference-table.component";
 import {PrettyXMLPipe} from "./common/pretty-json/prettyXML.pipe";
+import {ExcelExport} from "./extra/excel/excel-export";
+
 
 const routes : Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
@@ -39,7 +41,8 @@ const routes : Routes = [
   { path: 'cdi-weather', component: ObserverComponent},
   { path: 'hello', component: HelloComponent},
   { path: 'conferences', component:ConferenceTableComponent},
-  { path: 'jpa-conferences', component : ConferenceComponent}
+  { path: 'jpa-conferences', component : ConferenceComponent},
+  { path: 'excel-export', component: ExcelExport}
 ];
 
 @NgModule({
@@ -60,7 +63,8 @@ const routes : Routes = [
     ObserverComponent,
     HelloComponent,
     ConferenceComponent,
-    ConferenceTableComponent
+    ConferenceTableComponent,
+    ExcelExport
   ],
   imports: [
     BrowserModule,

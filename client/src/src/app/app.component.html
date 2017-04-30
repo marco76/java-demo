@@ -1,10 +1,20 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+              data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
       <div class="navbar-brand">
         <span routerLink="/">Java EE 8 Demo</span>
       </div>
-         <ul class="nav navbar-nav">
+    </div>
+      <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+      <ul class="nav navbar-nav">
            <li> <a routerLink="/">Home</a></li>
 
            <li class="btn-group" dropdown placement="bottom right">
@@ -58,6 +68,7 @@
                <li role="menuitem"><a class="dropdown-item" routerLink="/hello"><strong>REST</strong>: Answer to Web requests</a></li>
                <li role="menuitem"><a class="dropdown-item" routerLink="/jpa-conferences"><strong>JPA</strong>: Conferences - From the DB to the Web</a></li>
                <li role="menuitem"><a class="dropdown-item" routerLink="/extra-cache"><strong>@Schedule</strong>: file caching example</a></li>
+               <li role="menuitem"><a class="dropdown-item" routerLink="/excel-export"><strong>Excel export (JAX-RS)</strong>: download files</a></li>
    </ul>
 
            </li>

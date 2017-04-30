@@ -1,6 +1,5 @@
-package io.javademo.examples.jpa.model;
+package io.javademo.examples.jpa.conference;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;

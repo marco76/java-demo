@@ -1,4 +1,4 @@
-package io.javademo.examples.jpa.model;
+package io.javademo.examples.jpa.conference;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

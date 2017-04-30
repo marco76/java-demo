@@ -1,15 +1,7 @@
-package io.javademo.examples.jpa.model;
-
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.*;
+package io.javademo.examples.jpa.conference;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.time.ZoneId;
-import java.util.Date;
-import java.util.LinkedHashSet;
 import java.util.List;
 
 /**

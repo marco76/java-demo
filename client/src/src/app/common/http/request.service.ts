@@ -1,5 +1,5 @@
 import { Injectable, OnInit} from '@angular/core';
-import {Http, Response, ResponseContentType} from '@angular/http';
+import { Http, Response, ResponseContentType } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -66,7 +66,7 @@ export class RequestService implements OnInit{
         Observable.of(this.buildErrorAnswerXML(error))
       );
   }
-  sendGet(url:string, ) : Observable<any> {
+  sendGet(url:string) : Observable<any> {
 
     let options = new RequestOptions({ headers: this.headers });
 
