@@ -14,8 +14,7 @@ export class ConferenceComponent implements OnInit {
   config : string = '';
   dataJpa : string = '';
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     this.code = `

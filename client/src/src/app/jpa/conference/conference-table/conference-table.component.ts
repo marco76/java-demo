@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Conference from "../Conference";
 import {RequestService} from "../../../common/http/request.service";
 import ResponseInfo from "../../../common/technical-info/ResponseInfo";
+import {Http, ResponseContentType} from "@angular/http";
 
 @Component({
   selector: 'conference-table',
@@ -33,6 +34,31 @@ export class ConferenceTableComponent implements OnInit {
 
   daysLeft(start : Date) {
     return  Math.round((new Date(start).valueOf() - this.today.valueOf())/(1000*60*60*24));
+  }
+
+  downloadExcel() {
+    console.log("downloadExcel");
+    this.requestService.sendGetType("/rest/jpa/conference/excel", ResponseContentType.ArrayBuffer)
+      .subscribe(
+        result => {console.log(result._body);
+        this.downloadFile(result._body, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") },
+        error => { console.log(error._body) })
+  }
+
+  downloadFile(data, format){
+    console.log(data);
+    let blob = new Blob([data], {type: format});
+
+    if (window.navigator.msSaveOrOpenBlob) {
+      window.navigator.msSaveBlob(blob, "text.xls");
+
+    } else {
+      let element = window.document.createElement('a');
+      element.href=window.URL.createObjectURL(blob);
+      element.download = "text.xls";
+      element.click();
+      document.body.removeChild(element);
+    }
   }
 
 }

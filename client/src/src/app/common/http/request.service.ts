@@ -1,5 +1,5 @@
 import { Injectable, OnInit} from '@angular/core';
-import { Http, Response } from '@angular/http';
+import {Http, Response, ResponseContentType} from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -66,7 +66,7 @@ export class RequestService implements OnInit{
         Observable.of(this.buildErrorAnswerXML(error))
       );
   }
-  sendGet(url:string) : Observable<any> {
+  sendGet(url:string, ) : Observable<any> {
 
     let options = new RequestOptions({ headers: this.headers });
 
@@ -82,6 +82,25 @@ export class RequestService implements OnInit{
         }
         responseInfo.error = false;
         return responseInfo;
+      }).catch((error) =>
+        Observable.of(this.buildErrorAnswer(error))
+      );
+  }
+
+
+  sendGetType(url:string, type : ResponseContentType) : Observable<any> {
+    console.log("sendGetType");
+    let hOctet = new Headers({ 'Content-Type': 'application/json' });
+    hOctet.append('Accept', 'application/octet-stream');
+    hOctet.append('X-Requested-With', 'XMLHttpRequest');
+
+    let options = new RequestOptions({ headers: hOctet, responseType : type});
+
+    return this.http
+      .get(this.serverUrl + url, options)
+      .map((response: Response) => {
+        console.log(response);
+        return response;
       }).catch((error) =>
         Observable.of(this.buildErrorAnswer(error))
       );
