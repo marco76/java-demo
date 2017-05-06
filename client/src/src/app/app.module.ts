@@ -27,6 +27,7 @@ import { ConferenceComponent } from './jpa/conference/conference.component';
 import {ConferenceTableComponent} from "./jpa/conference/conference-table/conference-table.component";
 import {PrettyXMLPipe} from "./common/pretty-json/prettyXML.pipe";
 import {ExcelExport} from "./extra/excel/excel-export";
+import {SimplePrettyXML} from "./common/pretty-json/simplePrettyXML";
 
 
 const routes : Routes = [
@@ -52,6 +53,7 @@ const routes : Routes = [
     BvSimpleOneComponent,
     PrettyJsonPipe,
     PrettyXMLPipe,
+    SimplePrettyXML,
     BvDateComponent,
     BvRepeatableComponent,
     BvListEmail,

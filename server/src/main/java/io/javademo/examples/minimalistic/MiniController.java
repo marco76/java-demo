@@ -17,13 +17,8 @@ public class MiniController {
         return Json.createObjectBuilder().add("message","Hello World from Java EE!").build();
     }
 
-    @POST @Produces(MediaType.APPLICATION_JSON)
+    @POST @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Person greetingsJSON(@Valid Person person) {
-        return person;
-    }
-
-    @POST @Produces(MediaType.APPLICATION_XML)
-    public Person greetingsXML(@Valid Person person) {
         return person;
     }
 }

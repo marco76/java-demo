@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrettyJsonPipe } from "../../common/pretty-json/prettyJson.pipe";
 import ResponseInfo from "../../common/technical-info/ResponseInfo";
-import {RequestService} from "../../common/http/request.service";
+import { RequestService } from "../../common/http/request.service";
 
 @Component({
   selector: 'app-event',
@@ -11,7 +11,7 @@ import {RequestService} from "../../common/http/request.service";
 })
 export class HelloComponent implements OnInit {
 
-  feature : string;
+  feature : string = "getHello";
   person : {name : string, age:number};
   responseInfo : ResponseInfo;
   code :string = "";
@@ -43,7 +43,7 @@ The full class with the REST resources producing a simple GET and
 2 POST responses with
 <ul><li> de-serialization of a JSON string to a Java Object</li>
 <li>validation of the Java Object</li>
-<li> re-serialization of the Java Object to JSON or XML according to the protocol chosen by the JS client</li>
+<li>re-serialization of the Java Object to JSON or XML according to the protocol chosen by the JS client</li>
 </ul>    
     <pre><code class="java highlight">@Path("/hello")
 public class MiniController {
@@ -55,16 +55,10 @@ public class MiniController {
             .build();
     }
 
-    @POST @Produces(MediaType.APPLICATION_JSON)
+    @POST @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Person greetingsJSON(@Valid Person person) {
         return person;
     }
-
-    @POST @Produces(MediaType.APPLICATION_XML)
-    public Person greetingsXML(@Valid Person person) {
-        return person;
-    }
-}
 }</code></pre>
     
 Here the Java bean omitted getter/setter
@@ -97,20 +91,20 @@ This is really ALL the code needed to create this demo with JAVA EE
         result => {this.responseInfo = result});
     } else if (this.feature == 'postPerson') {
       this.request = JSON.stringify(this.person);
+
       if (this.xml) {
         this.requestService.sendRequestForXML('/rest/hello', this.person).subscribe(
-          result => {this.responseInfo = result});
+          result => {
+            this.responseInfo = result;
+            this.responseInfo._format = 'xml';
+          });
       } else {
         this.requestService.sendRequest('/rest/hello', this.person).subscribe(
           result => {
-            this.responseInfo = result
+            this.responseInfo = result;
+            this.responseInfo._format = 'json';
           });
       }
     }
-    // trick to fire the update field event
-
-
-    // this.requestService.sendRequest('/rest/cdi/weather-event', this.model).subscribe(
-     //  result => {this.responseInfo = result});
   }
 }

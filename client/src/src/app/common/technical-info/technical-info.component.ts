@@ -1,15 +1,15 @@
-import {Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { PrettyJsonPipe } from "../pretty-json/prettyJson.pipe";
-
-import { HighlightJsService } from '../../../../node_modules/angular2-highlight-js/lib/highlight-js.module';
+import { HighlightJsService } from 'angular2-highlight-js';
 import ResponseInfo from "./ResponseInfo";
-import {isNullOrUndefined} from "util";
+import { isNullOrUndefined } from "util";
+import { SimplePrettyXML } from "../pretty-json/simplePrettyXML";
 
 @Component({
   selector: 'app-technical-info',
   templateUrl: './technical-info.component.html',
   styleUrls: ['./technical-info.component.css'],
-  providers: [PrettyJsonPipe]
+  providers: [PrettyJsonPipe, SimplePrettyXML]
 })
 export class TechnicalInfo implements OnInit {
 
@@ -23,7 +23,8 @@ export class TechnicalInfo implements OnInit {
 
   isValid : boolean = undefined;
 
-  constructor(private hService: HighlightJsService, private prettyJson : PrettyJsonPipe) {
+  constructor(private hService: HighlightJsService, private prettyJson : PrettyJsonPipe,
+               private prettyXml : SimplePrettyXML) {
   }
 
   ngOnInit() {
@@ -69,8 +70,9 @@ export class TechnicalInfo implements OnInit {
     return  `<pre><code class="json highlight">` +
             this.prettyJson.transform(json)+ `</code></pre>`;
   }
+
   formatToXML(xml : any) : string {
-    return xml;
+    return `<pre><code class="xml highlight">` +this.prettyXml.transform(xml) + `</code></pre>`;
   }
 
   get code(): string { return this._code}

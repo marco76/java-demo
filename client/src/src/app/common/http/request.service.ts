@@ -55,12 +55,15 @@ export class RequestService implements OnInit{
         let responseInfo = new ResponseInfo();
         responseInfo.status = response.status;
         responseInfo.format = "xml";
+
         if (response.text()) {
           responseInfo.text = response.text();
         } else {
           responseInfo.text = "";
         }
+
         responseInfo.error = false;
+
         return responseInfo;
       }).catch((error) =>
         Observable.of(this.buildErrorAnswerXML(error))
@@ -128,10 +131,8 @@ export class RequestService implements OnInit{
   }
 
   ngOnInit() {
-
     this.headers = new Headers({ 'Content-Type': 'application/json' });
     this.headers.append('Accept', 'application/json, text/xml');
     this.headers.append('X-Requested-With', 'XMLHttpRequest');
-
   }
 }
