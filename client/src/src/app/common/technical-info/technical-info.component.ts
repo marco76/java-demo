@@ -97,13 +97,13 @@ export class TechnicalInfo implements OnInit {
     if (this.isValid) {
       this.alerts.push({
         type: 'success',
-        msg: `The request is valid (added: ${(new Date()).toLocaleTimeString()})`,
+        msg: `The request is valid (${(new Date()).toLocaleTimeString()})`,
         timeout: 20000
       });
     } else {
       this.alerts.push({
         type: 'danger',
-        msg: `The request is NOT Valid (added: ${(new Date()).toLocaleTimeString()})`,
+        msg: `The request is NOT Valid (${(new Date()).toLocaleTimeString()})`,
         timeout: 20000
       });
     }

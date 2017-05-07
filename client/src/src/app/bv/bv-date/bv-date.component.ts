@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {RequestService} from "../../common/http/request.service";
 import ResponseInfo from "../../common/technical-info/ResponseInfo";
+import {Patient} from "./Patient";
+import {IMyDate, IMyDateModel, IMyInputFieldChanged} from 'mydatepicker';
 
 
 @Component({
@@ -11,55 +13,87 @@ import ResponseInfo from "../../common/technical-info/ResponseInfo";
 })
 export class BvDateComponent implements OnInit {
 
-  model = {name :null, nextAppointment:null, yearOfBirth: null};
+  model : Patient = new Patient();
   code: string = "";
   request: string = "";
   responseInfo : ResponseInfo;
-  datee : any;
+  nextAppointmentJS : IMyDate = {year: 0, month: 0, day: 0};
+
+  isPossibleToSave : boolean = true;
 
   constructor(private requestService : RequestService) {
-    this.model.nextAppointment = new Date();
+
+    let d: Date = new Date();
+    this.nextAppointmentJS = {year: d.getFullYear(),
+      month: d.getMonth() + 1,
+      day: d.getDate()};
   }
 
   onSubmit() {
 
-    if (this.model.nextAppointment instanceof Date) {
-      this.model.nextAppointment = this.model.nextAppointment.toISOString().split('T')[0];
-    }
+    if (this.nextAppointmentJS.day) {
 
+      let selectedDate : string = "" + this.nextAppointmentJS.year +"-"+ this.nextAppointmentJS.month + "-" +this.nextAppointmentJS.day;
+      this.model.nextAppointment = selectedDate;
+    }
     this.request = JSON.stringify(this.model);
 
     this.requestService.sendRequest('/rest/bv/time/patient', this.model).subscribe(
       result => {this.responseInfo = result});
   }
 
+  onDateChanged(event: IMyDateModel) {
+    // Update value of selDate variable
+    this.nextAppointmentJS = event.date;
+  }
+
+  onInputFieldChanged(event: IMyInputFieldChanged) {
+    this.isPossibleToSave = event.valid;
+   }
+
   ngOnInit() {
+
     this.code = `
-    The business class is validated using the new java.time API:
-    <pre><code class="java highlight">public class Patient {
+    The business class is validated using the new java.time API
+    and some new annotations:<br><br>
+<i>@NotEmpty</i>: Empty strings (filled with spaces) like '   ' are not allowed.<br>
 
-    @NotEmpty @Size(min = 3, max = 50)
-    private String name;
+<i>@Past</i>: The Year has to be in the past (< this Year).<br>
 
-    @Past
-    private Year yearOfBirth;
+<i>@Future(orPresent = true)</i>: The date has to be >= than today.<br><br>
 
-    @Future(orPresent = true)
-    private LocalDate nextAppointment</code></pre>
+<pre><code class="java highlight">public class Patient {
+
+@NotNull @NotEmpty @Size(min = 3, max = 50)
+private String name;
+
+@Past @JsonDeserialize(using = YearDeserializer.class)
+private Year yearOfBirth;
+
+@NotNull @Future(orPresent = true)
+@JsonDeserialize(using = JsDateDeserializer.class)
+private LocalDate nextAppointment;</code></pre>
     
-    The REST service receive a DTO in JSON format (SimplePatientDTO).
-    All the fields are in String format.
-    <pre><code class="java highlight">    @POST
-    @Produces(MediaType.APPLICATION_JSON)
+    The REST service receive a JSON string that is converted
+     into a Patient Java object. This object is automatically validated.
+     If the validation succeed a response HTTP 200 is returned, in case some
+     values are not valid an error HTTP 400 is returned.
+<br><br>
+To call the validation is enough to use the <b>@Valid</b> annotation before the parameter
+in your resource method. <a href ="https://docs.oracle.com/javaee/7/tutorial/jaxrs-advanced002.htm" target="_blank">JAX-RS takes care of the rest.</a>
+     
+     <br>Here the complete (!) resource class:
+    <pre><code class="java highlight">@javax.ws.rs.Path("bv/time")
+public class BvTimeController \{
+
+    public BvTimeController() \{ }
+
+    @POST @Produces(MediaType.APPLICATION_JSON)
     @javax.ws.rs.Path("patient")
-    public Response user(@Valid SimplePatientDTO simplePatientDTO) </code></pre>
-    <pre><code class="java highlight">public class SimplePatientDTO {
-    @NotEmpty
-    private String name;
-    @NotNull
-    private Integer yearOfBirth;
-    @NotNull @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}")
-    private String nextAppointment;</code></pre>
-    `
+    public Response user(@Valid Patient patient) {
+        return Response.ok().build();
+    }
+}</code></pre>
+`
   }
 }

@@ -8,30 +8,27 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Set;
+import java.util.logging.Logger;
 
-/**
- *
- * 3.1 Resource Classes
- * A resource class is a Java class that uses JAX-RS annotations to implement a corresponding Web resource.
- * Resource classes are POJOs that have at least one method annotated with @Path or a request method desig- nator.
- */
 @javax.ws.rs.Path("bv")
 public class BvController {
 
+    private static final Logger LOGGER = Logger.getLogger(BvController.class.getName());
+
     @Inject
     ResponseFactory<Participant> responseFactory;
+    @Inject
+    Validator validator;
 
     public BvController() {
 
     }
 
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
+
+    @POST @Produces(MediaType.APPLICATION_JSON)
     @javax.ws.rs.Path("participant")
     public Response validateParticipant(Participant participant) {
-
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
+        LOGGER.info("validateParticipant");
 
         Set<ConstraintViolation<Participant>> constraintViolationSet = validator.validate(participant);
 

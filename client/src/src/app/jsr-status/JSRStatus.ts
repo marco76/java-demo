@@ -7,4 +7,5 @@ export interface JSRStatus {
   'jsr-link' : string;
   comment : string;
   'last-update': string;
+  status: string;
 }

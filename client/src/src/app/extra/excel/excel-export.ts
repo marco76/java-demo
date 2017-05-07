@@ -41,7 +41,6 @@ workbook.write(outputStream);
     this.codeRest = `
     In Angular we have to read the stream and download it, it's important to indicate in the Header that the response type is ResponseContentType.ArrayBuffer:
     <pre><code class="javascript highlight">sendGetType(url:string, type : ResponseContentType) : Observable<any> {
-    console.log("sendGetType");
     let hOctet = new Headers({ 'Content-Type': 'application/json' });
     hOctet.append('Accept', 'application/octet-stream');
     hOctet.append('X-Requested-With', 'XMLHttpRequest');
@@ -53,7 +52,6 @@ workbook.write(outputStream);
     return this.http
       .get(this.serverUrl + url, options)
       .map((response: Response) => {
-        console.log(response);
         return response;
       }).catch((error) =>
         Observable.of(this.buildErrorAnswer(error))
@@ -64,7 +62,7 @@ workbook.write(outputStream);
     this.requestService.sendGetType("/rest/jpa/conference/excel",
         ResponseContentType.ArrayBuffer)
         .subscribe(
-            result => {console.log(result._body);
+            result => {
             this.downloadFile(result._body,
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") },
             error => { console.log(error._body) })

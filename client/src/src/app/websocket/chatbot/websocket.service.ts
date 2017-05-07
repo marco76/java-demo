@@ -28,8 +28,6 @@ export class WebSocketService {
 
     let observer = {
       next: (data: Object) => {
-        console.log("next");
-        console.log(data);
         if (ws.readyState === WebSocket.OPEN) {
           ws.send(JSON.stringify(data));
         }

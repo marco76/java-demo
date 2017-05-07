@@ -21,7 +21,7 @@
       <tr *ngFor="let status of jsrStatusList">
         <td>{{status.number}}</td>
         <td>{{status.name}}</td>
-        <td>{{status.status}}</td>
+        <td><span class="label" [ngClass]="getPhase(status)">{{status.status}}</span></td>
         <td>{{status['new-updated']}}</td>
         <td>{{status['demo-page']}}</td>
         <td><a href="{{status.website}}" target="_blank"><span *ngIf="status.website" class="glyphicon glyphicon-globe"></span></a></td>

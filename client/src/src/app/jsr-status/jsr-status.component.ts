@@ -16,9 +16,29 @@ export class JsrStatusComponent implements OnInit {
 
   ngOnInit() {
     this.jsrStatusService.loadStatus().subscribe(
-      result => { this.jsrStatusList = result; console.log(this.jsrStatusList) },
+      result => { this.jsrStatusList = result; },
       error => { console.log(error._body) }
     );
   }
 
+  getPhase(jsrStatus : any) : string {
+    if (jsrStatus.status == 'Final Release') {
+      return 'final';
+    }
+
+    if (jsrStatus.status == 'Final Approval Ballot' ||
+      jsrStatus.status == 'Proposed Final Draft') {
+      return 'ballot';
+    }
+
+    if (jsrStatus.status == 'Public Review') {
+      return 'public';
+    }
+
+    if (jsrStatus.status == 'Public Review Ballot') {
+      return 'public';
+    }
+
+    return 'normal';
+  }
 }
