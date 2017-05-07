@@ -28,6 +28,7 @@ import {ConferenceTableComponent} from "./jpa/conference/conference-table/confer
 import {PrettyXMLPipe} from "./common/pretty-json/prettyXML.pipe";
 import {ExcelExport} from "./extra/excel/excel-export";
 import {SimplePrettyXML} from "./common/pretty-json/simplePrettyXML";
+import {MyDatePickerModule} from "mydatepicker";
 
 
 const routes : Routes = [
@@ -75,7 +76,8 @@ const routes : Routes = [
     BsDropdownModule.forRoot(),
     AlertModule.forRoot(),
     RouterModule.forRoot(routes),
-    HttpModule
+    HttpModule,
+    MyDatePickerModule
   ],
   providers: [HighlightJsService, HttpClient, WebSocketService],
   bootstrap: [AppComponent]

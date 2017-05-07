@@ -55,7 +55,8 @@ public class MiniController {
             .build();
     }
 
-    @POST @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @POST @Produces({MediaType.APPLICATION_JSON,
+        MediaType.APPLICATION_XML})   
     public Person greetingsJSON(@Valid Person person) {
         return person;
     }

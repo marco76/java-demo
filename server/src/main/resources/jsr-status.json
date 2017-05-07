@@ -1,7 +1,7 @@
 [{
       "number" : "366",
       "name" : "Java EE 8",
-      "status":"Early Draft Review 2",
+      "status":"Public Review",
       "new-updated" : "Updated",
       "demo-page" : "",
       "website" :"",
@@ -12,7 +12,7 @@
       "number" : "380",
       "name" : "Bean Validation 2.0",
       "new-updated" : "Updated",
-      "status":"Early Draft Review",
+      "status":"Public Review",
       "demo-page" : "",
       "website" : "http://beanvalidation.org",
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=380",
@@ -27,7 +27,7 @@
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=369",
       "comment" :"",
       "last-update":"",
-      "status":"Public Review Ballot"
+      "status":"Public Review"
     },{
       "number" : "372",
       "name" : "JSF 2.3",
@@ -42,7 +42,7 @@
     {
       "number" : "365",
       "name" : "CDI 2.0",
-      "status" : "Proposed Final Draft",
+      "status" : "Final Approval Ballot",
       "new-updated" : "Updated",
       "demo-page" : "",
       "website" :"http://www.cdi-spec.org",

@@ -19,7 +19,6 @@ export class ChatbotService {
     this.messages  = <Subject<Message>>this.wsService
       .connect(CHAT_URL)
       .map((response: MessageEvent): Message => {
-        console.log(response);
         let data = JSON.parse(response.data);
         return {
           author : data.author,
@@ -30,7 +29,6 @@ export class ChatbotService {
   }
 
   getMessages() : Subject<Message> {
-    console.log(this.messages);
     return this.messages;
   }
 }

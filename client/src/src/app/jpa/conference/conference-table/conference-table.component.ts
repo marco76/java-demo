@@ -37,16 +37,14 @@ export class ConferenceTableComponent implements OnInit {
   }
 
   downloadExcel() {
-    console.log("downloadExcel");
     this.requestService.sendGetType("/rest/jpa/conference/excel", ResponseContentType.ArrayBuffer)
       .subscribe(
-        result => {console.log(result._body);
+        result => {
         this.downloadFile(result._body, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") },
         error => { console.log(error._body) })
   }
 
   downloadFile(data, format){
-    console.log(data);
     let blob = new Blob([data], {type: format});
 
     if (window.navigator.msSaveOrOpenBlob) {

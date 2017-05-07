@@ -92,7 +92,6 @@ export class RequestService implements OnInit{
 
 
   sendGetType(url:string, type : ResponseContentType) : Observable<any> {
-    console.log("sendGetType");
     let hOctet = new Headers({ 'Content-Type': 'application/json' });
     hOctet.append('Accept', 'application/octet-stream');
     hOctet.append('X-Requested-With', 'XMLHttpRequest');
@@ -102,7 +101,6 @@ export class RequestService implements OnInit{
     return this.http
       .get(this.serverUrl + url, options)
       .map((response: Response) => {
-        console.log(response);
         return response;
       }).catch((error) =>
         Observable.of(this.buildErrorAnswer(error))
