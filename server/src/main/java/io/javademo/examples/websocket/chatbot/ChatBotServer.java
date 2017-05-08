@@ -129,7 +129,7 @@ public class ChatBotServer {
         List<String> answer = new ArrayList<>(2);
 
         if (message.contains("hi")) {
-            answer.add("Hi my dear! How are you?");
+            answer.add("Hello! How are you?");
             return answer;
         }
         if (message.contains( "and you")) {

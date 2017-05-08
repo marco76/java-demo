@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  isCollapsed: boolean = true;
+
+  toggleCollapse(): void {
+    console.log("aaa");
+    this.isCollapsed = !this.isCollapsed;
+  }
 }

@@ -21,6 +21,4 @@ export class HomeComponent implements OnInit, AfterViewInit {
     scriptElement.src = "http://platform.twitter.com/widgets.js";
     this.elementRef.nativeElement.appendChild(scriptElement);
   }
-
-
 }
