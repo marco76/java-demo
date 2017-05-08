@@ -59,20 +59,23 @@ Here the complete code (ResponseFactory is used to render the result in Angular)
 <pre><code class="java highlight">@javax.ws.rs.Path("bv")
 public class BvController {
 
-    @Inject ResponseFactory<Participant> responseFactory;
-    @Inject Validator validator;
+  @Inject Validator validator;
+  // ResponseFactory used to render the response in the view
+  @Inject ResponseFactory<Participant> responseFactory;
+   
+  public BvController() {}
 
-    @POST @Produces(MediaType.APPLICATION_JSON)
-    @javax.ws.rs.Path("participant")
-    public Response validateParticipant(Participant participant) {
+  @POST @Produces(MediaType.APPLICATION_JSON)
+  @javax.ws.rs.Path("participant")
+  public Response validateParticipant(Participant participant) {
+    
+    // if has size() = 0 there are no violations
+    Set<<ConstraintViolation<<Participant>>>>
+      constraintViolationSet = validator.validate(participant);
 
-      ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-      Validator validator = factory.getValidator();
-      Set<<ConstraintViolation<<Participant>>>> constraintViolationSet = validator.validate(participant);
-
-      return responseFactory.buildResponse(constraintViolationSet);
-    }
+  return responseFactory.buildResponse(constraintViolationSet);
   }
+}
 </code></pre>
 
 `;
