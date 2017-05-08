@@ -1,7 +1,9 @@
 package io.javademo.examples.bv.time;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.DateDeserializers;
 
 import javax.validation.constraints.*;
@@ -17,7 +19,7 @@ public class Patient {
     @NotNull @NotEmpty @Size(min = 3, max = 50)
     private String name;
 
-    @Past @JsonDeserialize(using = YearDeserializer.class)
+    @Past @JsonDeserialize(using = YearDeserializer.class) @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private Year yearOfBirth;
 
     @NotNull @Future(orPresent = true)

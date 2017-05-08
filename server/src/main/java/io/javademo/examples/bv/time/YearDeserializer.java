@@ -24,6 +24,10 @@ public class YearDeserializer extends StdDeserializer<Year> {
 
     @Override
     public Year deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-        return Year.parse(jsonParser.readValueAs(String.class));
+        String text = jsonParser.readValueAs(String.class);
+        if (text.isEmpty()){
+            return null;
+        }
+        return Year.parse(text);
     }
 }
