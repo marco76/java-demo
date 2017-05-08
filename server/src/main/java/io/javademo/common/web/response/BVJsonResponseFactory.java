@@ -26,6 +26,10 @@ public class BVJsonResponseFactory<T> {
 
         Iterator violationsIterator = constraintViolationSet.iterator();
 
+        JsonObjectBuilder constraint = Json.createObjectBuilder();
+        constraint.add("type", "Set&lt;ConstraintViolation&lt;T&gt;&gt;");
+        int counter = 1;
+
         while (violationsIterator.hasNext()) {
             ConstraintViolation<T> violation = (ConstraintViolation) violationsIterator.next();
 
@@ -43,7 +47,6 @@ public class BVJsonResponseFactory<T> {
                     rootBean = "{'error': 'Conversion error, it will work better with the final version.'}";
                 }
             }
-
             JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder()
                     .add("property path",violation.getPropertyPath().toString())
                     .add("message", violation.getMessage())
@@ -54,8 +57,10 @@ public class BVJsonResponseFactory<T> {
                 jsonObjectBuilder.add("invalid value", violation.getInvalidValue().toString());
 
             }
-            errorList.add(jsonObjectBuilder.build());
+            constraint.add(String.format("ConstraintViolation&lt;T&gt;[%d]",counter++), jsonObjectBuilder);
+
         }
+        errorList.add(constraint.build());
         return errorList;
     }
 }
