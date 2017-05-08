@@ -11,13 +11,13 @@ import {Message} from "./Message";
 export class ChatbotComponent implements OnInit {
 
   constructor(private chatbotService : ChatbotService) { }
-  messages : string[];
+  messages : Message[];
   lastMessage : string;
 
   ngOnInit() {
     this.messages = [];
     this.chatbotService.getMessages().subscribe(result => {
-        this.messages.push(result.message)
+        this.messages.push(result)
       },
       error => {
         console.log(error._body);
@@ -26,7 +26,10 @@ export class ChatbotComponent implements OnInit {
   }
 
   onSubmit() {
-    this.chatbotService.messages.next({"author":"", "message": this.lastMessage});
+    let message = new Message();
+    message.author = "client";
+    message.message = this.lastMessage;
+    this.chatbotService.messages.next(message);
     this.lastMessage = '';
   }
 }
