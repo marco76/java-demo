@@ -18,10 +18,10 @@
 
 
       <div class="form-group">
-        <label for="message" class="col-sm-2 control-label">Message (try to say 'Hi')</label>
+        <label for="message" class="col-sm-2 control-label">Message</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" id="message" [(ngModel)]="lastMessage"
-                 name="message  ">
+                 name="message  " placeholder="You can say / ask: 'Hi', ask about Weather, ask a joke, ask a oop joke">
         </div>
       </div>
 
@@ -34,10 +34,12 @@
   </div>
 </form>
 
-<div>
-  <ul>
-    <li *ngFor="let text of messages">
-      {{ text }}
-    </li>
-  </ul>
-</div>
+
+  <section>
+    <div  *ngFor="let message of messages">
+      <div [ngClass] = "{'from-user': message.author == 'client',
+       'from-server': message.author == 'server'}"> <p>{{ message.message }}</p></div>
+      <div class="clear"></div>
+    </div>
+  </section>
+

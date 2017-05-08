@@ -11,13 +11,13 @@ import {Message} from "./Message";
 export class ChatbotComponent implements OnInit {
 
   constructor(private chatbotService : ChatbotService) { }
-  messages : string[];
+  messages : Message[];
   lastMessage : string;
 
   ngOnInit() {
     this.messages = [];
     this.chatbotService.getMessages().subscribe(result => {
-        this.messages.push(result.message)
+        this.messages.push(result)
       },
       error => {
         console.log(error._body);

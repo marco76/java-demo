@@ -1,25 +1,25 @@
 body {
   font-family: "Helvetica Neue";
-  font-size: 20px;
+  font-size: 18px;
   font-weight: normal;
 }
 
 section {
-  max-width: 450px;
-  margin: 50px auto;
+  max-width: 500px;
+  margin: 10px auto;
 }
 section div {
-  max-width: 255px;
+  max-width: 400px;
   word-wrap: break-word;
-  margin-bottom: 20px;
-  line-height: 24px;
+  margin-bottom: 5px;
+  line-height: 20px;
 }
 
 .clear {
   clear: both;
 }
 
-.from-user {
+.from-server {
   position: relative;
   padding: 10px 20px;
   color: white;
@@ -27,7 +27,7 @@ section div {
   border-radius: 25px;
   float: right;
 }
-.from-user:before {
+.from-server:before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -38,7 +38,7 @@ section div {
   border-bottom-left-radius: 16px 14px;
   -webkit-transform: translate(0, -2px);
 }
-.from-user:after {
+.from-server:after {
   content: "";
   position: absolute;
   z-index: 1;
@@ -51,7 +51,7 @@ section div {
   -webkit-transform: translate(-30px, -2px);
 }
 
-.from-server {
+.from-user {
   position: relative;
   padding: 10px 20px;
   background: #E5E5EA;
@@ -59,7 +59,7 @@ section div {
   color: black;
   float: left;
 }
-.from-server:before {
+.from-user:before {
   content: "";
   position: absolute;
   z-index: 2;
@@ -70,7 +70,7 @@ section div {
   border-bottom-right-radius: 16px 14px;
   -webkit-transform: translate(0, -2px);
 }
-.from-server:after {
+.from-user:after {
   content: "";
   position: absolute;
   z-index: 3;

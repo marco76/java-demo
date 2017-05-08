@@ -19,7 +19,7 @@ public class ClientMessage implements Decoder.Text<ClientMessage>, Encoder.Text<
             message = "Message must be between 2 and 255 characters.")
     private String message;
 
-    private String author;
+    private String author = "server";
 
     @Override
     public void init(EndpointConfig config) {
@@ -72,5 +72,13 @@ public class ClientMessage implements Decoder.Text<ClientMessage>, Encoder.Text<
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
