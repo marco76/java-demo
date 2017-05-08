@@ -6,6 +6,7 @@ package io.javademo.examples.websocket.chatbot;
 public class Message {
 
     private String message;
+    private String author;
 
     public String getMessage() {
         return message;
@@ -13,5 +14,13 @@ public class Message {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }

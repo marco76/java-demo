@@ -19,6 +19,8 @@ public class ClientMessage implements Decoder.Text<ClientMessage>, Encoder.Text<
             message = "Message must be between 2 and 255 characters.")
     private String message;
 
+    private String author;
+
     @Override
     public void init(EndpointConfig config) {
     }
@@ -30,6 +32,7 @@ public class ClientMessage implements Decoder.Text<ClientMessage>, Encoder.Text<
             JsonObject jsonObject = jsonReader.readObject();
 
             message = jsonObject.getString("message");
+            author = jsonObject.getString("author");
         }
 
         return this;
@@ -44,6 +47,7 @@ public class ClientMessage implements Decoder.Text<ClientMessage>, Encoder.Text<
     public String encode(ClientMessage chatMessage) {
         JsonObject jsonObject = Json.createObjectBuilder()
                 .add("message", chatMessage.message)
+                .add("author", chatMessage.author)
                 .add("timestamp",
                         new SimpleDateFormat("MM/dd/yyyy h:mm:ss a z")
                                 .format(new Date()))

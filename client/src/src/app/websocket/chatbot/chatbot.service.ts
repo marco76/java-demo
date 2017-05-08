@@ -20,6 +20,7 @@ export class ChatbotService {
       .connect(CHAT_URL)
       .map((response: MessageEvent): Message => {
         let data = JSON.parse(response.data);
+        console.log(data);
         return {
           author : data.author,
           message: data.message,

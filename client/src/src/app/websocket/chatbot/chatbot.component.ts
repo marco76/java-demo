@@ -26,7 +26,10 @@ export class ChatbotComponent implements OnInit {
   }
 
   onSubmit() {
-    this.chatbotService.messages.next({"author":"", "message": this.lastMessage});
+    let message = new Message();
+    message.author = "client";
+    message.message = this.lastMessage;
+    this.chatbotService.messages.next(message);
     this.lastMessage = '';
   }
 }
