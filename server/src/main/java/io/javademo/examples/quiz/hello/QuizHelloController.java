@@ -21,6 +21,7 @@ public class QuizHelloController {
 
     @GET
     public JsonObject answer() {
+        LOGGER.info("quiz answer");
 
         JsonObjectBuilder jsonObjectBuilder =  Json.createObjectBuilder()
                 .add("service.hello().getClass().getSimpleName()", service.hello().getClass().getSimpleName())

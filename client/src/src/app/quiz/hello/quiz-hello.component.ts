@@ -84,7 +84,7 @@ public class HelloService {
 }</code></pre> 
 
 And the Hello class:
-<pre><code class="java highlight">//With @ManagedBean we avoid bean.xml
+<pre><code class="java highlight">//With @ManagedBean we avoid beans.xml
 @ManagedBean
 public class Hello {
 
