@@ -20,39 +20,30 @@ export class BvRepeatableComponent implements OnInit {
   constructor(private requestService : RequestService) { }
 
   ngOnInit() {
+    this.model.type = "default";
 
-    this.code =
-      `<pre>
-     [GitHub link]
-    <code class="java highlight">
-    // JAX-RS validates the JSON converted to a Java Object using Bean Validation
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @javax.ws.rs.Path("user")
-    public Response user(@Valid SimpleUserDTO simpleUserDTO) {
-    ...
-    }
+    this.code = `<pre><code class="java highlight">// JAX-RS validates the JSON converted to a Java Object using Bean Validation
+@POST @Produces(MediaType.APPLICATION_JSON)
+@javax.ws.rs.Path("user")
+public Response user(@Valid SimpleUserDTO simpleUserDTO) {
+<i>[...]</i>
+}
     
-    // Transfer bean JS -> JSON -> Java
-    public class SimpleUserDTO {
+// Transfer bean JS -> JSON -> Java
+public class SimpleUserDTO {
+@NotNull
+private String type;
+@NotEmpty
+private String password;
+}</code></pre>
 
-    @NotNull
-    private String type;
-    @NotEmpty
-    private String password;
-    </code></pre>
-    
-    Validation of the converted object using repeatables, if the user is of type admin the password has to be 12 char lenght:
+Validation of the converted object using repeatables, if the user is of type admin the password has to be 12 char length:
  
-    <pre><code class="java highlight">
-    public class User {
-        @NotEmpty @Size(min = 8, groups = Default.class)
-        @NotEmpty @Size(min = 12, groups = Admin.class)
-        private String password;
-        ...
-        }
-</code></pre></div>`
-  }
+<pre><code class="java highlight">public class User {
+  @NotEmpty @Size(min = 4, groups = Default.class)
+  @NotEmpty @Size(min = 12, groups = Admin.class)
+  private String password;
+}</code></pre></div>`}
 
   doRepeatableOne() {
 

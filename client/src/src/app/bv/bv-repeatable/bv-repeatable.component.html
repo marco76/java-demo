@@ -10,10 +10,10 @@
     <label for="formOneType" class="col-sm-2 control-label">User Type</label>
     <div class="col-sm-6">
       <label class="radio-inline">
-           <input type="radio"  [(ngModel)]="model.type" name="type" id="formOneType" value="default" checked="checked">Default<br>
+           <input type="radio"  [(ngModel)]="model.type" name="type" id="formOneType" value="default" checked="checked">Default (4+ length)<br>
       </label>
       <label class="radio-inline">
-        <input type="radio"  [(ngModel)]="model.type" name="type" value="admin">Admin
+        <input type="radio"  [(ngModel)]="model.type" name="type" value="admin">Admin (12+ length)
       </label>
     </div>
     </div>
@@ -35,7 +35,7 @@
   <div class="panel-footer">
     <div class="row">On the server 2 validations are performed :</div>
     <div class="row">1) JAX-RS verifies that all the fields are filled</div>
-    <div class="row">2) Bean Validation verifies that the fields are conform to the requirements.
+    <div class="row">2) Bean Validation verifies that the fields are conform to the requirements
     </div>
     <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="http://beanvalidation.org/2.0/spec/2.0.0.alpha2/#builtinconstraints" target="_blank">Documentation</a></div>
   </div>

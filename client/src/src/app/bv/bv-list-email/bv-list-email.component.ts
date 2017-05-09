@@ -21,14 +21,16 @@ export class BvListEmail implements OnInit {
 
   ngOnInit() {
 
-    this.code =
-      `<pre>
-     [GitHub link]
-    <code class="java highlight">
-    public class Addresses {
-    @Size(max = 2)
-    private List<<@Email @NotNull String>> emailList = new ArrayList<>();
-    </code></pre></div>`
+    this.code = `With Bean Validator you can easily validate elements in generic containers (<i>Map</i>, <i>List</i>, <i>Optional</i> etc.). <br><br>More constraints can be combined. In this example we validate the size and the content of a List.
+<ul><li>The constraint <i>@Size</i> limits the size of the list to 2 values.</li>
+<li>The values have to be valid emails (<i>@Email</i>).</li>
+</ul>You can find more information in the <a href="http://beanvalidation.org/2.0/spec/#constraintdeclarationvalidationprocess-containerelementconstraints" target="_blank">
+specifications</a>.
+
+<pre><code class="java highlight">public class Addresses {
+  @Size(max = 2)
+  private List<<@Email @NotNull String>> emailList = new ArrayList<<>>();
+}</code></pre></div>`
   }
 
   doSubmit() {

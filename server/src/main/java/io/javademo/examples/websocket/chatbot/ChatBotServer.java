@@ -154,7 +154,5 @@ public class ChatBotServer {
         }
 
         return answer;
-
-
     }
 }

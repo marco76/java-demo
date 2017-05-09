@@ -9,7 +9,7 @@ import javax.validation.groups.Default;
  */
 public class User {
 
-    @NotEmpty @Size(min = 8, groups = Default.class)
+    @NotEmpty @Size(min = 4, groups = Default.class)
     @NotEmpty @Size(min = 12, groups = Admin.class)
     private String password;
 
