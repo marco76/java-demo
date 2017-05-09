@@ -70,11 +70,22 @@
                <li role="menuitem"><a class="dropdown-item" routerLink="/jpa-conferences"><strong>JPA</strong>: Conferences - From the DB to the Web</a></li>
                <li role="menuitem"><a class="dropdown-item" routerLink="/extra-cache"><strong>@Schedule</strong>: file caching example</a></li>
                <li role="menuitem"><a class="dropdown-item" routerLink="/excel-export"><strong>Excel export (JAX-RS)</strong>: download files</a></li>
-   </ul>
+            </ul>
+
 
            </li>
 
-           <li class="btn-group" dropdown placement="bottom right">
+        <li class="btn-group" dropdown placement="bottom right">
+          <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Quiz (Medium)<span class="caret"></span>
+          </a>
+          <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+            <li role="menuitem"><a class="dropdown-item" routerLink="/quiz-hello"><strong>Hello</strong>: CDI, @DaschnerS</a></li>
+             </ul>
+        </li>
+
+
+        <li class="btn-group" dropdown placement="bottom right">
              <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
                WebSocket<span class="caret"></span>
              </a>
