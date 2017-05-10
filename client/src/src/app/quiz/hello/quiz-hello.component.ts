@@ -36,14 +36,13 @@ public class Hello {
   public String toString() {
     return "hello";
 }`;
-    this.answer= `<p>The Hello <b>instance</b> and not the String 'hello' or null.</p>
+    this.answer= `<p>The Hello <b>instance</b> or the String 'hello' are valid answers.</p>
   There is a trick in the question and more answers are possible:
   <p>1) Without <i>beans.xml</i> in WEB-INF the application doesn't start because the
    class <i>Hello</i> cannot be injected (it's not a bean managed by the server). <a href="https://docs.oracle.com/javaee/7/tutorial/cdi-adv001.htm">Here the documentation.</a>
    </p>
-  <p>2) If <i>beans.xml</i> is present or the <i>Hello.java</i> is annotated (like in our case with <i>@ManagedBean</i>) then the code works.
-  The result is the <b>Object</b> <i>Hello</i> and not the <i>String</i> 'Hello'. Many developers try to solve the quiz with <i>System.out.println(hello())</i> and they see the result 'hello' thinking that this is the correct solution.
-  In reality <i>hello()</i> returns the instance of the class.
+  <p>2) If <i>beans.xml</i> is present or the <i>Hello.java</i> is annotated (like in our case with <i>@Dependent</i>) then the code works.
+  The result of hello() is an <b>instance of the class</b> <i>Hello</i>, if we try to print the result ('standard output') we see the <i>String</i> 'Hello'. The correct answer change according to the meaning that we give to the word 'output' in the question (result of the method or string representation).
   </p>
   
   To build our implementation we used:
@@ -84,8 +83,8 @@ public class HelloService {
 }</code></pre> 
 
 And the Hello class:
-<pre><code class="java highlight">//With @ManagedBean we avoid beans.xml
-@ManagedBean
+<pre><code class="java highlight">//With @Dependent we avoid beans.xml
+@Dependent
 public class Hello {
 
     @Override

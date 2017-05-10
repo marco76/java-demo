@@ -21,7 +21,9 @@
       <tbody>
       <tr *ngFor="let conference of conferenceList">
         <td>{{conference.name}}</td>
-        <td>{{conference.daysLeft}}</td>
+        <td><span *ngIf='conference.daysLeft > 30'> {{conference.daysLeft}}</span>
+          <span *ngIf='conference.daysLeft <= 30 && conference.daysLeft > 0' class="label label-warning"> SOON - {{conference.daysLeft}}</span>
+          <span *ngIf='conference.daysLeft <= 0' class="label label-success"> NOW </span>
         <td class="date">{{conference.begin | date: 'yMMMd'}}</td>
         <td class="date">{{conference.end | date: 'yMMMd'}}</td>
         <td>{{conference.city}}</td>

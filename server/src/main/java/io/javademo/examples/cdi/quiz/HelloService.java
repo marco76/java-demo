@@ -1,4 +1,4 @@
-package io.javademo.examples.quiz.hello;
+package io.javademo.examples.cdi.quiz;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

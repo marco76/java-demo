@@ -29,8 +29,8 @@ public class ConferenceController {
     ConferenceExcelService conferenceExcelService;
 
     @GET @Produces(MediaType.APPLICATION_JSON)
-    public List<Conference> getAllConferences(){
-        LOGGER.log(Level.INFO, "getAllConferences");
+    public List<Conference> getConferences(){
+        LOGGER.log(Level.INFO, "getConferences");
 
         return conferenceService.getNextConferenceList();
     }

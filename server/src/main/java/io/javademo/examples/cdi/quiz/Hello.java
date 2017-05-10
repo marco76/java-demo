@@ -1,11 +1,11 @@
-package io.javademo.examples.quiz.hello;
+package io.javademo.examples.cdi.quiz;
 
-import javax.annotation.ManagedBean;
+import javax.enterprise.context.Dependent;
 
 /**
  * Created by marcomolteni on 09.05.17.
  */
-@ManagedBean
+@Dependent
 public class Hello {
 
     @Override

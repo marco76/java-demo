@@ -1,4 +1,4 @@
-package io.javademo.examples.quiz.hello;
+package io.javademo.examples.cdi.quiz;
 
 import javax.inject.Inject;
 import javax.json.Json;
