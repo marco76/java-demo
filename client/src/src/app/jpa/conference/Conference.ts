@@ -13,7 +13,6 @@ export default class Conference {
 
   }
 
-
   get title(): string {
     return this._title;
   }
