@@ -30,6 +30,7 @@ import {ExcelExport} from "./extra/excel/excel-export";
 import {SimplePrettyXML} from "./common/pretty-json/simplePrettyXML";
 import {MyDatePickerModule} from "mydatepicker";
 import {QuizHelloComponent} from "./quiz/hello/quiz-hello.component";
+import {DashboardComponent} from "./cases/d3/dashboard.component";
 
 
 const routes : Routes = [
@@ -46,7 +47,8 @@ const routes : Routes = [
   { path: 'conferences', component:ConferenceTableComponent},
   { path: 'jpa-conferences', component : ConferenceComponent},
   { path: 'excel-export', component: ExcelExport},
-  { path: 'quiz-hello', component: QuizHelloComponent}
+  { path: 'quiz-hello', component: QuizHelloComponent},
+  { path: 'dashboard', component: DashboardComponent}
 ];
 
 @NgModule({
@@ -70,7 +72,8 @@ const routes : Routes = [
     ConferenceComponent,
     ConferenceTableComponent,
     ExcelExport,
-    QuizHelloComponent
+    QuizHelloComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

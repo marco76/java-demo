@@ -90,6 +90,27 @@ export class RequestService implements OnInit{
       );
   }
 
+  sendGetForm(url:string, model: any) : Observable<any> {
+
+    let options = new RequestOptions({ headers: this.headers });
+    console.log(this.serverUrl);
+    return this.http
+      .get(this.serverUrl + url +'?' + model.toString(), options)
+      .map((response: Response) => {
+        let responseInfo = new ResponseInfo();
+        responseInfo.status = response.status;
+        if (response.text()) {
+          responseInfo.text = response.json();
+        } else {
+          responseInfo.text = "";
+        }
+        responseInfo.error = false;
+        return responseInfo;
+      }).catch((error) =>
+        Observable.of(this.buildErrorAnswer(error))
+      );
+  }
+
 
   sendGetType(url:string, type : ResponseContentType) : Observable<any> {
     let hOctet = new Headers({ 'Content-Type': 'application/json' });
