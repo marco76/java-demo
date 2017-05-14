@@ -10,7 +10,6 @@ export class AppComponent {
   isCollapsed: boolean = true;
 
   toggleCollapse(): void {
-    console.log("aaa");
     this.isCollapsed = !this.isCollapsed;
   }
 }

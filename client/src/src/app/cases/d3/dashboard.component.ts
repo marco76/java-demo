@@ -96,13 +96,15 @@ public String getSimpleData (
 }</code></pre>
 
 In a future example we will stream dinamically the results with SSE.
-`}
+`;
+
+  this.onSubmit();}
 
 onSubmit(){
   let form = new URLSearchParams();
   form.append('maxValue', this.model.maxValue.toString());
   form.append('size', this.model.elements.toString());
-  console.log(form);
+
   this.requestService.sendGetForm('/rest/dashboard/simple-chart', form).subscribe(
     result => {console.log(result);this.responseInfo = result; this.data = result.text;
 

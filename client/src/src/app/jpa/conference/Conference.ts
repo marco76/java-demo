@@ -8,6 +8,7 @@ export default class Conference {
   private _cfp : Date;
   private _languages: string;
   private _daysLeft : number;
+  private _cfpDaysLeft : number;
 
   constructor() {
 
@@ -76,5 +77,13 @@ export default class Conference {
 
   set daysLeft(value: number) {
     this._daysLeft = value;
+  }
+
+  get cfpDaysLeft(): number {
+    return this._cfpDaysLeft;
+  }
+
+  set cfpDaysLeft(value: number) {
+    this._cfpDaysLeft = value;
   }
 }

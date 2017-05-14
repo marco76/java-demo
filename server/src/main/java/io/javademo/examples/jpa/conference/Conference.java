@@ -38,6 +38,9 @@ public class Conference {
 
     private String country;
 
+    @Column(name = "iso_country")
+    private String isoCountry;
+
     public Long getId() {
         return id;
     }
@@ -108,5 +111,13 @@ public class Conference {
 
     public void setCfp(LocalDate cfp) {
         this.cfp = cfp;
+    }
+
+    public String getIsoCountry() {
+        return isoCountry;
+    }
+
+    public void setIsoCountry(String isoCountry) {
+        this.isoCountry = isoCountry;
     }
 }

@@ -30,7 +30,8 @@
     "zone.js": "^0.8.8",
     "d3":"^4.8.0",
     "@types/d3": "^4.8.0",
-    "@types/d3-scale": "^1.0.8"
+    "@types/d3-scale": "^1.0.8",
+    "flag-icon-css":"2.8.0"
   },
   "devDependencies": {
     "@angular/cli": "^1.0.0",
