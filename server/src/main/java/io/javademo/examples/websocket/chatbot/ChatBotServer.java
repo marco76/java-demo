@@ -14,11 +14,9 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 @ServerEndpoint(value = "/chatbot",
         encoders = {ClientMessage.class}, decoders = {ClientMessage.class})
-// with singleton common chat we want a one-to-one
-//@Singleton
+// with a @Singleton we create a multi-client chat
 public class ChatBotServer {
     private static final Logger LOGGER = Logger
             .getLogger(ChatBotServer.class.getName());
