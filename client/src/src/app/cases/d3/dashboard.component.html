@@ -10,7 +10,7 @@
   <div class="panel-body">
       <form (ngSubmit)="onSubmit()" #form="ngForm">
         <div class="form-group">
-          <label for="maxValue">Values (5..20)</label>
+          <label for="maxValue">Rows (5-25)</label>
           <input type="number" class="form-control" id="elements" placeholder="values (5-20)"
                  [(ngModel)]="model.elements" name="elements">
           </div>
@@ -30,7 +30,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">Result</div>
       <div class="panel-body">
-        <span *ngIf="!error"><svg class="chart"></svg></span>
+        <span [hidden]="error"><svg class="chart"></svg></span>
         <span *ngIf="error"><div [innerHTML]="error" highlight-js-content=".highlight" ></div>
         </span>
 

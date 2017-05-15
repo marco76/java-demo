@@ -29,7 +29,7 @@
         <td><span *ngIf="conference.isoCountry" class="flag-icon flag-icon-{{conference.isoCountry}}"></span> {{conference.country}}</td>
 
         <td class="date" style="text-align:left">
-          <span *ngIf='conference.cfpDaysLeft <= 0'></span>
+          <span *ngIf='conference.cfpDaysLeft < 0'></span>
           <span *ngIf='conference.cfpDaysLeft >= 0 && conference.cfpDaysLeft <= 10' class="label label-warning">Last days: {{conference.cfp | date: 'yMMMd'}}</span>
           <span *ngIf='conference.cfpDaysLeft > 10'>{{conference.cfp | date: 'yMMMd'}}</span>
         </td>
