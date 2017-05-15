@@ -21,7 +21,7 @@ public class DashboardController {
 
     @GET @Path("simple-chart")
     public String getSimpleData(
-            @NotNull @Min(5) @Max(30)
+            @NotNull @Min(5) @Max(25)
             @QueryParam("size") Integer size,
             @NotNull @Min(5) @Max(100)
             @QueryParam("maxValue") Integer maxValue) {

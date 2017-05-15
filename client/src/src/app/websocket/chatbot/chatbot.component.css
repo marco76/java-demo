@@ -25,6 +25,7 @@ section div p {
   border-radius: 25px;
   float: right;
   font-size: 12px;
+  margin-bottom: 5px;
 }
 .from-server:before {
   content: "";
@@ -58,6 +59,7 @@ section div p {
   color: black;
   float: left;
   font-size: 12px;
+  margin-bottom: 5px;
 }
 .from-user:before {
   content: "";
@@ -81,4 +83,10 @@ section div p {
   background: white;
   border-bottom-right-radius: 10px;
   -webkit-transform: translate(-30px, -2px);
+}
+
+.gradient {
+  background-color: #FDFDEF;
+  border: 1px solid #EBE9C5;
+  border-radius: 4px ;
 }

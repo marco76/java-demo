@@ -17,6 +17,7 @@ import { HelloComponent } from './minimalistic/hello/hello.component';
 import { BvRepeatableComponent } from './bv/bv-repeatable/bv-repeatable.component';
 import { TechnicalInfo } from './common/technical-info/technical-info.component';
 import { MaskDirective } from './common/mask/mask-directive';
+import { AutoScroll } from './common/directive/AutoScroll.directive';
 import { JsrStatusComponent } from './jsr-status/jsr-status.component';
 import { HttpClient } from "./common/http/HttpClient";
 import { CacheFileComponent } from './extra/cache-file/cache-file.component';
@@ -31,7 +32,6 @@ import {SimplePrettyXML} from "./common/pretty-json/simplePrettyXML";
 import {MyDatePickerModule} from "mydatepicker";
 import {QuizHelloComponent} from "./quiz/hello/quiz-hello.component";
 import {DashboardComponent} from "./cases/d3/dashboard.component";
-
 
 const routes : Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
@@ -64,6 +64,7 @@ const routes : Routes = [
     BvListEmail,
     TechnicalInfo,
     MaskDirective,
+    AutoScroll,
     JsrStatusComponent,
     CacheFileComponent,
     ChatbotComponent,

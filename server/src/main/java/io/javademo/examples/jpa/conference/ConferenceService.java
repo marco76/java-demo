@@ -11,7 +11,7 @@ import java.util.List;
 @Stateless
 public class ConferenceService {
 
-    private final Integer CONFERENCES_TO_SHOW = 10;
+    private final Integer CONFERENCES_TO_SHOW = 15;
 
     @Inject
     ConferenceRepository conferenceRepository;

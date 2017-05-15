@@ -12,7 +12,8 @@ import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ClientMessage implements Decoder.Text<ClientMessage>, Encoder.Text<ClientMessage> {
+public class ClientMessage implements Decoder.Text<ClientMessage>,
+        Encoder.Text<ClientMessage> {
 
     @NotNull
     @Size(min = 2, max = 255,
@@ -22,8 +23,7 @@ public class ClientMessage implements Decoder.Text<ClientMessage>, Encoder.Text<
     private String author = "server";
 
     @Override
-    public void init(EndpointConfig config) {
-    }
+    public void init(EndpointConfig config) {}
 
     @Override
     public ClientMessage decode(String value) {

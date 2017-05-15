@@ -2,12 +2,17 @@
   <div class="panel-heading">
     <h3 class="panel-title">ChatBot using Websockets</h3></div>
   <div class="panel-body">
-    There is still a lot to do in this page!
+    This is an example of implementation of <a href="https://en.wikipedia.org/wiki/WebSocket" target="_blank">
+    WebSocket</a>  to create a 'stupid' ChatBot.
     <br>
-    The goal is to show an implementation of Websockets to create 'stupid' ChatBot.
-    <br>
-    WebSockets have been introduced in Java EE 7 (JSR 356). Angular is perfectly adapted to receive server
-    notifications.
+    The ChatBot answer only to few questions, the goal is to show how the client and the server can establish and carry on a full-duplex communication.
+    <br>If you ask for a joke the server answer sending multiple delayed messages in the same 'conversation'.
+
+   Angular is a perfect match to receive ('observe') server notifications.
+  </div>
+  <div class="panel-footer">
+    <div class="row"></div>
+    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="https://jcp.org/aboutJava/communityprocess/mrel/jsr356/index.html" target="_blank">JSR 356</a> | <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/HomeWebsocket/WebsocketHome.html" target="_blank">Oracle Tutorial</a></div>
   </div>
 </div>
 
@@ -26,18 +31,24 @@
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-default">Submit</button>
+          <button (click)="reset()" type="reset" class="btn btn-default">Reset</button>
         </div>
       </div>
     </div>
   </div>
 </form>
-
-
-  <section>
-    <div  *ngFor="let message of messages">
-      <div [ngClass] = "{'from-user': message.author == 'client',
+<div class="row">
+    <div [innerHTML]="text" highlight-js-content=".highlight" class="col-md-6"></div>
+  <div class="col-md-6">
+  <div class="gradient" style="overflow: auto; height: 250px;" jd-auto-scroll offset="20">
+      <div  *ngFor="let message of messages" >
+        <div [ngClass] = "{'from-user': message.author == 'client',
        'from-server': message.author == 'server'}"> <p>{{ message.message }}</p></div>
-      <div class="clear"></div>
+        <div class="clear"></div>
+      </div>
+
     </div>
-  </section>
+    <div [innerHTML]="text2" highlight-js-content=".highlight"></div>
+  </div>
+</div>
 

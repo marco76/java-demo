@@ -28,18 +28,14 @@ export class DashboardComponent implements OnInit {
    buildChart() {
      let self = this;
      let width = 500;
-     let barHeight = 20 *10/this.data.length;
+     let barHeight = 20 * 10/this.data.length;
      let x = undefined;
      let chart = undefined;
      let bar = undefined;
 
-
      x = d3scale.scaleLinear()
        .domain([0,  this.model.maxValue])
        .range([0, width]);
-
-
-
 
      chart = d3.select(".chart")
        .style("width", width)
@@ -84,7 +80,7 @@ export class DashboardComponent implements OnInit {
 <pre><code class="java highlight">@GET @Path("simple-chart")
 public String getSimpleData (
 
-  @NotNull @Min(5) @Max(20)
+  @NotNull @Min(5) @Max(25)
   @QueryParam("size") Integer size,
   
   @NotNull @Min(5) @Max(100)
@@ -96,15 +92,17 @@ public String getSimpleData (
 }</code></pre>
 
 In a future example we will stream dinamically the results with SSE.
-`}
+`;
+
+  this.onSubmit();}
 
 onSubmit(){
   let form = new URLSearchParams();
   form.append('maxValue', this.model.maxValue.toString());
   form.append('size', this.model.elements.toString());
-  console.log(form);
+
   this.requestService.sendGetForm('/rest/dashboard/simple-chart', form).subscribe(
-    result => {console.log(result);this.responseInfo = result; this.data = result.text;
+    result => {this.responseInfo = result; this.data = result.text;
 
       this.clearChart();
     if(this.responseInfo.error == true) {

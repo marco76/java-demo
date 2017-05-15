@@ -28,11 +28,15 @@ export class ConferenceTableComponent implements OnInit {
       this.conferenceList =result.text;
       for (let i = 0; i < this.conferenceList.length; i++) {
         this.conferenceList[i].daysLeft = this.daysLeft(this.conferenceList[i].begin);
+        this.conferenceList[i].cfpDaysLeft = this.daysLeft(this.conferenceList[i].cfp);
       }
      });
   }
 
   daysLeft(start : Date) {
+    if (!start) {
+      return -1;
+    }
     return  Math.round((new Date(start).valueOf() - this.today.valueOf())/(1000*60*60*24));
   }
 

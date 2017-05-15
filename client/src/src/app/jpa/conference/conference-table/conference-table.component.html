@@ -2,36 +2,38 @@
   <div class="panel-heading">
     <h3 class="panel-title">Next Java Conferences in the world</h3>
     <div style="float:right; font-size: 80%; position: relative; top:-10px"><a  routerLink="/jpa-conferences">How this table works?</a></div>
-
   </div>
   <div class="panel-body">
     <table class="table">
       <thead>
       <tr>
-        <th>Name</th>
-        <th>Days left</th>
-        <th>From</th>
-        <th>To</th>
+        <th class="col-md-2">Name</th>
+        <th style="text-align:right">Days left</th>
+        <th style="text-align:center">From</th>
+        <th style="text-align:center">To</th>
         <th>City</th>
-        <th>Country</th>
-        <th>Website</th>
-        <th>CFP</th>
+        <th class="col-md-2">Country</th>
+        <th class="col-md-1">CFP</th>
+        <th class="col-md-2"></th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let conference of conferenceList">
-        <td>{{conference.name}}</td>
-        <td><span *ngIf='conference.daysLeft > 30'> {{conference.daysLeft}}</span>
-          <span *ngIf='conference.daysLeft <= 30 && conference.daysLeft > 0' class="label label-warning"> SOON - {{conference.daysLeft}}</span>
-          <span *ngIf='conference.daysLeft <= 0' class="label label-success"> NOW </span>
-        <td class="date">{{conference.begin | date: 'yMMMd'}}</td>
-        <td class="date">{{conference.end | date: 'yMMMd'}}</td>
-        <td>{{conference.city}}</td>
-        <td>{{conference.country}}</td>
+        <td ><a href="{{conference.website}}" target="_blank">{{conference.name}}</a></td>
+        <td style="text-align:right" class="col-md-1"><span *ngIf='conference.daysLeft > 30'> {{conference.daysLeft}}</span>
+          <span *ngIf='conference.daysLeft <= 30 && conference.daysLeft >= 0' class="label label-warning"> SOON - {{conference.daysLeft}}</span>
+          <span *ngIf='conference.daysLeft < 0' class="label label-success"> NOW </span>
+        <td class="date col-md-1">{{conference.begin | date: 'yMMMd'}}</td>
+        <td class="date col-md-1">{{conference.end | date: 'yMMMd'}}</td>
+        <td class="col-md-1">{{conference.city}}</td>
+        <td><span *ngIf="conference.isoCountry" class="flag-icon flag-icon-{{conference.isoCountry}}"></span> {{conference.country}}</td>
 
-        <td class="icon"><a href="{{conference.website}}" target="_blank"><span *ngIf="conference.website" class="glyphicon glyphicon-globe"></span></a></td>
-        <td class="date">{{conference.cfp | date: 'yMMMd'}}</td>
-
+        <td class="date" style="text-align:left">
+          <span *ngIf='conference.cfpDaysLeft < 0'></span>
+          <span *ngIf='conference.cfpDaysLeft >= 0 && conference.cfpDaysLeft <= 10' class="label label-warning">Last days: {{conference.cfp | date: 'yMMMd'}}</span>
+          <span *ngIf='conference.cfpDaysLeft > 10'>{{conference.cfp | date: 'yMMMd'}}</span>
+        </td>
+        <td></td>
       </tr>
       </tbody>
     </table>
