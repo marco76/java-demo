@@ -13,6 +13,7 @@ import { HighlightJsModule, HighlightJsService } from '../../node_modules/angula
 import { BvDateComponent } from './bv/bv-date/bv-date.component';
 import { BvListEmail } from './bv/bv-list-email/bv-list-email.component';
 import { HelloComponent } from './minimalistic/hello/hello.component';
+import { KotlinHelloComponent } from './kotlin/hello/hello.component';
 
 import { BvRepeatableComponent } from './bv/bv-repeatable/bv-repeatable.component';
 import { TechnicalInfo } from './common/technical-info/technical-info.component';
@@ -48,7 +49,8 @@ const routes : Routes = [
   { path: 'jpa-conferences', component : ConferenceComponent},
   { path: 'excel-export', component: ExcelExport},
   { path: 'quiz-hello', component: QuizHelloComponent},
-  { path: 'dashboard', component: DashboardComponent}
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'kotlin-hello', component: KotlinHelloComponent}
 ];
 
 @NgModule({
@@ -74,7 +76,8 @@ const routes : Routes = [
     ConferenceTableComponent,
     ExcelExport,
     QuizHelloComponent,
-    DashboardComponent
+    DashboardComponent,
+    KotlinHelloComponent
   ],
   imports: [
     BrowserModule,

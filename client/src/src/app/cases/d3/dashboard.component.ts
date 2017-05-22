@@ -104,7 +104,8 @@ onSubmit(){
   this.requestService.sendGetForm('/rest/dashboard/simple-chart', form).subscribe(
     result => {this.responseInfo = result; this.data = result.text;
 
-      this.clearChart();
+    this.clearChart();
+
     if(this.responseInfo.error == true) {
        this.error = this.formatToJson( this.responseInfo.text);
 
@@ -113,7 +114,6 @@ onSubmit(){
       this.buildChart();
     }
     });
-
 }
   formatToJson(json : any) : string {
     return  `<pre><code class="json highlight">` +
@@ -123,5 +123,4 @@ onSubmit(){
 clearChart(){
   d3.select(".chart").selectAll("*").remove();
 }
-
 }
