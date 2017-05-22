@@ -91,6 +91,8 @@ export class RequestService implements OnInit{
   }
 
   sendGetForm(url:string, model: any) : Observable<any> {
+    console.log(model);
+    console.log(this.serverUrl + url +'?' + model.toString());
 
     let options = new RequestOptions({ headers: this.headers });
     return this.http

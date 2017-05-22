@@ -1,0 +1,51 @@
+<div class="panel panel-primary" >
+  <div class="panel-heading">
+    <div class="panel-title">Kotlin RESTFul services with Java EE (Jax-RS, Bean Validation)</div>
+  </div>
+  <div class="panel-body" >
+
+    <form class="form-horizontal" (ngSubmit)="onSubmit()" #participantForm="ngForm">
+
+      <div class="form-group">
+        <label for="name" class ="col-sm-2 control-label">Name</label>
+        <div class="col-sm-6">
+
+          <input type="text" class="form-control" id="name" placeholder="Name (@NotEmpty)"
+                 [(ngModel)]="name" name="name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-2">
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+        <div class="col-sm-2">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="panel-footer">
+    <div class="row"></div>
+    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="https://kotlinlang.org/docs/tutorials/spring-boot-restful.html" target="_blank">Kotlin Documentation</a></div>
+  </div>
+</div>
+<div class="col-md-4">
+  <h3>Result</h3>
+  Submit your name to see the answer of Kotlin, if you don't submit any value Bean Validation and JAX-RS will return an error with the detail of the missing value.
+<div *ngIf="!responseInfo">
+  <img [src]="logo">
+
+</div>
+  <div *ngIf="responseInfo" [innerHTML]="responseInfo.text" highlight-js-content=".highlight" ></div>
+
+</div>
+<div class="col-md-8">
+  <h3>RESTful Service with Kotlin and Java EE</h3>
+<div [innerHTML]="code" highlight-js-content=".highlight" ></div>
+</div>
+
+
+
+
+
+
