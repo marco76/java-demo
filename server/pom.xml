@@ -17,6 +17,13 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <kotlin.version>1.0.0</kotlin.version>
+        <javax.validation.version>2.0.0.Beta2</javax.validation.version>
+        <hibernate.validator.version>6.0.0.Beta2</hibernate.validator.version>
+        <weld.version>3.0.Final</weld.version>
+        <javax.cdi.version>2.0</javax.cdi.version>
+        <javax.json.version>1.0.0-M2</javax.json.version>
+        <glassfish.json.version>1.1</glassfish.json.version>
+        <apache.poi.version>3.15</apache.poi.version>
     </properties>
 
     <artifactId>server</artifactId>
@@ -34,18 +41,20 @@
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <version>2.0.0.Alpha2</version>
+            <version>${javax.validation.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>6.0.0.Alpha2</version>
+            <version>${hibernate.validator.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator-cdi</artifactId>
-            <version>6.0.0.Alpha2</version>
+            <version>${hibernate.validator.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- CDI 2.0 -->
@@ -53,54 +62,53 @@
         <dependency>
             <groupId>org.jboss.weld</groupId>
             <artifactId>weld-api</artifactId>
-            <version>3.0.CR2</version>
+            <version>${weld.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/javax.enterprise/cdi-api -->
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
-            <version>2.0-PFD2</version>
+            <version>${javax.cdi.version}</version>
+            <scope>provided</scope>
         </dependency>
-
-
 
         <!-- json-b -->
         <!-- comes with yasson -->
         <dependency>
             <groupId>javax.json.bind</groupId>
             <artifactId>javax.json.bind-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${javax.json.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.eclipse</groupId>
             <artifactId>yasson</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${javax.json.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.json</artifactId>
-            <version>1.1.0-SNAPSHOT</version>
+            <version>${glassfish.json.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>3.15</version>
+            <version>${apache.poi.version}</version>
         </dependency>
 
 
       <!--
        ERROR : "WFLYCTL0412: Required services that are not installed:" => ["jboss.deployment.unit.\"ROOT.war\".WeldStartService"]}
-
+-->
         <dependency>
             <groupId>org.glassfish.soteria</groupId>
             <artifactId>soteria</artifactId>
             <version>1.0-m03-SNAPSHOT</version>
         </dependency>
- -->
 
         <!-- THIS HAS TO STAY IN THE LAST POSITION -->
         <dependency>

@@ -1,6 +1,6 @@
 <div class="panel panel-primary" >
   <div class="panel-heading">
-    <div class="panel-title">Kotlin RESTFul services with Java EE (Jax-RS, Bean Validation)</div>
+    <div class="panel-title">Angular, Kotlin, Jax-RS, Bean Validation</div>
   </div>
   <div class="panel-body" >
 
@@ -32,15 +32,18 @@
 <div class="col-md-4">
   <h3>Result</h3>
   Submit your name to see the answer of Kotlin, if you don't submit any value Bean Validation and JAX-RS will return an error with the detail of the missing value.
-<div *ngIf="!responseInfo">
+
+  <div *ngIf="responseInfo" [innerHTML]="responseInfo.text" highlight-js-content=".highlight" ></div>
+  <!-- <div *ngIf="!responseInfo"> -->
+  <br>
   <img [src]="logo">
 
-</div>
-  <div *ngIf="responseInfo" [innerHTML]="responseInfo.text" highlight-js-content=".highlight" ></div>
+<!--</div>-->
+
 
 </div>
 <div class="col-md-8">
-  <h3>RESTful Service with Kotlin and Java EE</h3>
+  <h3>RESTful Web Service with Kotlin and Java EE</h3>
 <div [innerHTML]="code" highlight-js-content=".highlight" ></div>
 </div>
 
