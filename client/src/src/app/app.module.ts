@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes}   from '@angular/router';
-import { AlertModule } from 'ngx-bootstrap';
+import {AlertModule, TabsModule} from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BvSimpleOneComponent } from './bv/bv-simple-one/bv-simple-one';
@@ -20,7 +20,6 @@ import { TechnicalInfo } from './common/technical-info/technical-info.component'
 import { MaskDirective } from './common/mask/mask-directive';
 import { AutoScroll } from './common/directive/AutoScroll.directive';
 import { JsrStatusComponent } from './jsr-status/jsr-status.component';
-import { HttpClient } from "./common/http/HttpClient";
 import { CacheFileComponent } from './extra/cache-file/cache-file.component';
 import { ChatbotComponent } from './websocket/chatbot/chatbot.component';
 import { WebSocketService } from "./websocket/chatbot/websocket.service";
@@ -33,6 +32,7 @@ import {SimplePrettyXML} from "./common/pretty-json/simplePrettyXML";
 import {MyDatePickerModule} from "mydatepicker";
 import {QuizHelloComponent} from "./quiz/hello/quiz-hello.component";
 import {DashboardComponent} from "./cases/d3/dashboard.component";
+import { LoginComponent } from './security/login/login.component';
 
 const routes : Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
@@ -50,7 +50,8 @@ const routes : Routes = [
   { path: 'excel-export', component: ExcelExport},
   { path: 'quiz-hello', component: QuizHelloComponent},
   { path: 'dashboard', component: DashboardComponent},
-  { path: 'kotlin-hello', component: KotlinHelloComponent}
+  { path: 'kotlin-hello', component: KotlinHelloComponent},
+  { path: 'security', component: LoginComponent}
 ];
 
 @NgModule({
@@ -77,7 +78,8 @@ const routes : Routes = [
     ExcelExport,
     QuizHelloComponent,
     DashboardComponent,
-    KotlinHelloComponent
+    KotlinHelloComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -86,10 +88,11 @@ const routes : Routes = [
     BsDropdownModule.forRoot(),
     AlertModule.forRoot(),
     RouterModule.forRoot(routes),
+    TabsModule.forRoot(),
     HttpModule,
     MyDatePickerModule
   ],
-  providers: [HighlightJsService, HttpClient, WebSocketService],
+  providers: [HighlightJsService, WebSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

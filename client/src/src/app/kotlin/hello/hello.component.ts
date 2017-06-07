@@ -3,7 +3,6 @@ import { RequestService } from "../../common/http/request.service";
 import ResponseInfo from "../../common/technical-info/ResponseInfo";
 import {PrettyJsonPipe} from "../../common/pretty-json/prettyJson.pipe";
 
-
 @Component({
   selector: 'app-kotlin-hello',
   templateUrl: './hello.component.html',
@@ -47,7 +46,7 @@ export class KotlinHelloComponent implements OnInit {
      <br><br>
 1) We create a Jax-RS Resource in Kotlin using standard Java EE annotations: <i>KotlinController.kt</i> 
 
-<pre><code class="kotilin highlight">@Path("/kotlin")
+<pre><code class="kotlin highlight">@Path("/kotlin")
 open class GreetingController \{
 
   companion object \{
@@ -58,21 +57,19 @@ open class GreetingController \{
   open val counter = AtomicLong()
 
   @GET @Path("/hello") @Produces(MediaType.APPLICATION_JSON)
-  open fun greeting(@NotEmpty @QueryParam("name") name
-    : String): Greeting \{
+  open fun greeting(@NotEmpty @QueryParam("name") name : String): Greeting \{
     LOG.log(Level.INFO, "greeting %s", name);
     
-    return Greeting(counter.incrementAndGet(),
-      "Kotlin says: Hello, $name")
+    return Greeting(counter.incrementAndGet(),"Kotlin says: Hello, $name")
   }
 }</code></pre>
         
- <br>2) In Kotlin a bean that simply hold the data is a <a href ="https://kotlinlang.org/docs/reference/data-classes.html" target="_blank"><i>data class</i></a>.
+ <br>2) In Kotlin a bean that simply holds the data is a <a href ="https://kotlinlang.org/docs/reference/data-classes.html" target="_blank"><i>data class</i></a>.
  In our project we add <i>Greeting.kt</i> and we implement the data class with only 1 line of code:
  <pre><code class="kotlin highlight">data class Greeting(val id: Long, val content: String)</code></pre>
  <br>
  3) To compile the Kotlin sources in Java you have to adapt your maven <i>pom.xml</i> according to this <a href="https://kotlinlang.org/docs/reference/using-maven.html"
-  target="_blank">documentation</a> (or simply check our GitHub sources).
+  target="_blank">documentation</a> (or simply check our <a href="https://github.com/marco76/java-demo/blob/master/server/pom.xml#L152">GitHub sources</a>).
 `
   }
 }

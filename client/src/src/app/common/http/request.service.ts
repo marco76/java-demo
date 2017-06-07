@@ -1,4 +1,4 @@
-import { Injectable, OnInit} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Http, Response, ResponseContentType } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -8,21 +8,26 @@ import 'rxjs/add/operator/map';
 import {environment} from '../../../environments/environment';
 import ResponseInfo from "../technical-info/ResponseInfo";
 import 'rxjs/add/observable/of'
+import {AuthenticationService} from "./authentication.service";
 
 
 @Injectable()
-export class RequestService implements OnInit{
+export class RequestService {
 
   serverUrl : string = environment.BACKEND_URL;
-  responseOK : {"responseStatus" : "OK"};
-
   private headers : Headers;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private authenticationService: AuthenticationService) {
+    // OnInit not supported by services
+    this.headers = new Headers({ 'Content-Type': 'application/json' });
+    this.headers.append('Accept', 'application/json, text/xml');
+    this.headers.append('X-Requested-With', 'XMLHttpRequest');
+  }
 
   sendRequest(url:string, model : any) : Observable<any> {
 
     let options = new RequestOptions({ headers: this.headers });
+    this.addAuthHeader(this.headers);
 
     return this.http
       .post(this.serverUrl + url, model, options)
@@ -48,6 +53,7 @@ export class RequestService implements OnInit{
     hXML.append('X-Requested-With', 'XMLHttpRequest');
 
     let options = new RequestOptions({ headers: hXML });
+    this.addAuthHeader(this.headers);
 
     return this.http
       .post(this.serverUrl + url, model, options)
@@ -72,6 +78,7 @@ export class RequestService implements OnInit{
   sendGet(url:string) : Observable<any> {
 
     let options = new RequestOptions({ headers: this.headers });
+    this.addAuthHeader(this.headers);
 
     return this.http
       .get(this.serverUrl + url, options)
@@ -91,10 +98,10 @@ export class RequestService implements OnInit{
   }
 
   sendGetForm(url:string, model: any) : Observable<any> {
-    console.log(model);
-    console.log(this.serverUrl + url +'?' + model.toString());
 
     let options = new RequestOptions({ headers: this.headers });
+    this.addAuthHeader(this.headers);
+
     return this.http
       .get(this.serverUrl + url +'?' + model.toString(), options)
       .map((response: Response) => {
@@ -112,13 +119,13 @@ export class RequestService implements OnInit{
       );
   }
 
-
   sendGetType(url:string, type : ResponseContentType) : Observable<any> {
     let hOctet = new Headers({ 'Content-Type': 'application/json' });
     hOctet.append('Accept', 'application/octet-stream');
     hOctet.append('X-Requested-With', 'XMLHttpRequest');
 
     let options = new RequestOptions({ headers: hOctet, responseType : type});
+    this.addAuthHeader(this.headers);
 
     return this.http
       .get(this.serverUrl + url, options)
@@ -128,6 +135,37 @@ export class RequestService implements OnInit{
         Observable.of(this.buildErrorAnswer(error))
       );
   }
+
+  simpleGet(url: string) : Observable<Response> {
+    console.log("simple get");
+
+    let options = new RequestOptions({ headers: this.headers });
+    this.addAuthHeader(this.headers);
+
+    return this.http
+      .get(this.serverUrl + url, options)
+      .map((response: Response) => {
+      console.log(response);
+        return response;
+      }).catch((error) =>
+        Observable.of(error)
+      );
+  }
+
+  simpleGetJson(url: string) : Observable<any> {
+
+    let options = new RequestOptions({ headers: this.headers });
+    this.addAuthHeader(this.headers);
+
+    return this.http
+      .get(this.serverUrl + url, options)
+      .map((response: Response) => {
+        return response.json();
+      }, (error) => {
+        error.json();
+      })
+  }
+
 
   buildErrorAnswer(error) : ResponseInfo{
 
@@ -150,9 +188,12 @@ export class RequestService implements OnInit{
 
   }
 
-  ngOnInit() {
-    this.headers = new Headers({ 'Content-Type': 'application/json' });
-    this.headers.append('Accept', 'application/json, text/xml');
-    this.headers.append('X-Requested-With', 'XMLHttpRequest');
+  addAuthHeader(headers: Headers) {
+    if (this.authenticationService.authorization) {
+      if (!this.headers.has('Authorization')) {
+        headers.set('Authorization', 'Basic ' +
+          this.authenticationService.authorization);
+      }
+    }
   }
 }

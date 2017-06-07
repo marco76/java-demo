@@ -1,0 +1,72 @@
+<div class="panel panel-primary" >
+  <div class="panel-heading">
+    <div class="panel-title">Login</div>
+  </div>
+  <div class="panel-body" >
+    <div *ngFor="let alert of alerts">
+      <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout" dismissible="true">{{ alert.msg }}</alert>
+    </div>
+    <form class="form-horizontal" (ngSubmit)="onSubmit()" #participantForm="ngForm" *ngIf="!isLoggedIn()">
+
+      <div class="form-group">
+        <label for="name" class ="col-sm-2 control-label">Username</label>
+        <div class="col-sm-6">
+
+          <input type="text" class="form-control" id="name" placeholder="Any value"
+                 [(ngModel)]="model.username" name="name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name" class ="col-sm-2 control-label">Password</label>
+        <div class="col-sm-4">
+          <input type="password" class="form-control" placeholder="'secret' to login"
+                 [(ngModel)]="model.password" name="password">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </div>
+    </form>
+    <div *ngIf="isLoggedIn()">
+      You are authenticated! <a (click)="logOut()">[Log Out]</a>
+    </div>
+    <br>
+    <div class="form-group">
+      <div class="col-md-offset-2 md">
+        <button type="submit" class="btn btn-danger" (click)="onProtected()">Access the protected message </button>
+      </div>
+    </div>
+  </div>
+<div *ngIf="this.quoteList">
+  <div *ngFor="let quote of quoteList">
+    <blockquote class="blockquote-reverse">{{quote.message}}<footer>{{quote.author}}</footer></blockquote>
+  </div>
+  </div>
+  <div class="panel-footer">
+    <div class="row"></div>
+    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="https://github.com/javaee-security-spec/security-spec" target="_blank">Documentation</a></div>
+  </div>
+</div>
+<div class="panel">
+  <div class="col-md-6">
+<div [innerHTML]="code" highlight-js-content=".highlight"></div>
+  <img [src]="imgSecurity" width="80%" height="80%">
+  </div>
+  <br>
+
+<div class="col-md-6">
+  <tabset>
+    <tab heading="HttpAuthenticationMechanism"><div [innerHTML]="authentication" highlight-js-content=".highlight"></div></tab>
+    <tab heading="IdentityStore"><div [innerHTML]="store" highlight-js-content=".highlight"></div></tab>
+    <tab heading="Login res."><div [innerHTML]="login" highlight-js-content=".highlight"></div></tab>
+    <tab heading="web.xml"><div [innerHTML]="web" highlight-js-content=".highlight"></div></tab>
+    <tab heading="Protected res."><div [innerHTML]="secResource" highlight-js-content=".highlight"></div></tab>
+
+  </tabset>
+</div>
+</div>
+

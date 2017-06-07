@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { JsrStatusService } from './jsr-status.service';
 import { JSRStatus } from './JSRStatus';
+import {Observable} from "rxjs/Observable";
+import {RequestService} from "../common/http/request.service";
 
 @Component({
   selector: 'app-jsr-status',
   templateUrl: './jsr-status.component.html',
   styleUrls: ['./jsr-status.component.css'],
-  providers: [JsrStatusService]
+  providers: [RequestService]
 })
 export class JsrStatusComponent implements OnInit {
 
   jsrStatusList : JSRStatus[];
 
-  constructor(private jsrStatusService : JsrStatusService) { }
+  constructor(private requestService : RequestService) { }
 
   ngOnInit() {
-    this.jsrStatusService.loadStatus().subscribe(
+    this.loadStatus().subscribe(
       result => { this.jsrStatusList = result; },
       error => { console.log(error._body) }
     );
@@ -40,5 +41,10 @@ export class JsrStatusComponent implements OnInit {
     }
 
     return 'normal';
+  }
+
+  loadStatus() : Observable<JSRStatus[]> {
+    return this.requestService.simpleGetJson("/rest/read-file");
+
   }
 }
