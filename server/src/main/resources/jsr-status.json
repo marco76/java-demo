@@ -1,7 +1,7 @@
 [{
       "number" : "366",
       "name" : "Java EE 8",
-      "status":"Public Review",
+      "status":"Public Review Ballot",
       "new-updated" : "Updated",
       "demo-page" : "",
       "website" :"",
@@ -12,7 +12,7 @@
       "number" : "380",
       "name" : "Bean Validation 2.0",
       "new-updated" : "Updated",
-      "status":"Public Review",
+      "status":"Public Review Ballot",
       "demo-page" : "",
       "website" : "http://beanvalidation.org",
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=380",
@@ -27,7 +27,7 @@
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=369",
       "comment" :"",
       "last-update":"",
-      "status":"Public Review"
+      "status":"Public Review Ballot"
     },{
       "number" : "372",
       "name" : "JSF 2.3",
@@ -59,7 +59,7 @@
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=370",
       "comment" :"",
       "last-update":"",
-      "status":"Public Review"
+      "status":"Public Review Ballot"
     },
     {
       "number" : "374",
@@ -70,12 +70,12 @@
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=374",
       "comment" :"",
       "last-update":"",
-      "status":"Final Approval Ballot"
+      "status":"Final Release"
     },
     {
       "number" : "367",
       "name" : "JSON-B 1.0",
-      "status": "Proposed Final Draft",
+      "status": "Final Approval Ballot",
       "new-updated" : "New",
       "demo-page" : "",
       "website" :"https://json-b.net",
@@ -92,6 +92,6 @@
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=375",
       "comment" :"",
       "last-update":"",
-      "status":"Early Draft Review"
+      "status":"Public Review"
     }
   ]

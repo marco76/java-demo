@@ -35,7 +35,7 @@
           <li role="menuitem"><a class="dropdown-item" routerLink="/bv-list-email">List validation</a></li>
           <li class="divider dropdown-divider"></li>
           <li role="menuitem"><a class="dropdown-item" href="http://beanvalidation.org" target="_blank">website</a></li>
-          <li role="menuitem"><a class="dropdown-item" href="http://http://hibernate.org/validator" target="_blank">RI</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="http://hibernate.org/validator" target="_blank">RI - Hibernate Validator</a></li>
           <li role="menuitem"><a class="dropdown-item" href="https://jcp.org/en/jsr/detail?id=380" target="_blank">JSR 380</a></li>
 
         </ul>
@@ -49,7 +49,7 @@
             <li role="menuitem"><a class="dropdown-item" routerLink="/hello"><strong>REST</strong>: Answer to Web requests</a></li>
             <li role="menuitem"><a class="dropdown-item" routerLink="/kotlin-hello"><strong>Kotlin</strong>: REST service built with Kotlin</a></li>
             <li class="divider dropdown-divider"></li>
-            <li role="menuitem"><a class="dropdown-item" href="https://jersey.java.net/" target="_blank">RI</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="https://jersey.java.net/" target="_blank">RI - Jersey</a></li>
             <li role="menuitem"><a class="dropdown-item" href="https://www.jcp.org/en/jsr/detail?id=370" target="_blank">JSR 370</a></li>
           </ul>
         </li>
@@ -94,11 +94,33 @@
                <li role="menuitem"><a class="dropdown-item" routerLink="/chatbot">Dummy ChatBot</a></li>
 
            <li class="divider dropdown-divider"></li>
-           <li role="menuitem"><a class="dropdown-item" href="https://tyrus.java.net" target="_blank">RI</a></li>
+           <li role="menuitem"><a class="dropdown-item" href="https://github.com/tyrus-project/tyrus" target="_blank">RI - Tyrus</a></li>
            <li role="menuitem"><a class="dropdown-item" href=" https://jcp.org/en/jsr/detail?id=356" target="_blank">JSR 356</a></li>
              </ul>
            </li>
-         </ul>
+
+
+        <!-- security -->
+
+        <li class="btn-group" dropdown placement="bottom right">
+          <a dropdownToggle *ngIf="!authenticationService.authenticated" role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" routerLink="/security">
+            <span class="glyphicon glyphicon-user"></span> Security<span class="caret"></span>
+          </a>
+          <a dropdownToggle *ngIf="authenticationService.authenticated" role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" routerLink="/security">
+            <span class="glyphicon glyphicon-user"> </span> {{authenticationService.username}}<span class="caret"></span>
+          </a>
+          <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+            <li *ngIf="!authenticationService.authenticated" role="menuitem"><a class="dropdown-item" routerLink="/security">Log In</a></li>
+            <li *ngIf="authenticationService.authenticated" role="menuitem"><a class="dropdown-item" routerLink="/security">Log In page</a></li>
+            <li *ngIf="authenticationService.authenticated" role="menuitem"><a class="dropdown-item" (click)="authenticationService.logout()">Log Out</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" href="https://github.com/javaee-security-spec" target="_blank">RI - Soteria</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="https://jcp.org/en/jsr/detail?id=375" target="_blank">JSR 375</a></li>
+          </ul></li>
+
+
+
+      </ul>
 
     </div>
   </div>

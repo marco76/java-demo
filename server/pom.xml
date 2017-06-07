@@ -107,7 +107,7 @@
         <dependency>
             <groupId>org.glassfish.soteria</groupId>
             <artifactId>soteria</artifactId>
-            <version>1.0-m03-SNAPSHOT</version>
+            <version>1.0-m05-SNAPSHOT</version>
         </dependency>
 
         <!-- THIS HAS TO STAY IN THE LAST POSITION -->

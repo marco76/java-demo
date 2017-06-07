@@ -3,7 +3,6 @@ import { RequestService } from "../../common/http/request.service";
 import ResponseInfo from "../../common/technical-info/ResponseInfo";
 import {PrettyJsonPipe} from "../../common/pretty-json/prettyJson.pipe";
 
-
 @Component({
   selector: 'app-kotlin-hello',
   templateUrl: './hello.component.html',
@@ -47,7 +46,7 @@ export class KotlinHelloComponent implements OnInit {
      <br><br>
 1) We create a Jax-RS Resource in Kotlin using standard Java EE annotations: <i>KotlinController.kt</i> 
 
-<pre><code class="kotilin highlight">@Path("/kotlin")
+<pre><code class="kotlin highlight">@Path("/kotlin")
 open class GreetingController \{
 
   companion object \{
