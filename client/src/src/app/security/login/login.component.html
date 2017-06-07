@@ -37,18 +37,18 @@
     <br>
     <div class="form-group">
       <div class="col-md-offset-2 md">
-        <button type="submit" class="btn btn-danger" (click)="onProtected()">Access the protected message </button>
+        <button type="submit" class="btn btn-danger" (click)="onProtected()">Access the protected messages </button>
       </div>
     </div>
   </div>
 <div *ngIf="this.quoteList">
   <div *ngFor="let quote of quoteList">
-    <blockquote class="blockquote-reverse">{{quote.message}}<footer>{{quote.author}}</footer></blockquote>
+    <blockquote>{{quote.message}}<footer>{{quote.author}}</footer></blockquote>
   </div>
   </div>
   <div class="panel-footer">
     <div class="row"></div>
-    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="https://github.com/javaee-security-spec/security-spec" target="_blank">Documentation</a></div>
+    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a target="_blank" href="https://github.com/marco76/java-demo/tree/master/server/src/main/java/io/javademo/examples/security">Demo GitHub</a> | <a href="https://github.com/javaee-security-spec/security-spec" target="_blank">Official documentation</a></div>
   </div>
 </div>
 <div class="panel">
