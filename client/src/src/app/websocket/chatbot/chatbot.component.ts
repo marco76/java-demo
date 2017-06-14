@@ -15,6 +15,9 @@ export class ChatbotComponent implements OnInit {
   lastMessage : string;
   text : string = "";
   text2 : string = "";
+  imgUser = "assets/images/elf_1.svg";
+  imgComputer = "assets/images/pc.svg";
+
 
   ngOnInit() {
     this.setText();
@@ -84,7 +87,7 @@ session.getBasicRemote()
 `;
 
     this.text2=  `
-We use a custom <i>class</i> for our messages, we need to <a href ="https://docs.oracle.com/javaee/7/tutorial/websocket007.htm">encode and decode it</a>
+We use a custom <i>class</i> for our messages, we need to <a href ="https://docs.oracle.com/javaee/7/tutorial/websocket007.htm">encode and decode them</a>.
 <pre><code class="java highlight">public class ClientMessage implements 
 Decoder.Text&lt;ClientMessage&gt;,
 Encoder.Text&lt;ClientMessage&gt; {

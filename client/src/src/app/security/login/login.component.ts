@@ -62,7 +62,7 @@ To implement our example we need following elements:
 <br><br>The RI (<a href = "https://github.com/javaee-security-spec/soteria" target="_blank">Soteria</a>) includes some predefined implementations (e.g. Basic, CustomForm, Form). In our example we will create a custom authentication mechanism for the <a href = "https://docs.oracle.com/javaee/7/tutorial/security-webtier002.htm#BNCBP" target="_blank">Basic authentication</a> 
 <br><br>We require that every request contains the username and password of the user in the header ('Authentication:  Basic [encrypted credentials]'). The encrypted credential are stored in the client session, in a real application you should use more safe solution (e.g. token).
 <br><br>The authentication mechanism is executed for each HTTP request (for protected and not protected resources) before the filters.
-<br><br>The complete code is available on GitHub. Here some relevant fragments :
+<br><br>The complete code is available on <a href="https://github.com/marco76/java-demo/tree/master/server/src/main/java/io/javademo/examples/security" target="_blank">GitHub</a>. Here some relevant fragments :
 
 <pre><div class="java highlight">@RequestScoped
 public class CustomAuthMechanism implements HttpAuthenticationMechanism {
@@ -206,7 +206,7 @@ public class ProtectedController \{
   }
 
   logOut() {
-    this.authenticationService.logout();
+    this.authenticationService.logout()
   }
 
   onProtected() {

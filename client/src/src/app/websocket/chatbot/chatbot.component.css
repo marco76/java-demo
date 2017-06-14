@@ -6,7 +6,7 @@ section div {
   max-width: 400px;
   word-wrap: break-word;
   margin-bottom: 1px;
-  line-height: 20px;
+  line-height: 50px;
 }
 
 section div p {
@@ -16,73 +16,36 @@ section div p {
 .clear {
   clear: both;
 }
-
 .from-server {
-  position: relative;
   padding: 5px 20px;
   color: white;
   background: #0B93F6;
   border-radius: 25px;
-  float: right;
   font-size: 12px;
-  margin-bottom: 5px;
 }
-.from-server:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  bottom: -2px;
-  right: -7px;
-  height: 20px;
-  border-right: 20px solid #0B93F6;
-  border-bottom-left-radius: 16px 14px;
-  -webkit-transform: translate(0, -2px);
+
+.text-message-server{
+  padding: 1em;
+  background: #0B93F6;
+  margin: 1em;
+  color: white;
+
 }
-.from-server:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  bottom: -2px;
-  right: -56px;
-  width: 26px;
-  height: 20px;
-  background: white;
-  border-bottom-left-radius: 10px;
-  -webkit-transform: translate(-30px, -2px);
+
+.text-message-client{
+  padding: 1em;
+  background: #E5E5EA;
+  margin: 1em;
+  color: black;
+
 }
 
 .from-user {
-  position: relative;
-  padding: 10px 20px;
+  padding: 5px 10px;
   background: #E5E5EA;
   border-radius: 25px;
   color: black;
-  float: left;
   font-size: 12px;
-  margin-bottom: 5px;
-}
-.from-user:before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  bottom: -2px;
-  left: -7px;
-  height: 20px;
-  border-left: 20px solid #E5E5EA;
-  border-bottom-right-radius: 16px 14px;
-  -webkit-transform: translate(0, -2px);
-}
-.from-user:after {
-  content: "";
-  position: absolute;
-  z-index: 3;
-  bottom: -2px;
-  left: 4px;
-  width: 26px;
-  height: 20px;
-  background: white;
-  border-bottom-right-radius: 10px;
-  -webkit-transform: translate(-30px, -2px);
 }
 
 .gradient {
@@ -90,3 +53,5 @@ section div p {
   border: 1px solid #EBE9C5;
   border-radius: 4px ;
 }
+
+

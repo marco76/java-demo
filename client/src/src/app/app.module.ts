@@ -33,6 +33,10 @@ import {MyDatePickerModule} from "mydatepicker";
 import {QuizHelloComponent} from "./quiz/hello/quiz-hello.component";
 import {DashboardComponent} from "./cases/d3/dashboard.component";
 import { LoginComponent } from './security/login/login.component';
+import { MarkdownModule } from 'angular2-markdown';
+import {DocumentationComponent} from "./documentation/documentation.component";
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+
 
 const routes : Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
@@ -51,8 +55,8 @@ const routes : Routes = [
   { path: 'quiz-hello', component: QuizHelloComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'kotlin-hello', component: KotlinHelloComponent},
-  { path: 'security', component: LoginComponent}
-];
+  { path: 'security', component: LoginComponent},
+  { path: 'guides', component: DocumentationComponent}];
 
 @NgModule({
   declarations: [
@@ -79,7 +83,8 @@ const routes : Routes = [
     QuizHelloComponent,
     DashboardComponent,
     KotlinHelloComponent,
-    LoginComponent
+    LoginComponent,
+    DocumentationComponent
   ],
   imports: [
     BrowserModule,
@@ -90,8 +95,10 @@ const routes : Routes = [
     RouterModule.forRoot(routes),
     TabsModule.forRoot(),
     HttpModule,
-    MyDatePickerModule
-  ],
+    MyDatePickerModule,
+    MarkdownModule.forRoot(),
+    AccordionModule.forRoot()
+   ],
   providers: [HighlightJsService, WebSocketService],
   bootstrap: [AppComponent]
 })
