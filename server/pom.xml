@@ -16,12 +16,12 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <kotlin.version>1.0.0</kotlin.version>
+        <kotlin.version>1.1.2</kotlin.version>
         <javax.validation.version>2.0.0.Beta2</javax.validation.version>
         <hibernate.validator.version>6.0.0.Beta2</hibernate.validator.version>
         <weld.version>3.0.Final</weld.version>
         <javax.cdi.version>2.0</javax.cdi.version>
-        <javax.json.version>1.0.0-M2</javax.json.version>
+        <jasson.version>1.0.0-RC1</jasson.version>
         <glassfish.json.version>1.1</glassfish.json.version>
         <apache.poi.version>3.15</apache.poi.version>
     </properties>
@@ -79,13 +79,13 @@
         <dependency>
             <groupId>javax.json.bind</groupId>
             <artifactId>javax.json.bind-api</artifactId>
-            <version>${javax.json.version}</version>
+            <version>${jasson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.eclipse</groupId>
             <artifactId>yasson</artifactId>
-            <version>${javax.json.version}</version>
+            <version>${jasson.version}</version>
         </dependency>
 
         <dependency>

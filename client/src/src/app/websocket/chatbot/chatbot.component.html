@@ -3,9 +3,11 @@
     <h3 class="panel-title">ChatBot using Websockets</h3></div>
   <div class="panel-body">
     This is an example of implementation of <a href="https://en.wikipedia.org/wiki/WebSocket" target="_blank">
-    WebSocket</a>  to create a 'stupid' ChatBot.
+    WebSocket</a>  to create a dummy ChatBot.
     <br>
-    The ChatBot answer only to few questions, the goal is to show how the client and the server can establish and carry on a full-duplex communication.
+    The ChatBot answer only to few questions, the goal is to show how the client and the server can establish and carry on a full-duplex communication.<br>
+    There are some limitations and the demo won't work if you are behind a firewall that blocks websockets.
+    <br>
     <br>If you ask for a joke the server answer sending multiple delayed messages in the same 'conversation'.
 
    Angular is a perfect match to receive ('observe') server notifications.
@@ -37,18 +39,33 @@
     </div>
   </div>
 </form>
+<div class ="row">
+  <div [innerHTML]="text2" highlight-js-content=".highlight"></div>
+
+</div>
 <div class="row">
     <div [innerHTML]="text" highlight-js-content=".highlight" class="col-md-6"></div>
-  <div class="col-md-6">
+  <div style="position:fixed; width:300px; height: 300px; right:0px; bottom:0px">
   <div class="gradient" style="overflow: auto; height: 250px;" jd-auto-scroll offset="20">
       <div  *ngFor="let message of messages" >
-        <div [ngClass] = "{'from-user': message.author == 'client',
-       'from-server': message.author == 'server'}"> <p>{{ message.message }}</p></div>
-        <div class="clear"></div>
-      </div>
 
+        <div  *ngIf="message.author == 'client'">
+        <img [src]="imgUser" width="50px" height="50px" style="margin-bottom: -30px">
+
+          <p class="text-message-client">{{ message.message }}</p>
+               </div>
+        <div *ngIf="message.author == 'server'" style="margin-bottom: 20px">
+          <div>
+            <p class="text-message-server">{{ message.message }}</p>
+             <img [src]="imgComputer" width="30px" height="30px" style="float: right; margin-top: -30px"  *ngIf="message.author != 'client'">
+        </div>
+
+
+        </div>
+
+      </div>
+    <div class="clear"></div>
     </div>
-    <div [innerHTML]="text2" highlight-js-content=".highlight"></div>
-  </div>
+   </div>
 </div>
 

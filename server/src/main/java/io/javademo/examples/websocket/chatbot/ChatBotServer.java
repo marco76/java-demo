@@ -66,7 +66,7 @@ public class ChatBotServer {
          List<String> answerList =this.findAnswer(message.getMessage().toLowerCase());
          if (answerList.isEmpty()) {
              ClientMessage clientMessage = new ClientMessage();
-             clientMessage.setMessage("I don't understand, I know only few sentences. Try again next week");
+             clientMessage.setMessage("I don't understand, I know only few sentences.");
              clientMessage.setAuthor("server");
              try {
                  session.getBasicRemote().sendText(clientMessage.encode(clientMessage));

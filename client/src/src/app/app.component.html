@@ -16,7 +16,7 @@
     </div>
       <div class="collapse navbar-collapse" id="bs-navbar-collapse-1" [ngClass]="{'in': !isCollapsed}">
       <ul class="nav navbar-nav">
-           <li> <a routerLink="/">Home</a></li>
+           <li> <a routerLink="/"><span class="glyphicon glyphicon-home" title = "Home"> </span></a></li>
 
            <li class="btn-group" dropdown placement="bottom right">
              <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" routerLink="/conferences">
@@ -76,28 +76,22 @@
            </li>-->
            <li class="btn-group" dropdown placement="bottom right">
              <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-               Tutorials (Easy)<span class="caret"></span>
+              <span class="glyphicon glyphicon-blackboard"></span> Examples Online<span class="caret"></span>
              </a>
              <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+               <li role="menuitem"><a class="dropdown-item" routerLink="/chatbot"><strong>WebSocket</strong>: Build a dummy ChatBot</a></li>
                <li role="menuitem"><a class="dropdown-item" routerLink="/jpa-conferences"><strong>JPA</strong>: Conferences - From the DB to the Web</a></li>
-               <li role="menuitem"><a class="dropdown-item" routerLink="/extra-cache"><strong>@Schedule</strong>: file caching example</a></li>
+               <li role="menuitem"><a class="dropdown-item" routerLink="/extra-cache"><strong>@Schedule</strong>: File caching example</a></li>
                <li role="menuitem"><a class="dropdown-item" routerLink="/excel-export"><strong>Excel export (JAX-RS)</strong>: download files</a></li>
              </ul>
 
            </li>
 
         <li class="btn-group" dropdown placement="bottom right">
-             <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-               WebSocket<span class="caret"></span>
-             </a>
-             <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
-               <li role="menuitem"><a class="dropdown-item" routerLink="/chatbot">Dummy ChatBot</a></li>
-
-           <li class="divider dropdown-divider"></li>
-           <li role="menuitem"><a class="dropdown-item" href="https://github.com/tyrus-project/tyrus" target="_blank">RI - Tyrus</a></li>
-           <li role="menuitem"><a class="dropdown-item" href=" https://jcp.org/en/jsr/detail?id=356" target="_blank">JSR 356</a></li>
-             </ul>
-           </li>
+          <a dropdownToggle  role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" routerLink="/guides">
+            <span class="glyphicon glyphicon-book"></span> Guides
+          </a>
+        </li>
 
 
         <!-- security -->
