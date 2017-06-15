@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatbotService } from './chatbot.service';
 import { Message } from "./Message";
+import {DisqusComponent} from '../../common/disqus/disqus.component'
 
 @Component({
   selector: 'app-chatbot',
   templateUrl: './chatbot.component.html',
   styleUrls: ['./chatbot.component.css'],
-  providers: [ChatbotService]
+  providers: [ChatbotService],
+
 })
 export class ChatbotComponent implements OnInit {
 
@@ -17,6 +19,8 @@ export class ChatbotComponent implements OnInit {
   text2 : string = "";
   imgUser = "assets/images/elf_1.svg";
   imgComputer = "assets/images/pc.svg";
+  imgWebsocket = "assets/images/websocket.png";
+  isVisible : boolean = true;
 
 
   ngOnInit() {
@@ -46,11 +50,12 @@ export class ChatbotComponent implements OnInit {
 
   setText(){
     this.text=  `
-This code allows to create a the WebSocket used for this chat: 
+We need an endpoint to receive the messages from the client.
+
 <pre><code class="java highlight">@ServerEndpoint(value = "chatbot",
         encoders = {ClientMessage.class},
         decoders = {ClientMessage.class})
-// with a @Singleton we create a multi-client chat
+// with a @Singleton we create a chat between multiple users
 public class ChatBotServer {
   private final Set&lt;Session&gt; peers;
 
@@ -88,6 +93,7 @@ session.getBasicRemote()
 
     this.text2=  `
 We use a custom <i>class</i> for our messages, we need to <a href ="https://docs.oracle.com/javaee/7/tutorial/websocket007.htm">encode and decode them</a>.
+<br>The client will receive a JSON object that represent the message.
 <pre><code class="java highlight">public class ClientMessage implements 
 Decoder.Text&lt;ClientMessage&gt;,
 Encoder.Text&lt;ClientMessage&gt; {

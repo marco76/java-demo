@@ -76,6 +76,11 @@ public class ChatBotServer {
 
          } else {
              if (answerList.size() == 1) {
+                 try {
+                     Thread.sleep(500);
+                 } catch (InterruptedException e) {
+                     e.printStackTrace();
+                 }
                  ClientMessage clientMessage = new ClientMessage();
                  clientMessage.setMessage(answerList.get(0));
                  try {

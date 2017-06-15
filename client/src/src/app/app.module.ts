@@ -36,6 +36,7 @@ import { LoginComponent } from './security/login/login.component';
 import { MarkdownModule } from 'angular2-markdown';
 import {DocumentationComponent} from "./documentation/documentation.component";
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { DisqusComponent } from './common/disqus/disqus.component';
 
 
 const routes : Routes = [
@@ -84,7 +85,8 @@ const routes : Routes = [
     DashboardComponent,
     KotlinHelloComponent,
     LoginComponent,
-    DocumentationComponent
+    DocumentationComponent,
+    DisqusComponent
   ],
   imports: [
     BrowserModule,
