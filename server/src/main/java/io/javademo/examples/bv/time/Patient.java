@@ -1,15 +1,11 @@
 package io.javademo.examples.bv.time;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.deser.std.DateDeserializers;
 
 import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.Year;
-import java.util.Date;
 
 /**
  * Created by marco on 03.04.17.
@@ -22,7 +18,7 @@ public class Patient {
     @Past @JsonDeserialize(using = YearDeserializer.class) @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private Year yearOfBirth;
 
-    @NotNull @Future(orPresent = true)
+    @NotNull @FutureOrPresent
     @JsonDeserialize(using = JsDateDeserializer.class)
     private LocalDate nextAppointment;
 

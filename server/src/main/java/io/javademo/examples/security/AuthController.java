@@ -4,7 +4,8 @@ import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
 
-import javax.security.SecurityContext;
+
+import javax.security.enterprise.SecurityContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.GET;

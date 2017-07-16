@@ -1,0 +1,12 @@
+.menu-icon {
+  color:darkgray;
+  margin-right: 1em;
+}
+.menu-icon:hover {
+  color:black;
+}
+
+.name {
+  color: darkgray;
+  font-size: small;
+}

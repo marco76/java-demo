@@ -1,25 +1,25 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BvSimpleOneComponent } from './bv-simple-one';
+import { DisqusComponent } from './disqus.component';
 
-describe('BvComponent', () => {
-  let component: BvSimpleOneComponent;
-  let fixture: ComponentFixture<BvSimpleOneComponent>;
+describe('DisqusComponent', () => {
+  let component: DisqusComponent;
+  let fixture: ComponentFixture<DisqusComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BvSimpleOneComponent ]
+      declarations: [ DisqusComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BvSimpleOneComponent);
+    fixture = TestBed.createComponent(DisqusComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

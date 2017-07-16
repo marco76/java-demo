@@ -3,49 +3,52 @@
     <h3 class="panel-title">ChatBot using Websockets</h3></div>
   <div class="panel-body">
     This is an example of implementation of <a href="https://en.wikipedia.org/wiki/WebSocket" target="_blank">
-    WebSocket</a>  to create a dummy ChatBot.
+    WebSockets</a>  to create a dummy ChatBot.
+    JavaEE compliant servers include the <a href="https://jcp.org/aboutJava/communityprocess/mrel/jsr356/index.html" target="_blank">JSR 356</a> that allows you to easily establish a TCP communication with the client.
     <br>
-    The ChatBot answer only to few questions, the goal is to show how the client and the server can establish and carry on a full-duplex communication.<br>
-    There are some limitations and the demo won't work if you are behind a firewall that blocks websockets.
-    <br>
-    <br>If you ask for a joke the server answer sending multiple delayed messages in the same 'conversation'.
+    <div><img [src]="imgWebsocket" style="margin-top: 10px; margin-bottom: 10px"></div>
 
-   Angular is a perfect match to receive ('observe') server notifications.
+    WebSocket provides bi-directional, full-duplex, real-time, client/server communications. There is less overhead compared to the traditional HTTP request/response communication.
+
+    <br>
+    <h3>Our example</h3>
+    In our example you can say:<br>
+     <ul>
+       <li>'Hi'</li>
+       <li>ask about Weather</li>
+       <li>ask a joke (e.g. 'tell me a joke')</li>
+       <li>or ask an oop joke</li>
+     </ul>
+    <br>
+    The ChatBot answer only to few questions, the goal is to show how the client (built in Angular and CSS) and the server (Java) can establish and carry on a full-duplex communication.<br>
+    <br>There are some limitations and the demo won't work if you are behind a firewall that blocks websockets. For a real world application look at <a target="_blank" href="http://sockjs.org">sock.js</a> to solve the limitation.
+    <br>
+    If you are interested to learn more there is a very good step-by-step tutorial created by Oracle <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/HomeWebsocket/WebsocketHome.html" target="_blank">here</a>.
+    <br>
+    <br>
+
+    To delete the previous messages :
+    <button (click)="reset()" type="reset" class="btn btn-default">Reset</button>
+    <br>
+    To hide/show the chat:
+    <button (click)="isVisible=!isVisible" type="submit" class="btn btn-default">
+      <span [hidden]="!isVisible">Show</span>
+      <span [hidden]="isVisible">Hide</span>
+    </button>
+
   </div>
   <div class="panel-footer">
     <div class="row"></div>
-    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="https://jcp.org/aboutJava/communityprocess/mrel/jsr356/index.html" target="_blank">JSR 356</a> | <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/HomeWebsocket/WebsocketHome.html" target="_blank">Oracle Tutorial</a></div>
-  </div>
-</div>
-
-<form class="form-horizontal" (ngSubmit)="onSubmit()" #participantForm="ngForm">
-
-  <div class="form-group">
-    <div class="col-sm-10">
-      <div class="form-group">
-        <label for="message" class="col-sm-2 control-label">Message</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="message" [(ngModel)]="lastMessage"
-                 name="message  " placeholder="You can say / ask: 'Hi', ask about Weather, ask a joke, ask a oop joke">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">Submit</button>
-          <button (click)="reset()" type="reset" class="btn btn-default">Reset</button>
-        </div>
-      </div>
+    <div style = "font-size: 80%;">Code source Java: <a href="https://github.com/marco76/java-demo/tree/master/server/src/main/java/io/javademo/examples/websocket/chatbot" target="_blank">GitHub</a>
     </div>
+     <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="https://jcp.org/aboutJava/communityprocess/mrel/jsr356/index.html" target="_blank">JSR 356</a> | <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/HomeWebsocket/WebsocketHome.html" target="_blank">Oracle Tutorial</a></div>
   </div>
-</form>
-<div class ="row">
-  <div [innerHTML]="text2" highlight-js-content=".highlight"></div>
-
 </div>
-<div class="row">
+
+
+  <div [innerHTML]="text2" highlight-js-content=".highlight" class="col-md-6"></div>
     <div [innerHTML]="text" highlight-js-content=".highlight" class="col-md-6"></div>
-  <div style="position:fixed; width:300px; height: 300px; right:0px; bottom:0px">
+  <div style="position:fixed; width:300px; height: 300px; right:10px; bottom:30px" [hidden]="!isVisible">
   <div class="gradient" style="overflow: auto; height: 250px;" jd-auto-scroll offset="20">
       <div  *ngFor="let message of messages" >
 
@@ -59,13 +62,20 @@
             <p class="text-message-server">{{ message.message }}</p>
              <img [src]="imgComputer" width="30px" height="30px" style="float: right; margin-top: -30px"  *ngIf="message.author != 'client'">
         </div>
-
-
         </div>
-
       </div>
     <div class="clear"></div>
     </div>
-   </div>
+    <form class="form-horizontal" (ngSubmit)="onSubmit()" #participantForm="ngForm">
+<div class="row">
+  <div class="col-md-12">
+    <div class="input-group">
+    <input type="text" class="form-control " placeholder="Say 'Hi'" id="message" [(ngModel)]="lastMessage"
+           name="message">
+    <span class="input-group-btn">
+        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-send"></span></button>
+      </span>
+  </div></div><!-- /input-group -->
 </div>
-
+    </form>
+  </div>

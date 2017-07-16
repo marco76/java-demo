@@ -1,14 +1,15 @@
 package io.javademo.examples.security;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.security.identitystore.CredentialValidationResult;
-import javax.security.identitystore.IdentityStore;
-import javax.security.identitystore.credential.Credential;
-import javax.security.identitystore.credential.UsernamePasswordCredential;
+import javax.security.enterprise.credential.Credential;
+import javax.security.enterprise.credential.UsernamePasswordCredential;
+import javax.security.enterprise.identitystore.CredentialValidationResult;
+import javax.security.enterprise.identitystore.IdentityStore;
+
 import java.util.HashSet;
 
 import static java.util.Arrays.asList;
-import static javax.security.identitystore.CredentialValidationResult.INVALID_RESULT;
+import static javax.security.enterprise.identitystore.CredentialValidationResult.INVALID_RESULT;
 
 /**
  * Created by marcomolteni on 04.06.17.

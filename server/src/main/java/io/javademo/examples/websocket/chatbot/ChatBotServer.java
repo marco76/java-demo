@@ -31,6 +31,15 @@ public class ChatBotServer {
     public void onOpen(Session peer) {
         LOGGER.log(Level.INFO, "Opened session: {0}", peer);
         peers.add(peer);
+
+        ClientMessage clientMessage = new ClientMessage();
+        clientMessage.setMessage("Welcome, what can I do for you?");
+        clientMessage.setAuthor("server");
+        try {
+            peer.getBasicRemote().sendText(clientMessage.encode(clientMessage));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @OnClose
@@ -66,7 +75,7 @@ public class ChatBotServer {
          List<String> answerList =this.findAnswer(message.getMessage().toLowerCase());
          if (answerList.isEmpty()) {
              ClientMessage clientMessage = new ClientMessage();
-             clientMessage.setMessage("I don't understand, I know only few sentences.");
+             clientMessage.setMessage("I don't understand, I know only few sentences. Try 'hi', 'tell me a joke', 'how is the weather?");
              clientMessage.setAuthor("server");
              try {
                  session.getBasicRemote().sendText(clientMessage.encode(clientMessage));
@@ -76,6 +85,11 @@ public class ChatBotServer {
 
          } else {
              if (answerList.size() == 1) {
+                 try {
+                     Thread.sleep(500);
+                 } catch (InterruptedException e) {
+                     e.printStackTrace();
+                 }
                  ClientMessage clientMessage = new ClientMessage();
                  clientMessage.setMessage(answerList.get(0));
                  try {
@@ -126,7 +140,7 @@ public class ChatBotServer {
     public List<String> findAnswer (String message) {
         List<String> answer = new ArrayList<>(2);
 
-        if (message.contains("hi")) {
+        if (message.contains("hi") || message.contains("hello")) {
             answer.add("Hello! How are you?");
             return answer;
         }

@@ -1,0 +1,62 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="panel-title">Positive, Negative, Zero</div>
+  </div>
+  <div class="panel-body">
+
+    <form class="form-horizontal" #participantForm="ngForm">
+
+      <div class="form-group">
+        <label for="death-valley" class="col-sm-2 control-label">Elevation of Death Valley</label>
+        <div class="col-sm-10">
+
+          <input type="number" class="form-control" id="death-valley" placeholder="@Negative"
+                 [(ngModel)]="model.elevationOfDeathValley" name="elevationOfDeathValley">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="bugs" class="col-sm-2 control-label">Number of bugs in your code</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="bugs" placeholder="@PositiveOrZero"
+                 [(ngModel)]="model.numberOfBugsInYourCode" name="bugs">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="frbe" class="col-sm-2 control-label">A negative number in France or Belgium</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="frbe" placeholder="@NegativeOrZero"
+                 [(ngModel)]="model.negativeNumberInFrBe" name="frbe">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dev" class="col-sm-2 control-label">Number of Java developers</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="dev" placeholder="@Positive"
+                 [(ngModel)]="model.numberOfJavaDevelopers" name="dev">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-offset-2">
+          <button type="submit" (click)="onSubmit()" class="btn btn-default">Bean Validation</button>
+          <button type="submit" (click)="onSubmitRS()" class="btn btn-default">JaxRS Validation</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="panel-footer">
+    <div class="row">These constraints are new in BV 2.0.</div>
+    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a
+      href="http://beanvalidation.org/2.0/spec/#whatsnew-20" target="_blank">Documentation</a></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6" Markdown [path]="'assets/public/pages/bv/bv-positive-zero/bv-positive-negative-zero.md'"></div>
+  <app-technical-info class="col-md-6"
+                      [responseInfo]="responseInfo"
+                      [request]="request"
+  ></app-technical-info>
+</div>
