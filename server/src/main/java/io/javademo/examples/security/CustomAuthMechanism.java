@@ -4,13 +4,15 @@ import io.javademo.common.web.filter.CorsFilter;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.security.AuthenticationStatus;
+
 import javax.security.auth.message.AuthException;
-import javax.security.authentication.mechanism.http.HttpAuthenticationMechanism;
-import javax.security.authentication.mechanism.http.HttpMessageContext;
-import javax.security.identitystore.CredentialValidationResult;
-import javax.security.identitystore.credential.Credential;
-import javax.security.identitystore.credential.UsernamePasswordCredential;
+
+import javax.security.enterprise.AuthenticationStatus;
+import javax.security.enterprise.authentication.mechanism.http.HttpAuthenticationMechanism;
+import javax.security.enterprise.authentication.mechanism.http.HttpMessageContext;
+import javax.security.enterprise.credential.Credential;
+import javax.security.enterprise.credential.UsernamePasswordCredential;
+import javax.security.enterprise.identitystore.CredentialValidationResult;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MultivaluedMap;

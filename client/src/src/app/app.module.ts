@@ -7,6 +7,7 @@ import {AlertModule, TabsModule} from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BvSimpleOneComponent } from './bv/bv-simple-one/bv-simple-one';
+import { BvPositiveNegativeZero } from './bv/bv-positive-zero/bv-positive-zero';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PrettyJsonPipe } from './common/pretty-json/prettyJson.pipe';
 import { HighlightJsModule, HighlightJsService } from '../../node_modules/angular2-highlight-js';
@@ -37,6 +38,7 @@ import { MarkdownModule } from 'angular2-markdown';
 import {DocumentationComponent} from "./documentation/documentation.component";
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { DisqusComponent } from './common/disqus/disqus.component';
+import { FooterComponent } from './common/footer/footer.component';
 
 
 const routes : Routes = [
@@ -57,7 +59,9 @@ const routes : Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'kotlin-hello', component: KotlinHelloComponent},
   { path: 'security', component: LoginComponent},
-  { path: 'guides', component: DocumentationComponent}];
+  { path: 'guides', component: DocumentationComponent},
+  { path: 'bv-positive-negative-zero', component: BvPositiveNegativeZero}
+  ];
 
 @NgModule({
   declarations: [
@@ -86,7 +90,9 @@ const routes : Routes = [
     KotlinHelloComponent,
     LoginComponent,
     DocumentationComponent,
-    DisqusComponent
+    BvPositiveNegativeZero,
+    DisqusComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

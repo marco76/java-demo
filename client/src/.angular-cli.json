@@ -23,7 +23,8 @@
         "styles.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/flag-icon-css/css/flag-icon.min.css",
-        "../src/assets/css/hl/styles/default.css"
+        "../src/assets/css/hl/styles/default.css",
+        "../node_modules/font-awesome/css/font-awesome.css"
 
       ],
       "scripts": [
