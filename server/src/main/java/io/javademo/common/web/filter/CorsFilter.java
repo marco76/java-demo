@@ -1,6 +1,5 @@
 package io.javademo.common.web.filter;
 
-
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerResponseContext;
 import javax.ws.rs.container.ContainerResponseFilter;
@@ -9,7 +8,6 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 /**
  *
@@ -20,8 +18,8 @@ import java.util.Map;
 public class CorsFilter implements ContainerResponseFilter{
 
     private static final String METHODS = "GET, POST, PUT, DELETE, OPTIONS, HEAD";
-    private final static int MAX_AGE = 24 * 60 * 60;
-    private final static String HEADERS_ALLOWED = "accept, authorization, content-type, x-requested-with";
+    private static final int MAX_AGE = 24 * 60 * 60;
+    private static final  String HEADERS_ALLOWED = "accept, authorization, content-type, x-requested-with";
 
     @Override
     public void filter(ContainerRequestContext containerRequestContext, ContainerResponseContext containerResponseContext) throws IOException {
