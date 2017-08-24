@@ -422,10 +422,4 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
     </socket-binding-group>
-
-    <deployments>
-        <deployment name="ROOT" runtime-name="ROOT.war">
-            <fs-exploded path="/Users/marcomolteni/Dev/projects/Angular/minimalistic-javaee-angular/server/target/ROOT"/>
-        </deployment>
-    </deployments>
 </server>
