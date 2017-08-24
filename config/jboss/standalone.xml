@@ -372,6 +372,7 @@
                 <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="welcome-content"/>
+                    <filter-ref name="gzipFilter" predicate="regex[pattern='(?:application/javascript|text/css|text/html)(;.*)?', value=%{o,Content-Type}, full-match=true]"/>
                     <filter-ref name="server-header"/>
                     <filter-ref name="x-powered-by-header"/>
                 </host>
@@ -386,6 +387,7 @@
             <filters>
                 <response-header name="server-header" header-name="Server" header-value="WildFly/10"/>
                 <response-header name="x-powered-by-header" header-name="X-Powered-By" header-value="Undertow/1"/>
+                <gzip name="gzipFilter"/>
             </filters>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:webservices:2.0">
