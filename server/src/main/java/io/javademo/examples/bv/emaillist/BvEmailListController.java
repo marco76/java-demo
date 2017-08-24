@@ -1,4 +1,4 @@
-package io.javademo.examples.bv.emailList;
+package io.javademo.examples.bv.emaillist;
 
 import io.javademo.common.web.response.ResponseFactory;
 

@@ -17,14 +17,18 @@ import javax.ws.rs.core.MediaType
 open class GreetingController {
 
     companion object {
+
         val LOG = Logger.getLogger(GreetingController::class.java.name)
+
     }
 
     open val counter = AtomicLong()
 
     @GET @Path("/hello") @Produces(MediaType.APPLICATION_JSON)
     open fun greeting(@NotEmpty @QueryParam("name") name : String): Greeting {
+
         LOG.log(Level.INFO, "greeting %s", name);
+
         return Greeting(counter.incrementAndGet(), "Kotlin says: Hello, $name")
     }
 }
