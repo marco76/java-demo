@@ -5,10 +5,16 @@
 </div>
 
 <div class="col-md-2" style="max-width: 300px">
-    <accordion>
+  <app-left-menu></app-left-menu>
+
+  <accordion>
+
        <accordion-group
                         [panelClass]="customClass"
                         [isOpen]="isFirstOpen">
+         <div>
+
+         </div>
         <div accordion-heading>
           CDI
           <i class="pull-right float-xs-right glyphicon glyphicon-chevron-down"></i>

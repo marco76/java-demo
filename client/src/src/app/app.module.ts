@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes}   from '@angular/router';
 import {AlertModule, TabsModule} from 'ngx-bootstrap';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BvSimpleOneComponent } from './bv/bv-simple-one/bv-simple-one';
@@ -39,6 +41,7 @@ import {DocumentationComponent} from "./documentation/documentation.component";
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { DisqusComponent } from './common/disqus/disqus.component';
 import { FooterComponent } from './common/footer/footer.component';
+import {LeftMenuComponent} from "./documentation/left-menu/left-menu.component";
 
 
 const routes : Routes = [
@@ -60,8 +63,11 @@ const routes : Routes = [
   { path: 'kotlin-hello', component: KotlinHelloComponent},
   { path: 'security', component: LoginComponent},
   { path: 'guides', component: DocumentationComponent},
-  { path: 'bv-positive-negative-zero', component: BvPositiveNegativeZero}
-  ];
+  { path: 'bv-positive-negative-zero', component: BvPositiveNegativeZero},
+  { path: 'left-menu', component: LeftMenuComponent},
+  { path: 'page/:document', component: DocumentationComponent }
+
+];
 
 @NgModule({
   declarations: [
@@ -92,7 +98,8 @@ const routes : Routes = [
     DocumentationComponent,
     BvPositiveNegativeZero,
     DisqusComponent,
-    FooterComponent
+    FooterComponent,
+    LeftMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -105,7 +112,8 @@ const routes : Routes = [
     HttpModule,
     MyDatePickerModule,
     MarkdownModule.forRoot(),
-    AccordionModule.forRoot()
+    AccordionModule.forRoot(),
+    CollapseModule.forRoot()
    ],
   providers: [HighlightJsService, WebSocketService],
   bootstrap: [AppComponent]

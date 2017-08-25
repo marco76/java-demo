@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 col-md-3">
+      <div class="panel-group" id="accordion">
+        <div *ngFor="let category of list; let i = index">
+
+        <div class="panel panel-default">
+
+          <div class="panel-heading">
+            <h4 class="panel-title">
+
+                  <a data-toggle="collapse" data-parent="#accordion" (click)="isCollapsed[i] = !isCollapsed[i]">
+                    <span class="glyphicon glyphicon-folder-close"></span>{{category.label}}
+                  </a>
+            </h4></div>
+
+              <div (collapsed)="collapsed($event)"
+                   (expanded)="expanded($event)"
+                   [collapse]="isCollapsed[i]">
+
+                  <div [id]="'collapse_'+_i" class="panel-collapse collapse in">
+                    <ul class="list-group">
+                      <div *ngFor="let item of category.items">
+                        <li class="list-group-item">
+                            <a (click)="routeTo('./page/'+item.name)">
+                              <span  [ngClass]="!item.icon ? 'fa fa-file-text-o' : item.icon" class="text-primary" aria-hidden="true"></span>
+                               {{item.label}}
+                              <div><p class="list-text-description">{{item.description}}</p></div></a>
+                        </li>
+                      </div></ul></div></div></div></div></div></div></div></div>
