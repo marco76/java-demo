@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 @Stateless
 public class TVChannelsChangeObserver {
-    private final static Logger LOGGER = Logger.getLogger(TVChannelsChangeObserver.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(TVChannelsChangeObserver.class.getName());
 
     public void notifyTVChannel(@Observes WeatherEvent weatherEvent) {
         LOGGER.log(Level.INFO, "process changeWeather");
@@ -30,7 +30,8 @@ public class TVChannelsChangeObserver {
         try {
             Thread.sleep(200);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            LOGGER.warning("Interrupted exception");
+            Thread.currentThread().interrupt();
         }
         weatherEvent.addEvent("ASYNCH : TV Channel, detailed email report sent");
 

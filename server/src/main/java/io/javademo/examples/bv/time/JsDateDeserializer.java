@@ -1,15 +1,10 @@
 package io.javademo.examples.bv.time;
 
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
-import java.io.IOException;
 import java.time.LocalDate;
-import java.time.Year;
-import java.time.format.DateTimeFormatter;
 import java.util.logging.Logger;
 
 /**
@@ -17,7 +12,7 @@ import java.util.logging.Logger;
  */
 public class JsDateDeserializer extends StdDeserializer<LocalDate> {
 
-    private static Logger LOGGER = Logger.getLogger(JsDateDeserializer.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(JsDateDeserializer.class.getName());
 
     public JsDateDeserializer() {
         this(null);
@@ -35,7 +30,7 @@ public class JsDateDeserializer extends StdDeserializer<LocalDate> {
                 return null;
             }
 
-            LOGGER.info(String.format("Converting : %s", dateAsString));
+            LOGGER.info(() -> String.format("Converting : %s", dateAsString));
 
             String[] date = dateAsString.split("-");
 

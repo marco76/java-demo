@@ -1,7 +1,5 @@
 package io.javademo.common.web.response;
 
-import io.javademo.common.web.response.BVJsonResponseFactory;
-
 import javax.ejb.Stateless;
 import javax.json.JsonArrayBuilder;
 import javax.validation.ConstraintViolation;

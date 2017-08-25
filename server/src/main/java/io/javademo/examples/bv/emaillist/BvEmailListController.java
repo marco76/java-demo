@@ -20,10 +20,6 @@ public class BvEmailListController {
     @Inject
     ResponseFactory<Addresses> responseFactory;
 
-    public BvEmailListController() {
-
-    }
-
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @javax.ws.rs.Path("list")

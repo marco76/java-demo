@@ -1,12 +1,10 @@
 package io.javademo.examples.security;
 
-import io.javademo.common.web.filter.CorsFilter;
+import io.javademo.common.web.filter.HttpHeadersApp;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-
 import javax.security.auth.message.AuthException;
-
 import javax.security.enterprise.AuthenticationStatus;
 import javax.security.enterprise.authentication.mechanism.http.HttpAuthenticationMechanism;
 import javax.security.enterprise.authentication.mechanism.http.HttpMessageContext;
@@ -17,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,9 +30,15 @@ public class CustomAuthMechanism implements HttpAuthenticationMechanism {
     private static final Logger LOGGER = Logger.getLogger(CustomAuthMechanism.class.getName());
     private static final String AUTHORIZATION = "Authorization";
     private static final String BASIC = "Basic ";
+    private static final String ACCESS_CONTROL_ALLOW_HEADERS = "Access-Control-Allow-Headers";
+    private static final String HEADERS = "authorization,content-type, X-Requested-With";
 
     @Inject
+    private
     CustomIdentityStore customIdentityStore;
+    @Inject
+    private
+    HttpHeadersApp httpHeadersApp;
 
     @Override
     public AuthenticationStatus validateRequest(HttpServletRequest request, HttpServletResponse response, HttpMessageContext httpMessageContext) throws AuthException {
@@ -44,15 +47,16 @@ public class CustomAuthMechanism implements HttpAuthenticationMechanism {
 
         Credential credential = null;
 
-        MultivaluedMap<String, String> headers = CorsFilter.getHeaders();
+        MultivaluedMap<String, String> headers = httpHeadersApp.getHeadersMap();
+
         for (String key : headers.keySet()) {
             response.addHeader(key, headers.getFirst(key));
         }
-        response.addHeader("Access-Control-Allow-Headers", "authorization,content-type, X-Requested-With");
+        response.addHeader(ACCESS_CONTROL_ALLOW_HEADERS, HEADERS);
 
         // the browser send a pre-flight request with OPTION in place of GET
         if (request.getMethod().equals("OPTIONS")) {
-            httpMessageContext.getResponse().setStatus(200);
+            httpMessageContext.getResponse().setStatus(HttpServletResponse.SC_OK);
 
             return httpMessageContext.doNothing();
         }
@@ -103,6 +107,6 @@ public class CustomAuthMechanism implements HttpAuthenticationMechanism {
             return new String(parseBase64Binary(authorizationHeader.substring(6))).split(":");
         }
 
-        return null;
+        return new String[0];
     }
 }
