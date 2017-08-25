@@ -1,10 +1,7 @@
-package io.javademo.examples.readFile;
+package io.javademo.examples.readfile;
 
 import javax.inject.Inject;
-import javax.json.Json;
-import javax.json.JsonObject;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -17,7 +14,7 @@ public class ReadFileController {
     private static final Logger LOGGER = Logger.getLogger(ReadFileController.class.getName());
 
     @Inject
-    ReadFileService readFileService;
+    private ReadFileService readFileService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

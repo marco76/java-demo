@@ -20,10 +20,6 @@ public class BvRepeatableController {
     @Inject
     ResponseFactory<User> responseFactory;
 
-    public BvRepeatableController() {
-
-    }
-
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @javax.ws.rs.Path("user")

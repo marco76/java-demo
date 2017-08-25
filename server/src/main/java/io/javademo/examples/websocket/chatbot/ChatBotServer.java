@@ -38,7 +38,7 @@ public class ChatBotServer {
         try {
             peer.getBasicRemote().sendText(clientMessage.encode(clientMessage));
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.warning(e.getMessage());
         }
     }
 
@@ -80,7 +80,7 @@ public class ChatBotServer {
              try {
                  session.getBasicRemote().sendText(clientMessage.encode(clientMessage));
              } catch (IOException e) {
-                 e.printStackTrace();
+                 LOGGER.warning(e.getMessage());
              }
 
          } else {
@@ -88,28 +88,30 @@ public class ChatBotServer {
                  try {
                      Thread.sleep(500);
                  } catch (InterruptedException e) {
-                     e.printStackTrace();
+                     LOGGER.warning("Interrupted exception");
+                     Thread.currentThread().interrupt();
                  }
                  ClientMessage clientMessage = new ClientMessage();
                  clientMessage.setMessage(answerList.get(0));
                  try {
                      session.getBasicRemote().sendText(clientMessage.encode(clientMessage));
                  } catch (IOException e) {
-                     e.printStackTrace();
+                     LOGGER.warning(e.getMessage());
                  }
              } else {
                  for (String answer : answerList) {
                      try {
                          Thread.sleep(1000);
                      } catch (InterruptedException e) {
-                         e.printStackTrace();
+                         LOGGER.warning("Interrupted exception");
+                         Thread.currentThread().interrupt();
                      }
                      ClientMessage clientMessage = new ClientMessage();
                      clientMessage.setMessage(answer);
                      try {
                          session.getBasicRemote().sendText(clientMessage.encode(clientMessage));
                      } catch (IOException e) {
-                         e.printStackTrace();
+                         LOGGER.warning(e.getMessage());
                      }
                  }
          }

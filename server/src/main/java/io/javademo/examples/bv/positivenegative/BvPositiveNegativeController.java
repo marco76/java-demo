@@ -1,10 +1,6 @@
 package io.javademo.examples.bv.positivenegative;
 
 import io.javademo.common.web.response.ResponseFactory;
-import io.javademo.examples.bv.repeatable.Admin;
-import io.javademo.examples.bv.repeatable.SimpleUserDTO;
-import io.javademo.examples.bv.repeatable.User;
-import io.javademo.examples.bv.simple.Participant;
 
 import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
@@ -24,8 +20,6 @@ public class BvPositiveNegativeController {
     Validator validator;
     @Inject
     ResponseFactory<NumbersBean> responseFactory;
-
-    public BvPositiveNegativeController() {}
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)

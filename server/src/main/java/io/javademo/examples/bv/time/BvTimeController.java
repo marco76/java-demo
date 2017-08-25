@@ -9,8 +9,6 @@ import javax.ws.rs.core.Response;
 @javax.ws.rs.Path("bv/time")
 public class BvTimeController {
 
-    public BvTimeController() { }
-
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @javax.ws.rs.Path("patient")

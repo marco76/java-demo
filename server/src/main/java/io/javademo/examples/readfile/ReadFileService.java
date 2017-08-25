@@ -1,10 +1,11 @@
-package io.javademo.examples.readFile;
+package io.javademo.examples.readfile;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Lock;
 import javax.ejb.LockType;
 import javax.ejb.Schedule;
 import javax.ejb.Singleton;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,12 +16,12 @@ import java.util.stream.Stream;
 /**
  * Created by marcomolteni on 07.04.17.
  */
-
 @Singleton
 public class ReadFileService {
 
-    private final static String JSR_STATUS_FILE = "/jsr-status.json";
-    private final static String STATUS_URL = "https://s3.eu-central-1.amazonaws.com/io.javademo/jsr-status.json";
+    private static final String JSR_STATUS_FILE = "/jsr-status.json";
+    private static final String STATUS_URL = "https://s3.eu-central-1.amazonaws.com/io.javademo/jsr-status.json";
+    private static final String UTF_8 = "UTF-8";
 
     private String cachedData;
 
@@ -31,8 +32,10 @@ public class ReadFileService {
 
     private String readUrl() throws IOException {
         URL url = new URL(STATUS_URL);
+
         Stream<String> lines = new BufferedReader(
-                new InputStreamReader(url.openStream(), "UTF-8")).lines();
+                new InputStreamReader(url.openStream(), UTF_8)).lines();
+
 
         return lines.map(Object::toString).collect(Collectors.joining());
     }

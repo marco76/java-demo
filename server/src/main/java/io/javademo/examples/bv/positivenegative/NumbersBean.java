@@ -41,7 +41,7 @@ public class NumbersBean {
     }
 
     public void setNegativeNumberInFrBE(BigDecimal negativeNumberInFrBE) {
-        this.negativeNumberInFrBe = negativeNumberInFrBe;
+        this.negativeNumberInFrBe = negativeNumberInFrBE;
     }
 
     public Integer getNumberOfJavaDevelopers() {

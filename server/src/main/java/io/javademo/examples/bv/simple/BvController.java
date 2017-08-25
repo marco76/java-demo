@@ -20,11 +20,6 @@ public class BvController {
     @Inject
     Validator validator;
 
-    public BvController() {
-
-    }
-
-
     @POST @Produces(MediaType.APPLICATION_JSON)
     @javax.ws.rs.Path("participant")
     public Response validateParticipant(Participant participant) {

@@ -29,7 +29,7 @@ public class WeatherSubjectController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    // TODO JAVA EE 8: JAX-RS doesn't support yet the new annotations BV
+    // This implementation of WildFly: JAX-RS doesn't support yet the new annotations BV
     public Response transmitWeatherInformation(@Valid final WeatherRequestBean weatherRequestBean) {
         LOGGER.info("transmitWeatherInformation");
 
@@ -53,7 +53,8 @@ public class WeatherSubjectController {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            LOGGER.warning("Interrupted exception");
+            Thread.currentThread().interrupt();
         }
     }
 }
