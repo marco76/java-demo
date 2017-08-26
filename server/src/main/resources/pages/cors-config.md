@@ -1,26 +1,47 @@
-package io.javademo.common.web.filter;
+# Create Cross-Origin HTTP requests (CORS)
 
+During the development it is a good practice to work with 2 separate application servers.
 
-import javax.ws.rs.container.ContainerRequestContext;
-import javax.ws.rs.container.ContainerResponseContext;
-import javax.ws.rs.container.ContainerResponseFilter;
-import javax.ws.rs.core.MultivaluedHashMap;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.ext.Provider;
-import java.io.IOException;
-import java.util.List;
+A server for your backend and a server for your frontend.
 
-/**
- *
- * This filter allows the requests from the dev client (node.js on localhost:4200)
- */
+By default your Angular will use port 4200 and your Java backend the port 8080.
 
+You will soon discover that the browsers don't like this practice and they will block the communication between frontend and backend.
+
+For security reasons browsers don’t allow that a page answering from the domain A to load a resources from a domain B.
+
+Using 2 different ports is like to 2 different domains from the point of view of the server.
+
+You can read the detailed explanation of the CORS mechanism here: [Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+
+## How to allow CORS requests
+
+### Angular
+
+In our Angular requests we have to add the header:
+_X-Requested-With_
+
+This header enables a webpage to update just partially.
+
+```typescript
+this.headers = new Headers({ 'Content-Type': 'application/json' });
+this.headers.append('Accept', 'application/json, text/csv');
+this.headers.append('X-Requested-With', 'XMLHttpRequest');
+```
+
+### Java EE
+
+You have to update the `ALLOWED_ORIGINS` constant with the URL of the frontend server sending the requests to the backend server.
+
+Here is a first version, I will update with a better one:
+
+```java
 @Provider
 public class CorsFilter implements ContainerResponseFilter{
 
     private static final String METHODS = "GET, POST, PUT, DELETE, OPTIONS, HEAD";
-    private static final int MAX_AGE = 24 * 60 * 60;
-    private static final String HEADERS_ALLOWED = "accept, authorization, content-type, x-requested-with";
+    private final static int MAX_AGE = 24 * 60 * 60;
+    private final static String HEADERS_ALLOWED = "accept, authorization, content-type, x-requested-with";
 
     @Override
     public void filter(ContainerRequestContext containerRequestContext, ContainerResponseContext containerResponseContext) throws IOException {
@@ -35,7 +56,7 @@ public class CorsFilter implements ContainerResponseFilter{
         }
     }
 
-    private static MultivaluedMap<String, String> getHeaders() {
+    public static final MultivaluedMap<String, String> getHeaders() {
 
         MultivaluedMap<String, String> headers = new MultivaluedHashMap<>();
         headers.add("Access-Control-Allow-Origin", "http://localhost:4200");
@@ -66,3 +87,4 @@ public class CorsFilter implements ContainerResponseFilter{
         return retVal.toString();
     }
 }
+```

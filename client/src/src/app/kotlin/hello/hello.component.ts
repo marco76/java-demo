@@ -25,8 +25,7 @@ export class KotlinHelloComponent implements OnInit {
 
     this.requestService.sendGetForm('/rest/kotlin/hello', form).subscribe(
       result => {this.responseInfo= result;
-        this.responseInfo.text = this.formatToJson(result.text)
-        console.log(this.responseInfo)});
+        this.responseInfo.text = this.formatToJson(result.text)});
   }
 
   formatToJson(json : any) : string {

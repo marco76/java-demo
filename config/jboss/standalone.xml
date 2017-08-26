@@ -383,6 +383,7 @@
             </servlet-container>
             <handlers>
                 <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
+
             </handlers>
             <filters>
                 <response-header name="server-header" header-name="Server" header-value="WildFly/10"/>

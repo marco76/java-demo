@@ -1,4 +1,4 @@
-package io.javademo.examples.readfile;
+package io.javademo.examples.jsr;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Lock;
@@ -17,7 +17,7 @@ import java.util.stream.Stream;
  * Created by marcomolteni on 07.04.17.
  */
 @Singleton
-public class ReadFileService {
+public class ReadDataService {
 
     private static final String JSR_STATUS_FILE = "/jsr-status.json";
     private static final String STATUS_URL = "https://s3.eu-central-1.amazonaws.com/io.javademo/jsr-status.json";
@@ -33,9 +33,13 @@ public class ReadFileService {
     private String readUrl() throws IOException {
         URL url = new URL(STATUS_URL);
 
-        Stream<String> lines = new BufferedReader(
-                new InputStreamReader(url.openStream(), UTF_8)).lines();
+        Stream<String> lines;
 
+        // try-with-resources close the resource automatically
+        try (BufferedReader bufferedReader = new BufferedReader(
+                new InputStreamReader(url.openStream(), UTF_8))) {
+            lines = bufferedReader.lines();
+        }
 
         return lines.map(Object::toString).collect(Collectors.joining());
     }
@@ -44,8 +48,10 @@ public class ReadFileService {
 
         Stream<String> lines = new BufferedReader(new InputStreamReader(getClass().getClassLoader()
                 .getResourceAsStream(JSR_STATUS_FILE))).lines();
+
         return lines.map(Object::toString).collect(Collectors.joining());
     }
+
 
     @Schedule(hour = "2", persistent = false)
     @PostConstruct
