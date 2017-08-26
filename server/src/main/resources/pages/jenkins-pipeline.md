@@ -1,8 +1,8 @@
 # Build, test and deploy with Jenkins
 
-To build and deploy this website we use Jenkins (available here: springdemo.io:8081/job/spring-demo-pipeline/)
+To build and deploy this website we use Jenkins (available here: javaee.cloud:8081/job/java-demo-pipeline/)
 
-![alt text](http://molteni.io/images/jenkins-pipeline.png)
+![alt text]([p]BACKEND_URL[/p]/images/jenkins-pipeline.png)
 
 ## Automatically build after GitHub commits
 
@@ -10,15 +10,15 @@ Install the [GitHub plugin in Jenkins](https://wiki.jenkins.io/display/JENKINS/G
 
 In your the Jenkins pipeline configuration of your project select the option 'GitHub hook trigger for GITScm polling'.
  
-![alt text](http://molteni.io/images/jenkins-githook.png)
+![alt text]([p]BACKEND_URL[/p]/images/jenkins-githook.png)
 
 You have to add a WebHook to your GitHub project that points to your Jenkins installation.
 
-![alt text](http://molteni.io/images/github-hook.png)
+![alt text]([p]BACKEND_URL[/p]/images/github-hook.png)
 
 ## Jenkins Pipeline Script
 
-![alt text](http://molteni.io/images/jenkins-build.png)
+![alt text]([p]BACKEND_URL[/p]/images/jenkins-build.png)
 
 In the pipeline we use the following script, the credentials for Docker Hub / Docker Cloud are stored in Jenkins.
 
@@ -35,27 +35,26 @@ def dockerImage
 
 node {
     stage ('Build from GitHub') {
-    git branch: 'master', url: 'https://github.com/marco76/spriNGdemo.git';
+    git branch: 'master', url: 'https://github.com/marco76/java-demo.git';
     sh 'mvn clean install';
-    archiveArtifacts 'server/target/*.war';
+    archiveArtifacts 'server/target/*.war';      
     }
+     
+stage('SonarQube analysis') {
+    withSonarQubeEnv('SonarQube Local') {
+    sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+ }
+}
 
-    stage('SonarQube analysis') {
-        withSonarQubeEnv('SonarQube Local') {
-            sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
-        }
-    }
-
-    stage('Build Docker image') {
-        dockerImage = docker.build('javaee/springdemo', '.');
-    }
-
-    stage('Push Docker Image to Docker Cloud') {
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub')
-        {
-            dockerImage.push("${env.BUILD_NUMBER}");
-            dockerImage.push("latest");
-        }
+stage('Build Docker image') {
+    sh 'docker system prune -a -f';
+     dockerImage = docker.build('javaee/java-demo', '.');
+}
+stage('Push Docker Image to Docker Cloud')
+  docker.withRegistry('https://registry.hub.docker.com', 'docker-hub')
+    {
+        dockerImage.push("${env.BUILD_NUMBER}");
+        dockerImage.push("latest");
     } 
 }
 ```

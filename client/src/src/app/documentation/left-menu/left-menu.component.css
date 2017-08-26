@@ -1,4 +1,4 @@
-body{margin:50px;}
+
 #accordion .glyphicon { margin-right:10px; }
 .panel-collapse>.list-group .list-group-item:first-child {border-top-right-radius: 0;border-top-left-radius: 0;}
 .panel-collapse>.list-group .list-group-item {border-width: 1px 0;}
@@ -13,3 +13,6 @@ body{margin:50px;}
 .panel-collapse div.list-group .list-group a.list-group-item {border-top: 1px solid #ddd !important;border-bottom: 0;padding-left: 30px;}
 .panel-collapse .list-group-item li.list-group-item {border-top: 1px solid #DDD !important;}
 .list-text-description{margin-bottom: 0; font-style: italic; color: grey}
+.item-counter{color: grey; font-size: small}
+
+a {cursor:pointer}

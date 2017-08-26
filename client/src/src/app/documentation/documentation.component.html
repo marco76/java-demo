@@ -1,33 +1,19 @@
 <div class="alert bg-info content" role="alert">
   <span class="glyphicon glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
-  June 2017: We are collecting tutorials on GitHub to help other Java developers. You can contribute, <a href="https://github.com/marco76/javaee-tutorials.git">here the information</a>.
-
+  2017: These page are in CI (continuous improvements). I am collecting tutorials on GitHub to help other Java developers. You can contribute.
 </div>
-
-<div class="col-md-2" style="max-width: 300px">
+<span class="git-reference">
+  Improve this article on <a href="{{githubReference}}" target="_blank"> <i class="fa fa-github" aria-hidden="true"></i></a>
+</span>
+<div class="row">
+<div class="col-md-3" style="max-width: 300px">
   <app-left-menu></app-left-menu>
-
-  <accordion>
-
-       <accordion-group
-                        [panelClass]="customClass"
-                        [isOpen]="isFirstOpen">
-         <div>
-
-         </div>
-        <div accordion-heading>
-          CDI
-          <i class="pull-right float-xs-right glyphicon glyphicon-chevron-down"></i>
-        </div>
-          <div class="accordion-text" (click)="url = 'cdi-observables.md'">CDI Observable Event</div>
-
-      </accordion-group>
-    </accordion>
-  </div>
-<div class="col-md-10">
-<div Markdown [path]="'assets/public/docs/' + url">
-
-
+</div>
+<div class="col-md-9">
+  <markdown [data]="markdown"></markdown>
 </div>
 </div>
+
+<hr>
+
 

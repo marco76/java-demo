@@ -19,7 +19,7 @@ You can find the code on [GitHub](https://github.com/marco76/java-demo/tree/mast
 
 ### Weather station : requirements
 
-![alt text](http://javaee.ch/wp-content/uploads/2017/04/weather.png "Example 1")
+![alt text]([p]BACKEND_URL[/p]/images/weather.png "Example 1")
 
 
 In this example we simulate a **Weather station** that has to notify multiple observer every time the weather changes.

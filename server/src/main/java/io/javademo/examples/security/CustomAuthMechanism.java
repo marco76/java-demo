@@ -44,7 +44,6 @@ public class CustomAuthMechanism implements HttpAuthenticationMechanism {
     public AuthenticationStatus validateRequest(HttpServletRequest request, HttpServletResponse response, HttpMessageContext httpMessageContext) throws AuthException {
 
         LOGGER.log(Level.INFO, "validateRequest: {0}", request.getRequestURI());
-
         Credential credential = null;
 
         MultivaluedMap<String, String> headers = httpHeadersApp.getHeadersMap();

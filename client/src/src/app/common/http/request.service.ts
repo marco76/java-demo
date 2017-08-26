@@ -145,7 +145,6 @@ export class RequestService {
     return this.http
       .get(this.serverUrl + url, options)
       .map((response: Response) => {
-      console.log(response);
         return response;
       }).catch((error) =>
         Observable.of(error)

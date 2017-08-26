@@ -2,3 +2,12 @@
 .accordion-text{
   font-size: small;
 }
+
+.git-reference {
+  float: right;
+  font-style: italic;
+  margin-right: 10px;
+  color: gray;
+}
+
+.navigation {position:fixed;}

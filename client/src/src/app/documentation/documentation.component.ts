@@ -20,7 +20,6 @@ export class DocumentationComponent implements OnInit {
   public group:boolean = true;
   public isOpen:boolean = false;
 
-
   @Input() url: string;
 
   markdown = '';
@@ -49,20 +48,20 @@ export class DocumentationComponent implements OnInit {
 
       this.gitDocument = params.get('document');
       if (!this.gitDocument) {
-        this.gitDocument="javaee-8-wildfly"
+        this.gitDocument="home"
       }
-      this.githubReference = `${environment.GIT_DOCUMENTS_URL}${this.gitDocument}.md`;
+      this.githubReference = `${environment.GIT_DOCUMENTS_URL}${this.gitDocument}`;
 
       return this.requestService.sendGet('/rest/blog/file/' + this.gitDocument)
     })
       .subscribe(
-        result => {console.log(result);this.markdown = DocumentationComponent.setVariables(result.toString())},
+        result => {this.markdown = DocumentationComponent.setVariables(result.text.content)},
         error => { console.log(error._body) }
       );
 
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
-        return;
+        return window.scrollTo(0, 0);
       }
     });
   }

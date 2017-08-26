@@ -187,7 +187,6 @@ public class ProtectedController \{
 
     this.authenticationService.sendAuthRequest('/rest/auth/login', this.model).subscribe(
       result => {
-        console.log(result);
       if (result.status == 401) {
         this.alerts.push({
           type: 'warning',
