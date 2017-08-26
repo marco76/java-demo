@@ -50,7 +50,7 @@ export class DocumentationComponent implements OnInit {
       if (!this.gitDocument) {
         this.gitDocument="home"
       }
-      this.githubReference = `${environment.GIT_DOCUMENTS_URL}${this.gitDocument}`;
+      this.githubReference = `${environment.GIT_DOCUMENTS_URL}${this.gitDocument}.md`;
 
       return this.requestService.sendGet('/rest/blog/file/' + this.gitDocument)
     })
