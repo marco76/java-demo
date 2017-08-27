@@ -33,15 +33,15 @@ public class ReadDataService {
     private String readUrl() throws IOException {
         URL url = new URL(STATUS_URL);
 
-        Stream<String> lines;
+        String result;
 
         // try-with-resources close the resource automatically
         try (BufferedReader bufferedReader = new BufferedReader(
                 new InputStreamReader(url.openStream(), UTF_8))) {
-            lines = bufferedReader.lines();
+            result = bufferedReader.lines().map(Object::toString).collect(Collectors.joining());
         }
 
-        return lines.map(Object::toString).collect(Collectors.joining());
+        return result;
     }
 
     private String readClassPathFile() {

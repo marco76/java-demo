@@ -25,6 +25,13 @@ public class BlogController {
     public Response getDocument(@PathParam("name")String documentName) throws IOException {
         LOGGER.log(Level.INFO, String.format("getDocument(%s)", documentName));
 
-        return Response.ok().entity(buildDocumentInformationService.getDocument(documentName)).build();
+        long startTime = System.currentTimeMillis();
+
+        DocumentInfoBean documentInfoBean = buildDocumentInformationService.getDocument(documentName);
+        long endTime = System.currentTimeMillis();
+
+        LOGGER.log(Level.INFO, String.format("document retrieved in millis : %d", (endTime-startTime)));
+
+        return Response.ok().entity(documentInfoBean).build();
     }
 }
