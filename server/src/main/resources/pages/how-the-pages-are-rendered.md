@@ -95,7 +95,7 @@ In our deployed application we reduced the access to the file and imporved the p
 
 ### Next steps
 
-- store them in the database
+- store the documents in a documents database (MongoDB, ElasticSearch)
 - dynamically load the pages every x hours from GitHub
 
 ## Angular
@@ -134,6 +134,13 @@ constructor(private requestService: RequestService, private route: ActivatedRout
   }
 ```
 
-### What's wrong with this?
-- For public blogs is not ideal. Google and other search algorithms don't like JavaScript frameworks. They cannot index the pages. We could pre-render the pages in html but it's not our goal
+### ... and Spring
+You can find the Spring version here: [http://molteni.io/static-document/how-the-pages-are-rendered](http://molteni.io/static-document/how-the-pages-are-rendered)
+
+### SEO: What's wrong with this? JSF can help us!
+For public blogs JavaScript frameworks are not a good options. Google and other search algorithms fail to analyse Single Page Application's content.
+
+The pages are not indexed. We could pre-render the pages in html but it's not our goal.
+
+An good alternative to JS would be to use JSF :D.
 
