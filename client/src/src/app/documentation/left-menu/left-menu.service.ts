@@ -18,7 +18,7 @@ export class LeftMenuService {
      {
        label: 'Your own blog with Java and MarkDown',
        description: 'How this documents are rendered',
-       icon: 'fa fa-file-text-o', name: 'how-the-pages-are-rendered'}
+       icon: 'fa fa-file-text-o', name: 'blog'}
    ]}, {
    label: 'Configuration',
    items: [
