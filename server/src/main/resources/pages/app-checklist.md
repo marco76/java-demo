@@ -9,7 +9,7 @@ Here the list according to their priorities:
 ## Mandatory
 
 - [ ] _CORS Configuration_: It allow multiple servers during your development
-- [ ] _Whitelabel configuration_: Required if you use the default configuration of Angular
+- [ ] _404 - PathLocationStrategy_: Required if you use the default configuration of Angular
 
 ## Recommended
 
@@ -18,6 +18,8 @@ Here the list according to their priorities:
 - [ ] _SonarCube_: It monitors the 'quality' of the code according to your company standards
 - [ ] _Style_: Define your style and typography
 - [ ] _Page navigation_: check that the viewport is correct during the navigation
+- [ ] _Cache_: Choose a cache manager and strategy to improve the performances
+_ [ ] _Lombok_: Use Lombok to automatically generate getter and setters
 
 ## Nice to have
 

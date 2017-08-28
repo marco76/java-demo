@@ -1,4 +1,5 @@
 # How to build a blog with Java EE and MarkDown
+
 ## How the static pages of this website works
 
 Most of the content of this website is written is simple text files using [MarkDown](https://en.wikipedia.org/wiki/Markdown) notation.
@@ -18,7 +19,6 @@ The content of the file is loaded as string and send as JSON document to the fro
 ## Improvement for production
 
 This is only a simple example of how a blog can be easily created. A production application requires the use of cache and/or a document server.
-We will add some of these features.
 
 ## Java EE code
 
@@ -27,15 +27,12 @@ We will add some of these features.
 The controller is super easy. It receive a request like `http://javademo.io/file/home` and asks the DocumentInformationService to retrieve the document data.
 
 ``` java
-
 @Inject
 private BuildDocumentInformationService buildDocumentInformationService;
 
 @GET @Path("/file/{name}") @Produces(MediaType.APPLICATION_JSON)
 public Response getDocument(@PathParam("name")String documentName) {
-
-        return Response.ok().entity(buildDocumentInformationService.getDocument(documentName)).build();
-
+  return Response.ok().entity(buildDocumentInformationService.getDocument(documentName)).build();
 }
 ```
 
@@ -78,20 +75,26 @@ private static final String UTF_8 = "UTF-8";
 public String getContentFromFile(String path) throws IOException {
 
      String result;
-        
+
     // try-with-resources close the resource automatically
     try (BufferedReader bufferedReader = new BufferedReader(
         new InputStreamReader(getClass().getClassLoader()
             .getResourceAsStream(path), UTF_8))) {
          result = bufferedReader.lines().map(Object::toString).collect(Collectors.joining("\n"));
     }
-        
+
     return result;
 }
 ```
 
+## Cache the pages
+
+In our deployed application we reduced the access to the file and imporved the performances using JCache and Hazelcast. You can find here the details:
+
+[Configuration of JCache and Hazelcast]([p]BACKEND_URL[/p]/page/cache-jcache)
+
 ### Next steps
-- cache with JCache / Hazelcast the documents
+
 - store them in the database
 - dynamically load the pages every x hours from GitHub
 
@@ -132,6 +135,5 @@ constructor(private requestService: RequestService, private route: ActivatedRout
 ```
 
 ### What's wrong with this?
-- The server performances can be improved with a caching mechanism
 - For public blogs is not ideal. Google and other search algorithms don't like JavaScript frameworks. They cannot index the pages. We could pre-render the pages in html but it's not our goal
 

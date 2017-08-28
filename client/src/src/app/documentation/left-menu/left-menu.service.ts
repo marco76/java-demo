@@ -33,8 +33,10 @@ export class LeftMenuService {
        name: 'error-controller'},
      {label: 'CORS ',
        description: 'Cross-Origin Resource Sharing',
-       name: 'cors-config'}
-
+       name: 'cors-config'},
+     {label: 'JCache ',
+       description: 'Better performances using Hazelcast',
+       name: 'cache-jcache'}
    ]},
    {
      label: 'Angular Dev',
