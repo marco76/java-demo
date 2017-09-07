@@ -1,0 +1,59 @@
+<div class="panel panel-primary" >
+  <div class="panel-heading">
+    <div class="panel-title">RxJS - FlatMap example</div>
+  </div>
+  <div  class="panel-body" >
+<div class="panel-heading">
+    In this example we use <a href="http://reactivex.io/documentation/operators/flatmap.html" target="_blank">FlatMap</a> to dynamically generate a table from a JSON string.
+    You can edit the JSON string.
+</div>
+
+    <form class="form" (ngSubmit)="onSubmit()" #participantForm="ngForm">
+<div *ngIf="formatError" class="alert alert-danger">The JSON file is not correct!</div>
+      <input type="text" class="form-control" [(ngModel)]="userJSON"
+             name="jsonExample"
+             id="address_item" placeholder="JSON example"><br>
+
+      <div class="form-group">
+        <div class="col-sm-offset-0 col-sm-12">
+          <button  type="submit" class="btn btn-default">Submit</button>
+          <button  type="submit" (click)="onReset()" class="btn btn-default">Reset</button>
+
+          <ul class="cmd">
+
+            <li *ngFor="let line of textData ">
+              <span class="cmd-line">{{line}}</span>
+            </li>
+
+          </ul>
+          <div>
+            <table class="table table-striped">
+              <tr>
+                <th *ngFor="let field of resultDataTableFields">
+                  {{field}}
+                </th>
+              </tr>
+              <tr *ngFor="let data of resultDataTable">
+                <td *ngFor="let field of resultDataTableFields">
+                  {{data[field]}}
+                </td>
+              </tr>
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="panel-footer">
+    <div class="row"></div>
+  </div>
+</div>
+<span class="git-reference">
+  Improve this article on <a href="{{documentSource}}" target="_blank"> <i class="fa fa-github" aria-hidden="true"></i></a>
+</span>
+<div class="col-md-9">
+  <markdown [data]="markdown"></markdown>
+</div>
+

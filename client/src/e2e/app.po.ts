@@ -1,8 +1,12 @@
 import { browser, element, by } from 'protractor';
 
-export class MainPage {
+export  class MainPage {
   navigateTo() {
-    return browser.get('/');
+    return browser.get('http://localhost:4200');
+  }
+
+  navigateToURL(url : string) {
+    return browser.get(url);
   }
 
   getParagraphText() {

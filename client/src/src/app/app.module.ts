@@ -42,6 +42,9 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { DisqusComponent } from './common/disqus/disqus.component';
 import { FooterComponent } from './common/footer/footer.component';
 import {LeftMenuComponent} from "./documentation/left-menu/left-menu.component";
+import {FlatmapComponent} from "./flatmap/flatmap.component";
+import {RequestService} from "./common/http/request.service";
+import {AuthenticationService} from "./common/http/authentication.service";
 
 
 const routes : Routes = [
@@ -65,7 +68,8 @@ const routes : Routes = [
   { path: 'guides', component: DocumentationComponent},
   { path: 'bv-positive-negative-zero', component: BvPositiveNegativeZero},
   { path: 'left-menu', component: LeftMenuComponent},
-  { path: 'page/:document', component: DocumentationComponent }
+  { path: 'page/:document', component: DocumentationComponent },
+  { path: 'flatmap', component: FlatmapComponent}
 
 ];
 
@@ -99,7 +103,8 @@ const routes : Routes = [
     BvPositiveNegativeZero,
     DisqusComponent,
     FooterComponent,
-    LeftMenuComponent
+    LeftMenuComponent,
+    FlatmapComponent
   ],
   imports: [
     BrowserModule,
@@ -115,7 +120,7 @@ const routes : Routes = [
     AccordionModule.forRoot(),
     CollapseModule.forRoot()
    ],
-  providers: [HighlightJsService, WebSocketService],
+  providers: [HighlightJsService, WebSocketService, RequestService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
