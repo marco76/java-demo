@@ -1,0 +1,13 @@
+.cmd {
+  background:black;
+  color: #bae4d6;
+  font-size: 12px;
+
+  top:0px;
+
+  -webkit-animation-direction: normal;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: blink;
+  -webkit-animation-timing-function: ease;
+}

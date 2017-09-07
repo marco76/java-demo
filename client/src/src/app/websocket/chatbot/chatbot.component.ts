@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatbotService } from './chatbot.service';
 import { Message } from "./Message";
-import {DisqusComponent} from '../../common/disqus/disqus.component'
 
 @Component({
   selector: 'app-chatbot',
