@@ -1,26 +1,13 @@
 package io.javademo.examples.websocket.chatbot;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Created by marcomolteni on 09.04.17.
  */
 public class Message {
 
-    private String message;
-    private String author;
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
+    @Getter @Setter private String message;
+    @Getter @Setter private String author;
 }

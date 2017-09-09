@@ -4,9 +4,5 @@ export class Patient {
   nextAppointment : string;
   yearOfBirth : number;
 
-  constructor() {
-  };
-
-
-
+  constructor() {};
 }
