@@ -28,7 +28,6 @@ public class CacheConfig {
                             .setStoreByValue(false);
 
             cacheManager.createCache("documents", configuration);
-
     }
 
     @PreDestroy

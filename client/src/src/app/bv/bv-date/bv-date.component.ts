@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {RequestService} from "../../common/http/request.service";
+import { RequestService } from "../../common/http/request.service";
 import ResponseInfo from "../../common/technical-info/ResponseInfo";
-import {Patient} from "./Patient";
-import {IMyDate, IMyDateModel, IMyInputFieldChanged} from 'mydatepicker';
+import { Patient } from "./Patient";
+import { IMyDate, IMyDateModel, IMyInputFieldChanged } from 'mydatepicker';
 
 
 @Component({
@@ -32,14 +32,13 @@ export class BvDateComponent implements OnInit {
   onSubmit() {
 
     if (this.nextAppointmentJS.day) {
-
-      let selectedDate : string = "" + this.nextAppointmentJS.year +"-"+ this.nextAppointmentJS.month + "-" +this.nextAppointmentJS.day;
-      this.model.nextAppointment = selectedDate;
+      this.model.nextAppointment = `${this.nextAppointmentJS.year}-${this.nextAppointmentJS.month}-${this.nextAppointmentJS.day}`;
     }
     this.request = JSON.stringify(this.model);
 
-    this.requestService.sendRequest('/rest/bv/time/patient', this.model).subscribe(
-      result => {this.responseInfo = result});
+    this.requestService
+      .sendRequest('/rest/bv/time/patient', this.model)
+      .subscribe(result => {this.responseInfo = result});
   }
 
   onDateChanged(event: IMyDateModel) {

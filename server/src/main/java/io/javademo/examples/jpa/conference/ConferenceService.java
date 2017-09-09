@@ -14,7 +14,7 @@ public class ConferenceService {
     private final Integer CONFERENCES_TO_SHOW = 15;
 
     @Inject
-    ConferenceRepository conferenceRepository;
+    private ConferenceRepository conferenceRepository;
 
     public List<Conference> getNextConferenceList () {
         return conferenceRepository.getNextActiveConferenceList(CONFERENCES_TO_SHOW, LocalDate.now());
