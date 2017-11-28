@@ -8,7 +8,7 @@ For most of the professional applications the use of some form of caching is req
 
 ## Example of publishing our pages without cache
 
-In this website we store the articles of the documentation in simple MarkDown files. When the user ask for a documentation page the Java backend executes the following operations:
+In this website we store the articles of the documentation in simple MarkDown files. When the user asks for a documentation page the Java backend executes the following operations:
 
 - search the file in the Operating System
 - open the file
