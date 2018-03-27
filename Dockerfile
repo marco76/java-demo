@@ -1,13 +1,11 @@
-FROM javaee/wildfly-10.1.0-custom-patched:latest
+FROM jboss/wildfly
 
 MAINTAINER "Marco Molteni <moltenma@gmail.com>"
 
-ADD /config/jboss/standalone.xml /opt/wildfly/standalone/configuration/
+ADD server/target/ROOT.war /opt/jboss/wildfly/standalone/deployments/
 
-ADD server/target/ROOT.war /opt/wildfly/standalone/deployments/ROOT.war
+WORKDIR /opt/jboss/wildfly/
 
-WORKDIR /opt/wildfly/
-
-CMD ["/opt/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "-Djboss.http.port=80"]
+CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-Dee8.preview.mode=true", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
 
 EXPOSE 80

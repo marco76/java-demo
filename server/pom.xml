@@ -5,7 +5,7 @@
     <parent>
         <artifactId>parent</artifactId>
         <groupId>java-demo</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
     <packaging>war</packaging>
     <modelVersion>4.0.0</modelVersion>
@@ -16,12 +16,6 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <kotlin.version>1.1.50</kotlin.version>
-        <javax.validation.version>2.0.0.Beta2</javax.validation.version>
-        <hibernate.validator.version>6.0.2.Final</hibernate.validator.version>
-        <weld.version>3.0.SP1</weld.version>
-        <javax.cdi.version>2.0</javax.cdi.version>
-        <apache.poi.version>3.16</apache.poi.version>
     </properties>
 
     <artifactId>server</artifactId>
@@ -31,71 +25,21 @@
         <dependency>
             <groupId>java-demo</groupId>
             <artifactId>client</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.2-SNAPSHOT</version>
             <type>war</type>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>${hibernate.validator.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator-cdi</artifactId>
-            <version>${hibernate.validator.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- CDI 2.0 -->
-        <!-- https://mvnrepository.com/artifact/org.jboss.weld/weld-api -->
-        <dependency>
-            <groupId>org.jboss.weld</groupId>
-            <artifactId>weld-api</artifactId>
-            <version>${weld.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/javax.enterprise/cdi-api -->
-        <dependency>
-            <groupId>javax.enterprise</groupId>
-            <artifactId>cdi-api</artifactId>
-            <version>${javax.cdi.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- json-b -->
-        <!-- comes with yasson -->
-        <dependency>
-            <groupId>javax.json.bind</groupId>
-            <artifactId>javax.json.bind-api</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.eclipse</groupId>
-            <artifactId>yasson</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>javax.json</artifactId>
-            <version>1.1</version>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>${apache.poi.version}</version>
+            <version>3.17</version>
         </dependency>
 
         <dependency>
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast</artifactId>
-            <version>3.8.3</version>
+            <version>3.9.3</version>
         </dependency>
 
         <dependency>
@@ -107,7 +51,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.18</version>
+            <version>1.16.20</version>
             <scope>provided</scope>
         </dependency>
 
@@ -125,7 +69,7 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <version>8.0</version>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
@@ -144,24 +88,24 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.9.0</version>
+            <version>2.9.4</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib-jre8</artifactId>
-            <version>${kotlin.version}</version>
+            <version>1.2.30</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test</artifactId>
-            <version>${kotlin.version}</version>
+            <version>1.2.30</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>javax.cache</groupId>
             <artifactId>cache-api</artifactId>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </dependency>
         <dependency>
             <groupId>javax.ws.rs</groupId>
@@ -189,7 +133,7 @@
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
-            <version>${kotlin.version}</version>
+            <version>1.2.30</version>
         </dependency>
 
     </dependencies>
@@ -200,12 +144,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.2.0</version>
             </plugin>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
-                <version>${kotlin.version}</version>
+                <version>1.2.30</version>
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -297,9 +241,6 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <systemPropertyVariables>
-                        <jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
-                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>
@@ -307,33 +248,11 @@
 
 
         <repositories>
-            <!-- Needed for JSON-B API -->
-            <repository>
-                <id>java.net-Public</id>
-                <name>Maven Java Net Snapshots and Releases</name>
-                <url>https://maven.java.net/content/groups/public/</url>
-            </repository>
 
-            <!-- Needed for Yasson -->
-            <repository>
-                <id>yasson-snapshots</id>
-                <name>Yasson Snapshots repository</name>
-                <url>https://repo.eclipse.org/content/repositories/yasson-snapshots</url>
-            </repository>
             <repository>
                 <id>jboss-maven2-release-repository</id>
                 <name>JBoss</name>
                 <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-            </repository>
-
-            <!-- used for soteria -->
-            <repository>
-                <snapshots>
-                    <enabled>true</enabled>
-                </snapshots>
-                <id>bintray-snapshot</id>
-                <name>libs-snapshot</name>
-                <url>http://oss.jfrog.org/artifactory/libs-snapshot</url>
             </repository>
       </repositories>
     <profiles>
