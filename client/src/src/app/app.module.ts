@@ -42,10 +42,17 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { DisqusComponent } from './common/disqus/disqus.component';
 import { FooterComponent } from './common/footer/footer.component';
 import {LeftMenuComponent} from "./documentation/left-menu/left-menu.component";
+
 import {FlatmapComponent} from "./flatmap/flatmap.component";
 import {RequestService} from "./common/http/request.service";
 import {AuthenticationService} from "./common/http/authentication.service";
-
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MenuHeaderComponent} from "./menu-header/menu-header.component";
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MenuComponent} from "./menu/menu.component";
+import {MenuLeftComponent} from "./menu-left/menu-left.component";
+import { MaterialModule} from "./material.module";
 
 const routes : Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
@@ -77,6 +84,7 @@ const routes : Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
+    MenuComponent,
     BvSimpleOneComponent,
     PrettyJsonPipe,
     PrettyXMLPipe,
@@ -103,12 +111,15 @@ const routes : Routes = [
     BvPositiveNegativeZero,
     DisqusComponent,
     FooterComponent,
+    MenuLeftComponent,
     LeftMenuComponent,
-    FlatmapComponent
+    FlatmapComponent,
+    MenuHeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    MaterialModule,
     HighlightJsModule,
     BsDropdownModule.forRoot(),
     AlertModule.forRoot(),
@@ -118,7 +129,10 @@ const routes : Routes = [
     MyDatePickerModule,
     MarkdownModule.forRoot(),
     AccordionModule.forRoot(),
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    MatSidenavModule,
+    BrowserAnimationsModule,
+    MatExpansionModule
    ],
   providers: [HighlightJsService, WebSocketService, RequestService, AuthenticationService],
   bootstrap: [AppComponent]

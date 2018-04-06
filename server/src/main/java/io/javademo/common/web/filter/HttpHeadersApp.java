@@ -12,7 +12,7 @@ public class HttpHeadersApp {
 
     private static final String METHODS = "GET, POST, PUT, DELETE, OPTIONS, HEAD, PATCH";
     private static final int MAX_AGE = 24 * 60 * 60;
-    private static final String HTTP_LOCALHOST_NODE = "http://localhost:4200";
+    private static final String HTTP_LOCALHOST_NODE = "*";
     private static final String ALLOW_CREDENTIALS = "true";
     private static final  String HEADERS_ALLOWED = "accept, authorization, content-type, x-requested-with";
 

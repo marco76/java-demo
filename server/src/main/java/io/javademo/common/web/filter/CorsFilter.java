@@ -38,7 +38,7 @@ public class CorsFilter implements ContainerResponseFilter{
     private static MultivaluedMap<String, String> getHeaders() {
 
         MultivaluedMap<String, String> headers = new MultivaluedHashMap<>();
-        headers.add("Access-Control-Allow-Origin", "http://localhost:4200");
+        headers.add("Access-Control-Allow-Origin", "*");
         headers.add("Access-Control-Allow-Credentials", "true");
         headers.add("Access-Control-Allow-Methods", METHODS);
         headers.add("Access-Control-Max-Age", String.valueOf(MAX_AGE));

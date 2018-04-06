@@ -20,4 +20,10 @@
             </auth-constraint>
         </security-constraint>
 
+    <data-source>
+        <name>java:global/datasource</name>
+        <class-name>org.h2.jdbcx.JdbcDataSource</class-name>
+        <url>jdbc:h2:mem:test</url>
+    </data-source>
+
 </web-app>
