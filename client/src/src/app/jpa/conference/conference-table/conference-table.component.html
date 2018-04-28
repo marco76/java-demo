@@ -23,8 +23,8 @@
         <td style="text-align:right" class="col-md-1"><span *ngIf='conference.daysLeft > 30'> {{conference.daysLeft}}</span>
           <span *ngIf='conference.daysLeft <= 30 && conference.daysLeft >= 0' class="label label-warning"> SOON - {{conference.daysLeft}}</span>
           <span *ngIf='conference.daysLeft < 0' class="label label-success"> NOW </span>
-        <td class="date col-md-1">{{conference.begin | date: 'yMMMd'}}</td>
-        <td class="date col-md-1">{{conference.end | date: 'yMMMd'}}</td>
+        <td class="date col-md-1">{{conference.begin | date: 'dd MMM yy'}}</td>
+        <td class="date col-md-1">{{conference.end | date: 'dd MMM yy'}}</td>
         <td class="col-md-1">{{conference.city}}</td>
         <td><span *ngIf="conference.isoCountry" class="flag-icon flag-icon-{{conference.isoCountry}}"></span> {{conference.country}}</td>
 

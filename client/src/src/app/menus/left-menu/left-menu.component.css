@@ -1,0 +1,52 @@
+.mat-list-icon {
+  color: rgba(0, 0, 0, 0.54);
+
+}
+
+.article {
+  padding: 0 5px;
+  color: rgba(0,0,0,.54);
+
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.list-text-title {
+  font-size: 14px;
+  color: black;
+}
+
+.list-text-description {
+  font-size: smaller;
+  color: gray;
+}
+
+.mat-expansion-panel {
+  width: 350px;
+}
+
+.mat-expansion-panel-header{
+  max-width: 300px!important;
+  padding: 0 2px 1px!important;
+}
+
+.mat-expansion-panel-body{
+  padding: 0 2px 1px!important;
+}
+
+.mat-expansion-indicator{
+  margin-right: 10px!important;
+}
+
+.category-title {
+  font-size: large;
+}
+
+.mat-list-item-content {
+  margin-top: -10px;
+}

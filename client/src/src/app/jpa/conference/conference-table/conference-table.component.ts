@@ -3,6 +3,7 @@ import Conference from "../Conference";
 import {RequestService} from "../../../common/http/request.service";
 import ResponseInfo from "../../../common/technical-info/ResponseInfo";
 import {Http, ResponseContentType} from "@angular/http";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'conference-table',
@@ -23,7 +24,7 @@ export class ConferenceTableComponent implements OnInit {
   }
 
   loadData() {
-    this.requestService.sendGet('/rest/jpa/conference').subscribe(
+    this.requestService.sendGet('/rest/conference', environment.SPRNG_DATA).subscribe(
       result => {this.responseInfo = result ;
       this.conferenceList =result.text;
       for (let i = 0; i < this.conferenceList.length; i++) {
@@ -41,7 +42,7 @@ export class ConferenceTableComponent implements OnInit {
   }
 
   downloadExcel() {
-    this.requestService.sendGetType("/rest/jpa/conference/excel", ResponseContentType.ArrayBuffer)
+    this.requestService.sendGetType("/rest/conference/excel", ResponseContentType.ArrayBuffer)
       .subscribe(
         result => {
         this.downloadFile(result._body, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") },

@@ -1,7 +1,7 @@
 [{
       "number" : "366",
       "name" : "Java EE 8",
-      "status":"Proposed Final Draft",
+      "status":"Final Release",
       "new-updated" : "Updated",
       "demo-page" : "",
       "website" :"",
@@ -12,7 +12,7 @@
       "number" : "380",
       "name" : "Bean Validation 2.0",
       "new-updated" : "Updated",
-      "status":"Proposed Final Draft",
+      "status":"Final Release",
       "demo-page" : "",
       "website" : "http://beanvalidation.org",
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=380",
@@ -27,7 +27,7 @@
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=369",
       "comment" :"",
       "last-update":"",
-      "status":"Proposed Final Draft"
+      "status":"Final Release"
     },{
       "number" : "372",
       "name" : "JSF 2.3",
@@ -59,7 +59,7 @@
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=370",
       "comment" :"",
       "last-update":"",
-      "status":"Proposed Final Draft"
+      "status":"Final Release"
     },
     {
       "number" : "374",
@@ -92,6 +92,6 @@
       "jsr-link" : "https://jcp.org/en/jsr/detail?id=375",
       "comment" :"",
       "last-update":"",
-      "status":"Proposed Final Draft"
+      "status":"Final Release"
     }
   ]

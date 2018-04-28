@@ -8,9 +8,10 @@ import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 
-  constructor(private elementRef:ElementRef) { }
+  constructor(private elementRef:ElementRef) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ngAfterViewInit() {
     // DOM manipulation should be exceptional

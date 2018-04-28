@@ -1,0 +1,1 @@
+enum TypeDoc {DOC, COMPONENT};

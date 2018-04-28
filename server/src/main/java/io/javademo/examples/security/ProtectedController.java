@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 /**
  * Created by marcomolteni on 05.06.17.
  */
-@Path("protected")
+//@Path("protected")
 public class ProtectedController {
 
     private static final Logger LOGGER = Logger.getLogger(ProtectedController.class.getName());

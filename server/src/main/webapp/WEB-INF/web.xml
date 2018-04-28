@@ -8,22 +8,4 @@
         <location>/</location>
     </error-page>
 
-    <!-- Security constraints  -->
-
-        <security-constraint>
-            <web-resource-collection>
-                <web-resource-name>Protected resources</web-resource-name>
-                <url-pattern>/rest/protected/*</url-pattern>
-            </web-resource-collection>
-            <auth-constraint>
-                <role-name>user</role-name>
-            </auth-constraint>
-        </security-constraint>
-
-    <data-source>
-        <name>java:global/datasource</name>
-        <class-name>org.h2.jdbcx.JdbcDataSource</class-name>
-        <url>jdbc:h2:mem:test</url>
-    </data-source>
-
 </web-app>

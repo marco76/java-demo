@@ -15,6 +15,7 @@ import {AuthenticationService} from "./authentication.service";
 export class RequestService {
 
   serverUrl : string = environment.BACKEND_URL;
+  documentsServerUrl: string = environment.DOCUMENTS_URL;
   private headers : Headers;
 
   constructor(private http: Http, private authenticationService: AuthenticationService) {
@@ -75,13 +76,14 @@ export class RequestService {
         Observable.of(this.buildErrorAnswerXML(error))
       );
   }
-  sendGet(url:string) : Observable<any> {
+  sendGet(url:string, server?: string) : Observable<any> {
 
     let options = new RequestOptions({ headers: this.headers });
     this.addAuthHeader(this.headers);
+    let urlEndpoint = server ? server + url : this.serverUrl + url;
 
     return this.http
-      .get(this.serverUrl + url, options)
+      .get(urlEndpoint, options)
       .map((response: Response) => {
         let responseInfo = new ResponseInfo();
         responseInfo.status = response.status;
@@ -165,6 +167,18 @@ export class RequestService {
       })
   }
 
+  getText(url: string): Observable<any> {
+
+    const options = new RequestOptions({ headers: this.headers });
+
+    return this.http
+      .get(this.documentsServerUrl + '/' + url, options)
+      .map((response: Response) => {
+        return response.text();
+      }).catch((error) =>
+        Observable.of(this.buildErrorAnswer(error))
+      );
+  }
 
   buildErrorAnswer(error) : ResponseInfo{
 

@@ -1,0 +1,26 @@
+.container {
+  display: -webkit-flex;
+  display: flex;
+}
+nav {
+  width: 200px;
+}
+.flex-column {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.initial {
+  -webkit-flex: initial;
+  flex: initial;
+  width: 200px;
+  min-width: 100px;
+}
+
+.git-reference {
+  float: right;
+  font-style: italic;
+  margin-right: 10px;
+  color: gray;
+}
+

@@ -5,3 +5,10 @@
   left: 0;
   right: 0;
 }
+
+.mat-sidenav-content {
+  padding-left: 50px;
+  background-color: white;
+  height: 80vh;
+  overflow-y: scroll;
+}

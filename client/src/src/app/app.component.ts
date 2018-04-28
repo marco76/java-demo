@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  selectedMenu = null;
+  changeMenu(menu: string){
+    this.selectedMenu = menu;
+  }
 }
