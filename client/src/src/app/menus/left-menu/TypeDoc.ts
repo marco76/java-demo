@@ -1,1 +1,1 @@
-enum TypeDoc {DOC, COMPONENT};
+export enum TypeDoc {DOC, COMPONENT, GIT}

@@ -1,9 +1,38 @@
+import {TypeDoc} from "./TypeDoc";
+
 export class AngularMenu {
 
   static get menu(): {name: string, links: Array<any>} {
     return {
       name: 'angular',
+
       links: [
+        {
+          label: 'Components',
+          items: [
+
+            {
+              label: 'AV Components',
+              icon: 'ffa fa fa-book',
+              description: 'Autocomplete and Chip',
+              type: TypeDoc.COMPONENT,
+              routerLink: '/angular/av-components-demo'},
+
+
+
+            {label: 'Data Table',
+            icon: 'ffa fa fa-book',
+            description: 'Create a dynamic table from a JSON string',
+            routerLink: '/angular/datatable',
+            type: TypeDoc.COMPONENT,},
+
+            {
+              label: 'Visual Studio Code',
+              icon: 'ffa fa fa-book',
+              description: 'Setup VSC',
+              routerLink: '../visual-studio-code-setup'},
+          ]
+        },
         {
           label: 'RxJS',
           items: [ {label: 'RxJS - FlatMap',
@@ -19,6 +48,15 @@ export class AngularMenu {
           ]
         },
         {
+          label: 'Deployment',
+          items: [ {
+            label: 'Deploy Angular with Docker and Nginx',
+            description: 'Deploy with permformance optimization',
+            type: TypeDoc.GIT,
+            routerLink: '../2018-05-10-docker-angular-nginx'}
+        ]
+        },
+        {
           label: '... with Java',
           items: [ {
             label: 'Deploy Angular with Java',
@@ -27,6 +65,13 @@ export class AngularMenu {
           }]
         }
         ,
+        {
+          label: 'SEO',
+          items: [ {label: 'Increase your visibility',
+            icon: 'ffa fa fa-book',
+            description: 'Search Engine Optimization: show your pages to the world',
+            routerLink: '../basic-seo-for-angular'}]
+        },
         {
           label: 'Angular Dev',
           items: [
@@ -40,7 +85,13 @@ export class AngularMenu {
             {label: 'Styling', icon: 'fa fa-paint-brush', routerLink: '../page/material-create-style'},
 
             {label: 'Webpack', description: 'where is webpack in Angular CLI?', icon: 'fa fa-css3',
-              routerLink: '/angular-cli-webpack'}
+              routerLink: '/angular-cli-webpack'},
+            {
+              label: 'Import JavaScript',
+              description: 'import JavaScript libraries',
+              icon: 'fa fa-cog',
+              routerLink: '../import-javascript-in-angular'
+            }
 
           ]
         }

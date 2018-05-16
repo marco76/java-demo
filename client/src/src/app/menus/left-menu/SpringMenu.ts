@@ -30,10 +30,16 @@ export class SpringMenu {
                 description: 'PathLocationStrategy',
 
                 routerLink: '../error-controller'},
-              {label: 'CORS ',
+              {
+                label: 'CORS ',
                 description: 'Cross-Origin Resource Sharing',
-                routerLink: '../cors-config'}
-
+                routerLink: '../cors-config'
+              },
+              {
+                label:  'Deploy with Docker',
+                description: 'Deploy a jar Spring Boot using Docker',
+                routerLink: '../deploy-spring-boot-with-docker'
+              }
             ]},
           {
             label: 'Spring Dev',

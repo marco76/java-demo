@@ -41,6 +41,10 @@ export class StaticPageComponent implements OnInit {
 
       this.gitDocument = params.get('document');
       this.githubReference = `${environment.GIT_DOCUMENTS_URL}${this.gitDocument}.md`;
+      console.log('this.route.routeConfig.path');
+      if (this.route.routeConfig.path.startsWith('git') || this.gitDocument.startsWith('20')){
+        return this.requestService.getGitText('rest/document/git/' + this.gitDocument)
+      }
 
       return this.requestService.getText('rest/document/' + this.gitDocument)
     })

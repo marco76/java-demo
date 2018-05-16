@@ -30,7 +30,8 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
-        "../src/assets/css/hl/highlight.pack.js"
+        "../src/assets/css/hl/highlight.pack.js",
+        "../src/assets/js/autotrack.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

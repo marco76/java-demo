@@ -14,6 +14,7 @@ http://javademo.io/doc/spring/quality-code-review-quotes
 http://javademo.io/doc/spring/actuator-monitoring
 http://javademo.io/doc/spring/swagger-config
 http://javademo.io/doc/spring/docker-cheatsheet
+http://javademo.io/doc/spring/deploy-spring-boot-with-docker
 http://javademo.io/jsr-status
 http://javademo.io/bv
 http://javademo.io/bv-date
@@ -28,14 +29,21 @@ http://javademo.io/chatbot
 http://javademo.io/jpa-conferences
 http://javademo.io/extra-cache
 http://javademo.io/excel-export
-http://javademo.io/angular/flatmap
-http://javademo.io/angular/angular-to-the-top
-http://javademo.io/angular/md-material
-http://javademo.io/angular/font-google
-http://javademo.io/angular/font-awesome
-http://javademo.io/angular/material-create-style
-http://javademo.io/angular/angular-cli-webpack
-http://javademo.io/cloud/deploy-angular-google-cloud
+http://javademo.io/doc//angular/flatmap
+http://javademo.io/doc/angular/angular-to-the-top
+http://javademo.io/doc/angular/md-material
+http://javademo.io/doc/angular/font-google
+http://javademo.io/doc/angular/font-awesome
+http://javademo.io/doc/angular/material-create-style
+http://javademo.io/doc/angular/angular-cli-webpack
+http://javademo.io/doc/cloud/deploy-angular-google-cloud
+http://javademo.io/doc/angular/deploy-java-angular-one
+http://javademo.io/doc/angular/visual-studio-code-setup
+http://javademo.io/doc/angular/basic-seo-for-angular
+http://javademo.io/doc/angular/import-javascript-in-angular
+http://javademo.io/git/angular/2018-05-10-docker-angular-nginx
+
+
 
 
 

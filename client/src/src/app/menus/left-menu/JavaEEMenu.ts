@@ -1,3 +1,5 @@
+import {TypeDoc} from "./TypeDoc";
+
 export class JavaEEMenu {
 
   static get menu(): {name: string, links: Array<any>} {

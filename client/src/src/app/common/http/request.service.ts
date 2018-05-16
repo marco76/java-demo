@@ -9,6 +9,7 @@ import {environment} from '../../../environments/environment';
 import ResponseInfo from "../technical-info/ResponseInfo";
 import 'rxjs/add/observable/of'
 import {AuthenticationService} from "./authentication.service";
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable()
@@ -16,9 +17,11 @@ export class RequestService {
 
   serverUrl : string = environment.BACKEND_URL;
   documentsServerUrl: string = environment.DOCUMENTS_URL;
+
   private headers : Headers;
 
-  constructor(private http: Http, private authenticationService: AuthenticationService) {
+  constructor(private http: Http, private authenticationService: AuthenticationService,
+              private httpClient: HttpClient) {
     // OnInit not supported by services
     this.headers = new Headers({ 'Content-Type': 'application/json' });
     this.headers.append('Accept', 'application/json, text/xml');
@@ -169,11 +172,28 @@ export class RequestService {
 
   getText(url: string): Observable<any> {
 
+    console.log('this.getText:', url);
+
     const options = new RequestOptions({ headers: this.headers });
 
     return this.http
       .get(this.documentsServerUrl + '/' + url, options)
       .map((response: Response) => {
+        return response.text();
+      }).catch((error) =>
+        Observable.of(this.buildErrorAnswer(error))
+      );
+  }
+
+  getGitText(url: string): Observable<any> {
+    console.log('this.getGitText:', url);
+
+    const options = new RequestOptions({ headers: this.headers });
+
+    return this.http
+      .get(this.documentsServerUrl + '/' + url, options)
+      .map((response: Response) => {
+        console.log(response);
         return response.text();
       }).catch((error) =>
         Observable.of(this.buildErrorAnswer(error))
@@ -208,5 +228,11 @@ export class RequestService {
           this.authenticationService.authorization);
       }
     }
+  }
+
+  getRestData(url : string, server? : string) : Observable<any> {
+    let urlEndpoint = server ? server + url : this.serverUrl + url;
+
+    return this.httpClient.get(urlEndpoint);
   }
 }

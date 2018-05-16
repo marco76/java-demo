@@ -5,6 +5,7 @@ import {CloudMenu} from "./CloudMenu";
 import {JavaEEMenu} from "./JavaEEMenu";
 import {SpringMenu} from "./SpringMenu";
 import {AngularMenu} from "./AngularMenu";
+import { TypeDoc } from './TypeDoc';
 
 
 @Component({
@@ -48,10 +49,11 @@ export class LeftMenuMatComponent implements OnChanges, OnInit {
  }
 
   getRouter(item : any, category: string) : string {
-    if ( TypeDoc.COMPONENT !== item.type) {
-      return `/doc/${category}/${item.routerLink}`
-    } else {
-      return item.routerLink;
+
+    switch (item.type) {
+      case TypeDoc.COMPONENT : return item.routerLink;
+      case TypeDoc.GIT : return `/git/${category}/${item.routerLink}`;
+      default :return `/doc/${category}/${item.routerLink}`;
     }
   }
 
@@ -80,6 +82,4 @@ export class LeftMenuMatComponent implements OnChanges, OnInit {
       this.showAll = false;
     }
   }
-
-
 }

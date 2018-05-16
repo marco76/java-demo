@@ -1,0 +1,28 @@
+.date {
+  text-align: right;
+}
+
+.icon {
+  text-align: center;
+}
+
+@keyframes slide {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 20%;
+  }
+  40% {
+    left: 40%;
+  }
+  60% {
+    left: 60%;
+  }
+  80% {
+    left: 80%;
+  }
+  100% {
+    left: 100%;
+  }
+}
