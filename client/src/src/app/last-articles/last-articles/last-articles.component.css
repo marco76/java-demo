@@ -1,0 +1,20 @@
+.flexcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.article-card{
+  max-width: 300px;
+  margin-right: 20px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.article-card:hover {
+  color: blue;
+}
+
+.article-card-title {
+  font-size: 20px;
+}

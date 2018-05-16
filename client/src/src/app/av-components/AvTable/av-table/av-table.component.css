@@ -1,0 +1,56 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.av-toolbar {
+  display: flex;
+}
+
+.av-toolbar > .av-left {
+  justify-content: flex-start;
+}
+
+.av-toolbar > .av-right {
+  margin: auto;
+}
+
+.av-toolbar-infos {
+  font-size: small;
+  vertical-align: text-bottom;
+  color: rgba(0,0,0,.54); /* same as default material */
+}
+
+.push {
+  margin-left: auto;
+}
+
+.bottom {
+  padding-top: 55px;
+}
+
+.mat-toolbar-row {
+  justify-content: space-between;
+  height: 30px!important;
+}
+
+.edit{
+  cursor: pointer;
+  color: gray;
+}

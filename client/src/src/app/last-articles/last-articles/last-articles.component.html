@@ -1,0 +1,16 @@
+<div class="flexcontainer">
+<div *ngFor="let article of articleList" >
+
+  <mat-card (click)="goPage(article.link)" class="article-card">
+    <mat-card-header>
+      <div mat-card-avatar *ngIf="article.icon"><img [src]="article.icon" width="50px" height="50px"></div>
+    <mat-card-title class="article-card-title">
+      {{article.title}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{article.description}} - {{article.published | date}}
+    </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div></div>
+

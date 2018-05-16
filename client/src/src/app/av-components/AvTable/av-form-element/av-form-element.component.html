@@ -1,0 +1,10 @@
+<div [formGroup]="form">
+
+
+    <mat-form-field>
+      <input matInput [formControlName]="element.fieldName"
+             [id]="element.fieldName" [placeholder]="element.label">
+    </mat-form-field>
+
+  <!--<div class="errorMessage" *ngIf="!isValid">{{element.label}} is required</div>-->
+</div>

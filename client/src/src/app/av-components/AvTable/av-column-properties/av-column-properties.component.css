@@ -1,0 +1,27 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container > * {
+  width: 100%;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 350px;
+  min-width: 300px;
+  overflow: auto;
+}
+
+.mat-select {
+  margin-bottom: 10px;
+  border-bottom-width: 2px;
+  border-bottom-color: #0000002e;
+  border-bottom-style: solid;
+  font-size: large;
+}
+
+
+
