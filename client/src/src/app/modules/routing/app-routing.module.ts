@@ -25,7 +25,6 @@ import {QuizHelloComponent} from "../../jee/quiz/hello/quiz-hello.component";
 import {KotlinHelloComponent} from "../../jee/kotlin/hello/hello.component";
 import {LeftMenuComponent} from "../../documentation/left-menu/left-menu.component";
 import {MaterialDatatableComponent} from "../../angular/material-datatable/material-datatable.component";
-import {AvExampleComponent} from "../../angular/av-example/av-example.component";
 
 const appRoutes : Routes = [
   { path: '', component: MainComponent, children: [{path: '',component: HomeComponent, outlet: 'main'}]},
@@ -65,7 +64,6 @@ const appRoutes : Routes = [
   { path: 'jsr-status', component: JsrStatusComponent},
   { path: 'static-document/:document', component: StaticPageComponent },
   { path: 'angular/datatable', component: MaterialDatatableComponent },
-  { path: 'angular/av-components-demo', component: AvExampleComponent }
 
 
 ];

@@ -1,23 +1,24 @@
 <div *ngIf="selectedCategory">
   <div class="category-title">{{subject}}</div>
   <mat-divider></mat-divider>
-<div *ngFor="let category of selectedCategory.links">
-<mat-expansion-panel expanded = "true" [hideToggle]="false">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      {{category.label}}
-    </mat-panel-title>
-  </mat-expansion-panel-header>
+  <div *ngFor="let category of selectedCategory.links">
+    <mat-expansion-panel expanded="true" [hideToggle]="false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{category.label}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
 
-  <div *ngFor="let item of category.items">
-    <mat-nav-list dense flex>
-    <a mat-list-item [routerLink]="getRouter(item, selectedCategory.name)">
-      <span mat-list-icon><i [ngClass]="!item.icon ? 'fa fa-file-text-o' : item.icon" aria-hidden="true"></i></span>
-      <h2 mat-line><a>{{item.label}}</a> </h2>
-      <p mat-line class="list-text-description">{{item.description}}</p>
-    </a>
-    </mat-nav-list>
+      <div *ngFor="let item of category.items">
+        <mat-nav-list dense flex>
+          <a mat-list-item [routerLink]="getRouter(item, selectedCategory.name)">
+            <span mat-list-icon><i [ngClass]="!item.icon ? 'fa fa-file-text-o' : item.icon"
+                                   aria-hidden="true"></i></span>
+            <h2 mat-line><a>{{item.label}}</a></h2>
+            <p mat-line class="list-text-description">{{item.description}}</p>
+          </a>
+        </mat-nav-list>
+      </div>
+    </mat-expansion-panel>
   </div>
-</mat-expansion-panel>
-</div>
 </div>

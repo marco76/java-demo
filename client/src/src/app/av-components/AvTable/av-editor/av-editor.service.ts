@@ -1,10 +1,11 @@
-import { Injectable }   from '@angular/core';
+import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AvTableColumnForm } from "../av-form-element/AvTableColumnForm";
 
 @Injectable()
 export class AvEditorService {
-  constructor() { }
+  constructor() {
+  }
 
   toFormGroup(elements: AvTableColumnForm[]) {
     let group: any = {};

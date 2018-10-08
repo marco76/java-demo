@@ -29,7 +29,9 @@ http://javademo.io/chatbot
 http://javademo.io/jpa-conferences
 http://javademo.io/extra-cache
 http://javademo.io/excel-export
-http://javademo.io/doc//angular/flatmap
+http://javademo.io/angular/font-awesome
+http://javademo.io/angular/font-google
+http://javademo.io/angular/md-material
 http://javademo.io/doc/angular/angular-to-the-top
 http://javademo.io/doc/angular/md-material
 http://javademo.io/doc/angular/font-google
@@ -42,6 +44,13 @@ http://javademo.io/doc/angular/visual-studio-code-setup
 http://javademo.io/doc/angular/basic-seo-for-angular
 http://javademo.io/doc/angular/import-javascript-in-angular
 http://javademo.io/git/angular/2018-05-10-docker-angular-nginx
+http://javademo.io/static-document/app-checklist
+http://javademo.io/home
+http://javademo.io/login
+http://javademo.io/cat/angular
+http://javademo.io/cat/cloud
+http://javademo.io/flatmap
+
 
 
 

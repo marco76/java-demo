@@ -1,6 +1,6 @@
 <mat-sidenav-container>
-  <mat-sidenav mode="side" [opened]="category" style="max-width: 300px">
-    <mat-accordion>
+  <mat-sidenav mode="side" [opened]="category" style="max-width: 300px"  class="custom-sidenav">
+    <mat-accordion  class="content">
     <router-outlet name="menuleft"> </router-outlet>
       <app-lateral-menu [category]="category"></app-lateral-menu>
     </mat-accordion>

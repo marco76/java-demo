@@ -52,9 +52,6 @@ import { MaterialModule} from "./modules/material.module";
 
 import { LeftMenuMatComponent} from "./menus/left-menu/left-menu.component";
 import {StaticPageComponent} from "./static-page/static-page.component";
-import {environment} from "../environments/environment";
-import {AngularFireModule} from "angularfire2";
-import {AngularFireStorageModule} from "angularfire2/storage";
 import {WebsiteModule} from "./modules/website/website.module";
 import { MainComponent } from './main/main.component';
 import {AppRoutingModule} from "./modules/routing/app-routing.module";
@@ -65,8 +62,6 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AvEditorComponent } from './av-components/AvTable/av-editor/av-editor.component';
 import {AvFormElement} from "./av-components/AvTable/av-form-element/AvFormElement";
 import {AvFormElementComponent} from "./av-components/AvTable/av-form-element/av-form-element.component";
-import { AvExampleComponent } from './angular/av-example/av-example.component';
-import { AvAutocompleteModule } from  '@molteni/av-components';
 import { AvColumnPropertiesComponent } from "./av-components/AvTable/av-column-properties/av-column-properties.component";
 
 @NgModule({
@@ -110,7 +105,6 @@ import { AvColumnPropertiesComponent } from "./av-components/AvTable/av-column-p
     MaterialDatatableComponent,
     AvEditorComponent,
     AvFormElementComponent,
-    AvExampleComponent,
     AvColumnPropertiesComponent
   ],
   imports: [
@@ -118,9 +112,7 @@ import { AvColumnPropertiesComponent } from "./av-components/AvTable/av-column-p
     BrowserAnimationsModule,
     AppRoutingModule,
     AngularModule,
-    AvAutocompleteModule,
 
-    AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
     MaterialModule,
     HighlightJsModule,
@@ -135,7 +127,6 @@ import { AvColumnPropertiesComponent } from "./av-components/AvTable/av-column-p
     MatSidenavModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    AngularFireStorageModule,
     WebsiteModule,
     HttpClientModule,
    ],

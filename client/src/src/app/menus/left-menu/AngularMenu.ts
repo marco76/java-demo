@@ -1,8 +1,8 @@
-import {TypeDoc} from "./TypeDoc";
+import { TypeDoc } from "./TypeDoc";
 
 export class AngularMenu {
 
-  static get menu(): {name: string, links: Array<any>} {
+  static get menu(): { name: string, links: Array<any> } {
     return {
       name: 'angular',
 
@@ -10,55 +10,51 @@ export class AngularMenu {
         {
           label: 'Components',
           items: [
-
             {
-              label: 'AV Components',
+              label: 'Data Table',
               icon: 'ffa fa fa-book',
-              description: 'Autocomplete and Chip',
+              description: 'Create a dynamic table from a JSON string',
+              routerLink: '/angular/datatable',
               type: TypeDoc.COMPONENT,
-              routerLink: '/angular/av-components-demo'},
-
-
-
-            {label: 'Data Table',
-            icon: 'ffa fa fa-book',
-            description: 'Create a dynamic table from a JSON string',
-            routerLink: '/angular/datatable',
-            type: TypeDoc.COMPONENT,},
-
+            },
             {
               label: 'Visual Studio Code',
               icon: 'ffa fa fa-book',
               description: 'Setup VSC',
-              routerLink: '../visual-studio-code-setup'},
+              routerLink: '../visual-studio-code-setup'
+            },
           ]
         },
         {
           label: 'RxJS',
-          items: [ {label: 'RxJS - FlatMap',
+          items: [{
+            label: 'RxJS - FlatMap',
             icon: 'ffa fa fa-book',
             description: 'Create a dynamic table from a JSON string',
-            routerLink: '../flatmap'},
+            routerLink: '/flatmap'
+          },
 
             {
               label: 'Visual Studio Code',
               icon: 'ffa fa fa-book',
               description: 'Setup VSC',
-              routerLink: '../visual-studio-code-setup'},
+              routerLink: '../visual-studio-code-setup'
+            },
           ]
         },
         {
           label: 'Deployment',
-          items: [ {
+          items: [{
             label: 'Deploy Angular with Docker and Nginx',
             description: 'Deploy with permformance optimization',
             type: TypeDoc.GIT,
-            routerLink: '../2018-05-10-docker-angular-nginx'}
-        ]
+            routerLink: '../2018-05-10-docker-angular-nginx'
+          }
+          ]
         },
         {
           label: '... with Java',
-          items: [ {
+          items: [{
             label: 'Deploy Angular with Java',
             description: 'Deploy everything in a single WAR/JAR',
             routerLink: '../deploy-java-angular-one'
@@ -67,25 +63,37 @@ export class AngularMenu {
         ,
         {
           label: 'SEO',
-          items: [ {label: 'Increase your visibility',
+          items: [{
+            label: 'Increase your visibility',
             icon: 'ffa fa fa-book',
             description: 'Search Engine Optimization: show your pages to the world',
-            routerLink: '../basic-seo-for-angular'}]
+            routerLink: '../basic-seo-for-angular'
+          }]
         },
         {
           label: 'Angular Dev',
           items: [
-            {label: 'Route to the top of the page',
-              description: 'fix the ng navigation issue ', icon: 'fa fa-bug', routerLink: '../angular-to-the-top'},
-            {label: 'Angular Material',
-              description: 'introduction to MD', icon: 'fa fa-font-awesome', routerLink: '../md-material'},
-            {label: 'Typography',
-              description: 'improve the readability of your app', icon: 'fa fa-font-awesome', routerLink: '../font-google'},
+            {
+              label: 'Route to the top of the page',
+              description: 'fix the ng navigation issue ', icon: 'fa fa-bug', routerLink: '../angular-to-the-top'
+            },
+            {
+              label: 'Angular Material',
+              description: 'introduction to MD', icon: 'fa fa-font-awesome', routerLink: '../md-material'
+            },
+            {
+              label: 'Typography',
+              description: 'improve the readability of your app',
+              icon: 'fa fa-font-awesome',
+              routerLink: '../font-google'
+            },
             {label: 'Font Awesome', icon: 'fa fa-font-awesome', routerLink: '../font-awesome'},
             {label: 'Styling', icon: 'fa fa-paint-brush', routerLink: '../page/material-create-style'},
 
-            {label: 'Webpack', description: 'where is webpack in Angular CLI?', icon: 'fa fa-css3',
-              routerLink: '/angular-cli-webpack'},
+            {
+              label: 'Webpack', description: 'where is webpack in Angular CLI?', icon: 'fa fa-css3',
+              routerLink: '/angular-cli-webpack'
+            },
             {
               label: 'Import JavaScript',
               description: 'import JavaScript libraries',
@@ -95,5 +103,7 @@ export class AngularMenu {
 
           ]
         }
-      ]}
-}}
+      ]
+    }
+  }
+}

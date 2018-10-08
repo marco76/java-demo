@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
-import {AvTableColumnConfig} from "../av-table/AvTableColumnConfig";
-import {MAT_DIALOG_DATA, MatDialogRef, MatSelect, MatTableDataSource} from "@angular/material";
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { AvTableColumnConfig } from "../av-table/AvTableColumnConfig";
+import { MAT_DIALOG_DATA, MatDialogRef, MatSelect, MatTableDataSource } from "@angular/material";
 
 @Component({
   selector: 'app-av-column-properties',
@@ -9,16 +9,17 @@ import {MAT_DIALOG_DATA, MatDialogRef, MatSelect, MatTableDataSource} from "@ang
 })
 export class AvColumnPropertiesComponent implements OnInit {
 
-  columnsDefinition : Array<AvTableColumnConfig>;
-  selectedColumn : AvTableColumnConfig = null;
-  selectedProperty : string;
+  columnsDefinition: Array<AvTableColumnConfig>;
+  selectedColumn: AvTableColumnConfig = null;
+  selectedProperty: string;
   propertyDefinition: Array<string> = ['label', 'editable', 'required', 'hide'];
-  displayedColumns = ['fieldName','label'];
-  dataSource : MatTableDataSource<AvTableColumnConfig>;
+  displayedColumns = ['fieldName', 'label'];
+  dataSource: MatTableDataSource<AvTableColumnConfig>;
   @Output() updatedColumnsDefinition = new EventEmitter<Array<AvTableColumnConfig>>();
 
   constructor(public dialogRef: MatDialogRef<AvColumnPropertiesComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) { }
+              @Inject(MAT_DIALOG_DATA) public data: any) {
+  }
 
   ngOnInit() {
     this.columnsDefinition = this.data.columnsDefinition;
@@ -26,20 +27,20 @@ export class AvColumnPropertiesComponent implements OnInit {
     console.log(this.columnsDefinition);
   }
 
-  getColumnsDefinition(){
+  getColumnsDefinition() {
     return this.columnsDefinition;
   }
 
-  onSave(){
+  onSave() {
     this.updatedColumnsDefinition.emit(this.columnsDefinition);
     this.dialogRef.close(this.columnsDefinition);
   }
 
-  onExit(){
+  onExit() {
     this.dialogRef.close(null);
   }
 
-  onSelectionChange($event : MatSelect) {
-    this.displayedColumns= ['fieldName', $event.value];
+  onSelectionChange($event: MatSelect) {
+    this.displayedColumns = ['fieldName', $event.value];
   }
 }

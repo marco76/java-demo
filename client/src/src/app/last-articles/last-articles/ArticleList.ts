@@ -3,6 +3,7 @@ import {Article} from "./Article";
 export class ArticleList {
 
   public static getArticles : Article [] = [
+   /*
     {
       title: 'From DB to Autocomplete',
       description: 'Easily add a DB result to an autocomplete in your app',
@@ -10,6 +11,7 @@ export class ArticleList {
       published: new Date(2018,4,15),
       icon: 'assets/images/angular.svg'
     },
+    */
     {
       title: 'Deploy Angular with Docker and Nginx',
       description: 'Small container and great performances',

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import "rxjs/Rx";
 import {Observable} from "rxjs/Observable";
-import {environment} from '../../environments/environment';
 import {DocumentationService} from "../documentation/documentation.service";
 import {RequestService} from "../common/http/request.service";
 import {StaticPageComponent} from "../static-page/static-page.component";

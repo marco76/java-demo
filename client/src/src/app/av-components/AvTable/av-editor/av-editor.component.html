@@ -1,25 +1,25 @@
 <div class="container" class="container-column">
-<form [formGroup]="form">
+  <form [formGroup]="form">
 
-  <div *ngFor="let column of dataColumns" class="form-row">
-    <app-av-form-element [form]="form" [element]="column"></app-av-form-element>
-  </div>
-  <!-- <div *ngFor = "let column of dataColumns">
-    <mat-form-field appearance="standard">-->
-      <!--<mat-label>{{column.label}}</mat-label>-->
-      <app-av-form-element [form]="form" [element]="editedObject"></app-av-form-element>
-      <!--<input matInput value="{{editedObject[column.fieldName]}}">-->
-     <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
-      <!--<mat-hint>Hint</mat-hint>-->
+    <div *ngFor="let column of dataColumns" class="form-row">
+      <app-av-form-element [form]="form" [element]="column"></app-av-form-element>
+    </div>
+    <!-- <div *ngFor = "let column of dataColumns">
+      <mat-form-field appearance="standard">-->
+    <!--<mat-label>{{column.label}}</mat-label>-->
+    <app-av-form-element [form]="form" [element]="editedObject"></app-av-form-element>
+    <!--<input matInput value="{{editedObject[column.fieldName]}}">-->
+    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+    <!--<mat-hint>Hint</mat-hint>-->
     <!--</mat-form-field>
 </div>
     -->
 
-<button mat-button (click)="onSave()">
-  Save
-</button>
-<button mat-button (click)="onExit()">
-  Abbrechen
-</button>
-</form>
+    <button mat-button (click)="onSave()">
+      Save
+    </button>
+    <button mat-button (click)="onExit()">
+      Abbrechen
+    </button>
+  </form>
 </div>

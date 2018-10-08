@@ -1,10 +1,10 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewEncapsulation} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatSlideToggleChange } from '@angular/material';
-import {CloudMenu} from "./CloudMenu";
-import {JavaEEMenu} from "./JavaEEMenu";
-import {SpringMenu} from "./SpringMenu";
-import {AngularMenu} from "./AngularMenu";
+import { CloudMenu } from "./CloudMenu";
+import { JavaEEMenu } from "./JavaEEMenu";
+import { SpringMenu } from "./SpringMenu";
+import { AngularMenu } from "./AngularMenu";
 import { TypeDoc } from './TypeDoc';
 
 
@@ -18,42 +18,45 @@ export class LeftMenuMatComponent implements OnChanges, OnInit {
 
   @Input() category: string;
   subject: string;
-  cat : string;
+  cat: string;
 
-  selectedCategory : {name: string, links: Array<any>};
+  selectedCategory: { name: string, links: Array<any> };
 
   ngOnInit() {
     this.cat = this.route.snapshot.paramMap.get('category');
   }
 
- ngOnChanges(){
-   if ('javaee' === this.category) {
-     this.selectedCategory = JavaEEMenu.menu;
-     this.subject ="Java EE / Jakarta EE"
-   } else if ('spring' === this.category) {
-     this.subject = "Spring";
-     this.selectedCategory = SpringMenu.menu;
-   }
-   else if ('angular' === this.category) {
-     this.subject = "Angular";
-     this.selectedCategory = AngularMenu.menu;
-   }
-   else if ('cloud' === this.category) {
-     this.subject = "Cloud";
-     this.selectedCategory = CloudMenu.menu;
-   }
-   else {
-     this.subject = null;
-     this.selectedCategory = null;
-   }
- }
+  ngOnChanges() {
+    if ('javaee' === this.category) {
+      this.selectedCategory = JavaEEMenu.menu;
+      this.subject = "Java EE / Jakarta EE"
+    } else if ('spring' === this.category) {
+      this.subject = "Spring";
+      this.selectedCategory = SpringMenu.menu;
+    }
+    else if ('angular' === this.category) {
+      this.subject = "Angular";
+      this.selectedCategory = AngularMenu.menu;
+    }
+    else if ('cloud' === this.category) {
+      this.subject = "Cloud";
+      this.selectedCategory = CloudMenu.menu;
+    }
+    else {
+      this.subject = null;
+      this.selectedCategory = null;
+    }
+  }
 
-  getRouter(item : any, category: string) : string {
+  getRouter(item: any, category: string): string {
 
     switch (item.type) {
-      case TypeDoc.COMPONENT : return item.routerLink;
-      case TypeDoc.GIT : return `/git/${category}/${item.routerLink}`;
-      default :return `/doc/${category}/${item.routerLink}`;
+      case TypeDoc.COMPONENT :
+        return item.routerLink;
+      case TypeDoc.GIT :
+        return `/git/${category}/${item.routerLink}`;
+      default :
+        return `/doc/${category}/${item.routerLink}`;
     }
   }
 
@@ -63,9 +66,9 @@ export class LeftMenuMatComponent implements OnChanges, OnInit {
   showAll = true;
 
 
-
-  constructor( private route: ActivatedRoute,
-               private router: Router) {}
+  constructor(private route: ActivatedRoute,
+              private router: Router) {
+  }
 
   routeTo(routerLink: String) {
 

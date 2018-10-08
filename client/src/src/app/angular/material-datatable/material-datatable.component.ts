@@ -1,39 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from "@angular/material";
-import {environment} from "../../../environments/environment";
-import {RequestService} from "../../common/http/request.service";
-import {HttpClientModule} from "@angular/common/http";
-import {AvTableConfig} from "../../av-components/AvTable/av-table/AvTableConfig";
-import {AvTableColumnConfig} from "../../av-components/AvTable/av-table/AvTableColumnConfig";
-
-
+import { MatTableDataSource } from "@angular/material";
+import { environment } from "../../../environments/environment";
+import { RequestService } from "../../common/http/request.service";
+import { AvTableConfig } from "../../av-components/AvTable/av-table/AvTableConfig";
 
 @Component({
   selector: 'app-material-datatable',
   templateUrl: './material-datatable.component.html',
   styleUrls: ['./material-datatable.component.css'],
-  providers: [ RequestService ]
+  providers: [RequestService]
 })
 export class MaterialDatatableComponent implements OnInit {
 
   exampleDataSource = null;
 
-  constructor(private requestService : RequestService) {
+  constructor(private requestService: RequestService) {
   }
 
   ngOnInit() {
 
     this.exampleDataSource = [
-      {'name': 'Marco',
-      'role': 'Java and Angular Developer/Architect',
-      'status': 'freelance'},
-      {'name': 'Olivier',
+      {
+        'name': 'Marco',
+        'role': 'Java and Angular Developer/Architect',
+        'status': 'freelance'
+      },
+      {
+        'name': 'Olivier',
         'role': 'Java Architect',
-        'status': 'employee'},
-      {'name': 'Sybille',
+        'status': 'employee'
+      },
+      {
+        'name': 'Sybille',
         'role': 'IT Manager',
-        'status': 'employee'}
+        'status': 'employee'
+      }
     ];
+
     this.requestService.getRestData('/rest/blockchain/company/list', environment.SPRNG_DATA).subscribe(
       result => {
         console.log(result);
@@ -44,8 +47,8 @@ export class MaterialDatatableComponent implements OnInit {
     this.tableConfiguration = new AvTableConfig([
       {fieldName: 'name', label: 'name'},
       {fieldName: 'url', label: 'url'},
-      {fieldName: 'city', label:'city'}
-      ]);
+      {fieldName: 'city', label: 'city'}
+    ]);
   }
 
   tableConfiguration: AvTableConfig;

@@ -1,0 +1,5 @@
+applications:
+- name: java-client
+  memory: 64M
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+  command: ng serve --prod

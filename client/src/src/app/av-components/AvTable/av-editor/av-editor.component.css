@@ -1,6 +1,7 @@
 .container {
   display: flex;
 }
+
 .container-column {
   justify-content: center;
   flex-direction: column;
@@ -8,9 +9,9 @@
 }
 
 .mat-form-field {
-  height: 80px!important;
+  height: 80px !important;
 }
 
 .mat-form-field {
-  width: 500px!important;
+  width: 500px !important;
 }
