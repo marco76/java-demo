@@ -6,6 +6,7 @@ import { JavaEEMenu } from "./JavaEEMenu";
 import { SpringMenu } from "./SpringMenu";
 import { AngularMenu } from "./AngularMenu";
 import { TypeDoc } from './TypeDoc';
+import { JDK11Menu } from './JDK11Menu';
 
 
 @Component({
@@ -42,6 +43,10 @@ export class LeftMenuMatComponent implements OnChanges, OnInit {
       this.subject = "Cloud";
       this.selectedCategory = CloudMenu.menu;
     }
+    else if ('java11' === this.category) {
+      this.selectedCategory = JDK11Menu.menu;
+      this.subject = "Java 11";
+    }
     else {
       this.subject = null;
       this.selectedCategory = null;
@@ -71,14 +76,11 @@ export class LeftMenuMatComponent implements OnChanges, OnInit {
   }
 
   routeTo(routerLink: String) {
-
     this.onRouteClicked.emit(routerLink);
     this.router.navigate([routerLink]);
   }
 
   onChange(event: MatSlideToggleChange) {
-
-
     if (event.checked === true) {
       this.showAll = true;
     } else {

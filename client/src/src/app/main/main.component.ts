@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -8,10 +8,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class MainComponent implements OnInit {
 
-  category : string = null;
+  category: string = null;
 
   constructor(private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
     console.log('routing', this.route.snapshot);
@@ -24,7 +25,7 @@ export class MainComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.category = params['category'];
       // this.initialiseState(); // reset and set based on new parameter this time
-      console.log('category ', this.category );
+      console.log('category ', this.category);
     });
   }
 

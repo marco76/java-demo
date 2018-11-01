@@ -1,12 +1,11 @@
-import {NgModule} from "@angular/core";
-import {MatIconModule, MatMenuModule, MatSidenavModule} from "@angular/material";
+import { NgModule } from "@angular/core";
+import { MatIconModule, MatMenuModule, MatSidenavModule } from "@angular/material";
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {CommonModule} from "@angular/common";
-import {BrowserModule} from "@angular/platform-browser";
+import { CommonModule } from "@angular/common";
+import { BrowserModule } from "@angular/platform-browser";
 
 @NgModule({
-  declarations: [
-  ],
+  declarations: [],
   imports: [
     BrowserModule,
     CommonModule,
@@ -15,7 +14,7 @@ import {BrowserModule} from "@angular/platform-browser";
     MatToolbarModule,
     MatSidenavModule
   ],
-  exports: [
-  ]
+  exports: []
 })
-export class DemoModule { }
+export class DemoModule {
+}

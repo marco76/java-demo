@@ -48,7 +48,7 @@ export class AngularMenu {
             label: 'Deploy Angular with Docker and Nginx',
             description: 'Deploy with permformance optimization',
             type: TypeDoc.GIT,
-            routerLink: '../2018-05-10-docker-angular-nginx'
+            routerLink: '../docker-angular-nginx'
           }
           ]
         },

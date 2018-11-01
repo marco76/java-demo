@@ -16,7 +16,7 @@ export class ArticleList {
       title: 'Deploy Angular with Docker and Nginx',
       description: 'Small container and great performances',
       link: '/git/angular/2018-05-10-docker-angular-nginx',
-      published: new Date(2018,4,10),
+      published: new Date(2018, 4, 10),
       icon: 'assets/images/moby.png'
     },
     {

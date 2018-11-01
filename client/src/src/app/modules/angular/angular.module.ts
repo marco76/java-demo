@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MaterialDatatableComponent} from "../../angular/material-datatable/material-datatable.component";
-import {AvTableComponent} from "../../av-components/AvTable/av-table/av-table.component";
-import {MaterialModule} from "../material.module";
+import { AvTableComponent } from "../../av-components/AvTable/av-table/av-table.component";
+import { MaterialModule } from "../material.module";
 
 @NgModule({
   imports: [
@@ -12,8 +11,9 @@ import {MaterialModule} from "../material.module";
   declarations: [
     AvTableComponent
   ],
-  exports : [
+  exports: [
     AvTableComponent
   ]
 })
-export class AngularModule { }
+export class AngularModule {
+}

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {AlertModule, TabsModule} from 'ngx-bootstrap';
+import { AlertModule, TabsModule } from 'ngx-bootstrap';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 import { AppComponent } from './app.component';
@@ -27,48 +27,46 @@ import { ChatbotComponent } from './jee/websocket/chatbot/chatbot.component';
 import { WebSocketService } from "./jee/websocket/chatbot/websocket.service";
 import { ObserverComponent } from './jee/cdi/event/event.component';
 import { ConferenceComponent } from './jee/jpa/conference/conference.component';
-import {ConferenceTableComponent} from "./jee/jpa/conference/conference-table/conference-table.component";
-import {PrettyXMLPipe} from "./common/pretty-json/prettyXML.pipe";
-import {ExcelExport} from "./extra/excel/excel-export";
-import {SimplePrettyXML} from "./common/pretty-json/simplePrettyXML";
-import {MyDatePickerModule} from "mydatepicker";
-import {QuizHelloComponent} from "./jee/quiz/hello/quiz-hello.component";
-import {DashboardComponent} from "./cases/d3/dashboard.component";
+import { ConferenceTableComponent } from "./jee/jpa/conference/conference-table/conference-table.component";
+import { PrettyXMLPipe } from "./common/pretty-json/prettyXML.pipe";
+import { ExcelExport } from "./extra/excel/excel-export";
+import { SimplePrettyXML } from "./common/pretty-json/simplePrettyXML";
+import { MyDatePickerModule } from "mydatepicker";
+import { QuizHelloComponent } from "./jee/quiz/hello/quiz-hello.component";
+import { DashboardComponent } from "./cases/d3/dashboard.component";
 import { LoginComponent } from './jee/security/login/login.component';
 import { MarkdownModule } from 'angular2-markdown';
-import {DocumentationComponent} from "./documentation/documentation.component";
+import { DocumentationComponent } from "./documentation/documentation.component";
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { FooterComponent } from './common/footer/footer.component';
-import {LeftMenuComponent} from "./documentation/left-menu/left-menu.component";
+import { LeftMenuComponent } from "./documentation/left-menu/left-menu.component";
 
-import {FlatmapComponent} from "./flatmap/flatmap.component";
-import {RequestService} from "./common/http/request.service";
-import {AuthenticationService} from "./common/http/authentication.service";
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MenuHeaderComponent} from "./menus/menu-header/menu-header.component";
-import {MatExpansionModule} from '@angular/material/expansion';
-import { MaterialModule} from "./modules/material.module";
+import { FlatmapComponent } from "./flatmap/flatmap.component";
+import { RequestService } from "./common/http/request.service";
+import { AuthenticationService } from "./common/http/authentication.service";
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenuHeaderComponent } from "./menus/menu-header/menu-header.component";
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MaterialModule } from "./modules/material.module";
 
-import { LeftMenuMatComponent} from "./menus/left-menu/left-menu.component";
-import {StaticPageComponent} from "./static-page/static-page.component";
-import {WebsiteModule} from "./modules/website/website.module";
+import { LeftMenuMatComponent } from "./menus/left-menu/left-menu.component";
+import { StaticPageComponent } from "./static-page/static-page.component";
+import { WebsiteModule } from "./modules/website/website.module";
 import { MainComponent } from './main/main.component';
-import {AppRoutingModule} from "./modules/routing/app-routing.module";
+import { AppRoutingModule } from "./modules/routing/app-routing.module";
 import { LastArticlesComponent } from './last-articles/last-articles/last-articles.component';
 import { MaterialDatatableComponent } from './angular/material-datatable/material-datatable.component';
-import {AngularModule} from "./modules/angular/angular.module";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { AngularModule } from "./modules/angular/angular.module";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { AvEditorComponent } from './av-components/AvTable/av-editor/av-editor.component';
-import {AvFormElement} from "./av-components/AvTable/av-form-element/AvFormElement";
-import {AvFormElementComponent} from "./av-components/AvTable/av-form-element/av-form-element.component";
+import { AvFormElement } from "./av-components/AvTable/av-form-element/AvFormElement";
+import { AvFormElementComponent } from "./av-components/AvTable/av-form-element/av-form-element.component";
 import { AvColumnPropertiesComponent } from "./av-components/AvTable/av-column-properties/av-column-properties.component";
 
 @NgModule({
   declarations: [
-
     AppComponent,
-
     HomeComponent,
     BvSimpleOneComponent,
     PrettyJsonPipe,
@@ -112,7 +110,6 @@ import { AvColumnPropertiesComponent } from "./av-components/AvTable/av-column-p
     BrowserAnimationsModule,
     AppRoutingModule,
     AngularModule,
-
     FormsModule,
     MaterialModule,
     HighlightJsModule,
@@ -129,10 +126,11 @@ import { AvColumnPropertiesComponent } from "./av-components/AvTable/av-column-p
     MatExpansionModule,
     WebsiteModule,
     HttpClientModule,
-   ],
+  ],
   providers: [HighlightJsService, WebSocketService, RequestService,
     AuthenticationService],
   entryComponents: [AvEditorComponent, AvColumnPropertiesComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

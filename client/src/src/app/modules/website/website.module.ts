@@ -13,4 +13,5 @@ import { TwitterNewsComponent } from "../../website/twitter-news/twitter-news.co
     TwitterNewsComponent
   ]
 })
-export class WebsiteModule { }
+export class WebsiteModule {
+}

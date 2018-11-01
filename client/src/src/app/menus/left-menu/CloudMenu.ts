@@ -1,18 +1,20 @@
 export class CloudMenu {
 
-  static get menu(): {name: string, links: Array<any>} {
+  static get menu(): { name: string, links: Array<any> } {
     return {
       name: 'cloud',
-      links:[{
+      links: [{
         label: 'Deployment',
         items: [
-          {label: 'Website / Angular',
-          icon: 'fa fa-paper-plane',
-          description: 'Static app in the bucket',
-          routerLink: '../deploy-angular-google-cloud'},
+          {
+            label: 'Website / Angular',
+            icon: 'fa fa-paper-plane',
+            description: 'Static app in the bucket',
+            routerLink: '../deploy-angular-google-cloud'
+          },
         ]
       }
-        ]
+      ]
     };
   }
 }

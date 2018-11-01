@@ -21,7 +21,7 @@ export class JavaEEMenu {
             label: 'Simple validation',
             description: 'Validation fundamentals',
             type: TypeDoc.COMPONENT,
-            icon: 'fa fa-cog', routerLink: '/bv'
+            icon: 'fa fa-cog', routerLink: '/javaee/bv'
           },
 
           {
@@ -29,21 +29,21 @@ export class JavaEEMenu {
             type: TypeDoc.COMPONENT,
             description: 'Date validation',
 
-            routerLink: '/bv-date'
+            routerLink: '/javaee/bv-date'
           },
           {
             label: '@Size, groups',
             type: TypeDoc.COMPONENT,
 
             description: 'Repeatable and groups',
-            routerLink: '/bv-repeatable'
+            routerLink: '/javaee/bv-repeatable'
           },
           {
             label: 'List<@Email>, @Size',
             type: TypeDoc.COMPONENT,
 
             description: 'How to validate a list?',
-            routerLink: '/bv-list-email'
+            routerLink: '/javaee/bv-list-email'
           }
           ,
           {
@@ -51,7 +51,7 @@ export class JavaEEMenu {
             type: TypeDoc.COMPONENT,
 
             description: 'Numbers and the Zero ???',
-            routerLink: '/bv-positive-negative-zero'
+            routerLink: '/javaee/bv-positive-negative-zero'
           }
 
         ]
@@ -65,7 +65,7 @@ export class JavaEEMenu {
               type: TypeDoc.COMPONENT,
 
               icon: 'fa fa-cog',
-              routerLink: '/dashboard'
+              routerLink: '/javaee/dashboard'
             },
 
             {
@@ -73,14 +73,14 @@ export class JavaEEMenu {
               description: 'Answer to Web requests',
               type: TypeDoc.COMPONENT,
 
-              routerLink: '/hello'
+              routerLink: '/javaee/hello'
             },
             {
               label: 'Kotlin',
               description: 'REST service built with Kotlin',
               type: TypeDoc.COMPONENT,
 
-              routerLink: '/kotlin-hello'
+              routerLink: '/javaee/kotlin-hello'
             }
 
           ]
@@ -93,7 +93,7 @@ export class JavaEEMenu {
               type: TypeDoc.COMPONENT,
 
               description: 'New Security JSR',
-              routerLink: '/security'
+              routerLink: '/javaee/security'
             }
 
           ]
@@ -107,7 +107,7 @@ export class JavaEEMenu {
               label: 'WebSocket',
               type: TypeDoc.COMPONENT,
 
-              description: 'Build a dummy ChatBot', icon: 'fa fa-bug', routerLink: '/chatbot'
+              description: 'Build a dummy ChatBot', icon: 'fa fa-bug', routerLink: '/javaee/chatbot'
             },
             {
               label: 'JPA',
@@ -121,12 +121,12 @@ export class JavaEEMenu {
               label: 'Caching',
               type: TypeDoc.COMPONENT,
 
-              description: 'File caching example', icon: 'fa fa-font-awesome', routerLink: '/extra-cache'
+              description: 'File caching example', icon: 'fa fa-font-awesome', routerLink: '/javaee/extra-cache'
             },
             {
               label: 'Excel Export (JAX-RS)',
               type: TypeDoc.COMPONENT,
-              description: 'download files', icon: 'fa fa-font-awesome', routerLink: '/excel-export'
+              description: 'download files', icon: 'fa fa-font-awesome', routerLink: '/javaee/excel-export'
             },
 
           ]

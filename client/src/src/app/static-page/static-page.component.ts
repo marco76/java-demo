@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {RequestService} from '../common/http/request.service';
-import {ActivatedRoute, NavigationEnd, ParamMap, Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RequestService } from '../common/http/request.service';
+import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
-import {environment} from '../../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-static-page',
@@ -17,7 +17,10 @@ export class StaticPageComponent implements OnInit {
   gitDocument: string;
   githubReference: string;
 
-  static setVariables (markdown: string) {
+  routeForPage: { [pagename: string]: string; } = {};
+
+
+  static setVariables(markdown: string) {
     if (!markdown) {
       return '';
     }
@@ -32,7 +35,14 @@ export class StaticPageComponent implements OnInit {
     return markdown;
   }
 
- constructor(private requestService: RequestService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private requestService: RequestService, private route: ActivatedRoute, private router: Router) {
+    this.routeForPage["java-the-final-keyword"] = "2018-10-03-java-the-final-keyword";
+    this.routeForPage["java-hashmap-inline-initialization"] = "2018-10-08-java-hashmap-inline-initialization";
+    this.routeForPage["java-jdk-11-free"] = "2018-09-01-java-jdk-11-free";
+    this.routeForPage["what-s-new-java-11"] = "2018-09-15-what-s-new-java-11";
+    this.routeForPage["docker-angular-nginx"] = "2018-05-10-docker-angular-nginx";
+  }
+
 
   ngOnInit() {
     console.log('document', this.route.snapshot.paramMap.get('document'));
@@ -40,24 +50,42 @@ export class StaticPageComponent implements OnInit {
     this.route.paramMap.switchMap((params: ParamMap) => {
 
       this.gitDocument = params.get('document');
+      this.gitDocument = this.findSynonym(this.gitDocument);
       this.githubReference = `${environment.GIT_DOCUMENTS_URL}${this.gitDocument}.md`;
-      console.log('this.route.routeConfig.path');
-      if (this.route.routeConfig.path.startsWith('git') || this.gitDocument.startsWith('20')){
+
+      if (this.route.routeConfig.path.startsWith('git') || this.gitDocument.startsWith('20')) {
         return this.requestService.getGitText('rest/document/git/' + this.gitDocument)
       }
 
       return this.requestService.getText('rest/document/' + this.gitDocument)
     })
       .subscribe(
-      result => {this.markdown = StaticPageComponent.setVariables(result)},
-      error => { console.log(error._body) }
-    );
+        result => {
+          this.markdown = StaticPageComponent.setVariables(result)
+        },
+        error => {
+          console.log(error._body)
+        }
+      );
 
     this.router.events.subscribe((evt) => {
-        if (!(evt instanceof NavigationEnd)) {
-          return;
-        }
-        window.scrollTo(0, 0)
-      });
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
+  }
+
+  findSynonym(routeName
+                :
+                string
+  ):
+    string {
+    if (this.routeForPage[routeName]) {
+      return this.routeForPage[routeName]
     }
+    return routeName;
+  }
 }
+
+

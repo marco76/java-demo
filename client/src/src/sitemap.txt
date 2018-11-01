@@ -43,14 +43,17 @@ http://javademo.io/doc/angular/deploy-java-angular-one
 http://javademo.io/doc/angular/visual-studio-code-setup
 http://javademo.io/doc/angular/basic-seo-for-angular
 http://javademo.io/doc/angular/import-javascript-in-angular
-http://javademo.io/git/angular/2018-05-10-docker-angular-nginx
+http://javademo.io/git/angular/docker-angular-nginx
 http://javademo.io/static-document/app-checklist
 http://javademo.io/home
 http://javademo.io/login
 http://javademo.io/cat/angular
 http://javademo.io/cat/cloud
 http://javademo.io/flatmap
-
+http://javademo.io/git/java11/what-s-new-java-11
+http://javademo.io/git/java11/java-jdk-11-free
+http://javademo.io/git/java11/java-jdk-11-free
+http://javademo.io/git/java11/java-hashmap-inline-initialization
 
 
 
