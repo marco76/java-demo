@@ -16,7 +16,6 @@ Spring <--> REST Services <--> Angular
 - Java EE 7 features
 - - WebSockets
 
-
 ## How to install
 
 __Prerequisites__
