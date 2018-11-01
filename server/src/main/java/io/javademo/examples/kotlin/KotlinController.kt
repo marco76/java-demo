@@ -17,9 +17,7 @@ import javax.ws.rs.core.MediaType
 open class GreetingController {
 
     companion object {
-
         val LOG = Logger.getLogger(GreetingController::class.java.name)
-
     }
 
     open val counter = AtomicLong()
