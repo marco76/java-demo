@@ -1,21 +1,22 @@
-import {Injectable} from "@angular/core";
-import {RequestService} from "../common/http/request.service";
-import {environment} from '../../environments/environment';
-import {Observable} from "rxjs/Observable";
+import { Injectable } from "@angular/core";
+import { RequestService } from "../common/http/request.service";
+import { environment } from '../../environments/environment';
+import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class DocumentationService {
 
-  constructor(private requestService : RequestService) {}
+  constructor(private requestService: RequestService) {
+  }
 
-  getDocumentFromServer(documentName : string) : Observable<string> {
+  getDocumentFromServer(documentName: string): Observable<string> {
     return this.requestService.sendGet('/rest/blog/file/' + documentName)
       .map(result => DocumentationService.setVariables(result.text.content),
         error => ''
       );
   }
 
-  static setVariables (markdown: string) {
+  static setVariables(markdown: string) {
     if (!markdown) {
       return '';
     }

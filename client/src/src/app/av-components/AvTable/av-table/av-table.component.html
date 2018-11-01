@@ -1,0 +1,58 @@
+<div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+<div *ngIf="!dataSource">
+  The datasource is not configured!
+</div>
+
+
+<div class="example-container mat-elevation-z8" *ngIf="dataSource">
+
+  <mat-toolbar class = "av-toolbar">
+    <mat-toolbar-row class="av-left">
+      <button mat-button color="primary" (click)="onCreateRecord()">
+        Add
+      </button>
+      <span *ngIf="isSelectionEditable">
+          <button mat-button color="primary" (click)="onEditRecord()">Edit <mat-icon>mode_edit</mat-icon> </button>
+      </span>
+
+      <span *ngIf="isSelectionDeletable">
+      <button mat-button color="warn" (click)="onDelete()">Löschen <mat-icon>delete</mat-icon> </button>
+      </span>
+
+      <span  class="push bottom av-toolbar-infos">
+        {{numberOfSelectedItems}} / {{dataSource.data.length}}
+      </span>
+    </mat-toolbar-row>
+
+  </mat-toolbar>
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="select">
+      <mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="onCheckAll($event)"></mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-checkbox [checked]="row.isSelected" (change)="onCheckElement($event, row)"></mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <span *ngFor="let column of dataColumns">
+
+        <ng-container [matColumnDef]="column.fieldName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{column.label}} </mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row[column.fieldName]}} </mat-cell>
+        </ng-container>
+    </span>
+
+    <mat-header-row *matHeaderRowDef="columnsToShow"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnsToShow;"  [@itemStatus]="row.status"></mat-row>
+
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" pageSize="10" *ngIf = "dataSource"></mat-paginator>
+  <mat-icon (click)="onEditRows()" class="edit">edit</mat-icon>
+</div>

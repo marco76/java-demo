@@ -1,10 +1,10 @@
-# Java EE 8 Demo with Angular
+# Java EE 8 + Spring Demo with Angular
 
-The scope of the application is to show the new features of the next version of Java EE.
-Angular 4 (Angular CLI) is used to communicate with the server.
-This architecture is one of the most common in the professional environnements:
+The scope of the application is to show some new features of the latest version of Java EE and Spring.
+Angular is used as frontend UI and communicates with the server.
+This architecture is one of the most common in the professional environments:
 Java EE <--> REST Services <--> Angular (JS Framework)
-
+Spring <--> REST Services <--> Angular
 
 ## Features
 

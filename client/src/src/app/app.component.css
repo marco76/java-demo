@@ -1,0 +1,18 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mat-sidenav-content {
+  padding-left: 50px;
+  background-color: white;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.custom-container {
+  margin-top: 60px;
+}

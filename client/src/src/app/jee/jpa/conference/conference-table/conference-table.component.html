@@ -1,0 +1,53 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Next Java Conferences in the world</h3>
+    <div style="float:right; font-size: 80%; position: relative; top:-10px"><a  routerLink="/jpa-conferences">How this table works?</a></div>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+      <tr>
+        <th class="col-md-2">Name</th>
+        <th style="text-align:right">Days left</th>
+        <th style="text-align:center">From</th>
+        <th style="text-align:center">To</th>
+        <th>City</th>
+        <th class="col-md-2">Country</th>
+        <th class="col-md-1">CFP</th>
+        <th class="col-md-2">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let conference of conferenceList" [@conferenceState]="conference.state">
+        <td ><a href="{{conference.website}}" target="_blank">{{conference.name}}</a></td>
+        <td style="text-align:right" class="col-md-1"><span *ngIf='conference.daysLeft > 30'> {{conference.daysLeft}}</span>
+          <span *ngIf='conference.daysLeft <= 30 && conference.daysLeft >= 0' class="label label-warning"> SOON - {{conference.daysLeft}}</span>
+          <span *ngIf='conference.daysLeft < 0' class="label label-success"> NOW </span>
+        <td class="date col-md-1">{{conference.begin | date: 'dd MMM yy'}}</td>
+        <td class="date col-md-1">{{conference.end | date: 'dd MMM yy'}}</td>
+        <td class="col-md-1">{{conference.city}}</td>
+        <td><span *ngIf="conference.isoCountry" class="flag-icon flag-icon-{{conference.isoCountry}}"></span> {{conference.country}}</td>
+
+        <td class="date" style="text-align:left">
+          <span *ngIf='conference.cfpDaysLeft < 0'></span>
+          <span *ngIf='conference.cfpDaysLeft >= 0 && conference.cfpDaysLeft <= 10' class="label label-warning">Last days: {{conference.cfp | date: 'yMMMd'}}</span>
+          <span *ngIf='conference.cfpDaysLeft > 10'>{{conference.cfp | date: 'yMMMd'}}</span>
+        </td>
+        <td (click)="onDelete(conference)">{{conference.state}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div>
+      <button type="button" class="btn btn-default" aria-label="Left Align" (click)="downloadExcel()">
+        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+        Excel export
+      </button> <a routerLink="/excel-export">(show me how the export and download work)</a>
+    </div>
+    <div>
+      <br>
+      To announce conferences (a form will come): <a href="https://twitter.com/marcomolteni" target="_blank">@marcomolteni</a> or email to <a href="mailto:&#109;&#111;&#108;&#116;&#101;&#110;&#109;&#097;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;" target="_top">marco</a>
+      <br>
+    </div>
+  </div>
+</div>

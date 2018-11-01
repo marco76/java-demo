@@ -1,8 +1,10 @@
 export const environment = {
-  production: true,
-  BACKEND_URL : window.location.protocol + '//' + window.location.hostname + ':' + window.location.port,
-  WS_BACKEND_URL : 'ws://' + window.location.hostname + ':' + window.location.port,
-  DOCUMENT_VALUES: {'BACKEND_URL': window.location.protocol + '//' + window.location.hostname + ':' + window.location.port},
-  GIT_DOCUMENTS_URL: 'https://github.com/marco76/java-demo/tree/master/server/src/main/resources/pages/'
-
+  production: false,
+  BACKEND_URL: 'http://javaee-server.scapp.io',
+  WS_BACKEND_URL : 'ws://javaee-server.scapp.io',
+  DOCUMENT_VALUES: {'BACKEND_URL': 'http://javaee-server.scapp.io'},
+  GIT_DOCUMENTS_URL: 'https://github.com/marco76/java-demo/tree/master/server/src/main/resources/pages/',
+  DOCUMENTS_URL: 'http://spring-conferences.scapp.io',
+  SPRNG_DATA: 'http://spring-conferences.scapp.io',
+  CLOUD_DOCS: 'https://storage.cloud.google.com/javademo-166015.appspot.com/docs/'
 };

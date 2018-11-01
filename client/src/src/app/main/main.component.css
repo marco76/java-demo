@@ -1,0 +1,20 @@
+.mat-sidenav-content {
+  min-height: 70vh;
+}
+.fixedHeightContainer
+{
+  float:left;
+  height: 250px;
+  width:250px;
+}
+.content
+{
+  overflow:auto!important;
+  background:#fff;
+  height:90vh;
+}
+
+.custom-sidenav {
+  position: fixed;
+  top: 60px;
+}

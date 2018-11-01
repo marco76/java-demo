@@ -21,11 +21,14 @@ export class DashboardComponent implements OnInit {
   data :number [] = [];
   error : any;
 
+
   model : Model = new Model();
 
   constructor(private requestService : RequestService, private prettyJson : PrettyJsonPipe) { }
 
    buildChart() {
+
+ 
      let self = this;
      let width = 500;
      let barHeight = 20 * 10/this.data.length;

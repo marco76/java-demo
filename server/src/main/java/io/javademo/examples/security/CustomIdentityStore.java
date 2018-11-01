@@ -14,7 +14,7 @@ import static javax.security.enterprise.identitystore.CredentialValidationResult
 /**
  * Created by marcomolteni on 04.06.17.
  */
-@ApplicationScoped
+//@ApplicationScoped
 public class CustomIdentityStore implements IdentityStore {
 
     @Override

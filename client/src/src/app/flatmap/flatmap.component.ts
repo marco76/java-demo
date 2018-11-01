@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import "rxjs/Rx";
 import {Observable} from "rxjs/Observable";
-import {environment} from '../../environments/environment';
 import {DocumentationService} from "../documentation/documentation.service";
+import {RequestService} from "../common/http/request.service";
+import {StaticPageComponent} from "../static-page/static-page.component";
 
 @Component({
   selector: 'app-flatmap',
@@ -26,17 +27,17 @@ export class FlatmapComponent implements OnInit {
 
 
 
-  constructor(private documentationService : DocumentationService) {
+  constructor(private documentationService : DocumentationService, private requestService : RequestService) {
 
   }
   ngOnInit() {
     this.userJSON = this.originalJSON;
     let gitDocument = 'rxjs-json-example-1';
-    this.documentSource = `${environment.GIT_DOCUMENTS_URL}${gitDocument}.md`;
-    this.documentationService.getDocumentFromServer(gitDocument)
+
+    this.requestService.getText('rest/document/'+gitDocument)
       .subscribe(result => {
-            this.markdown = result
-      });
+        console.log(result);
+         this.markdown = StaticPageComponent.setVariables(result)})
   }
 
   onSubmit() {

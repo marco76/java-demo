@@ -5,28 +5,32 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import {environment} from '../../../environments/environment';
+import { environment } from '../../../environments/environment';
 import ResponseInfo from "../technical-info/ResponseInfo";
 import 'rxjs/add/observable/of'
-import {AuthenticationService} from "./authentication.service";
+import { AuthenticationService } from "./authentication.service";
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable()
 export class RequestService {
 
-  serverUrl : string = environment.BACKEND_URL;
-  private headers : Headers;
+  serverUrl: string = environment.BACKEND_URL;
+  documentsServerUrl: string = environment.DOCUMENTS_URL;
 
-  constructor(private http: Http, private authenticationService: AuthenticationService) {
+  private headers: Headers;
+
+  constructor(private http: Http, private authenticationService: AuthenticationService,
+              private httpClient: HttpClient) {
     // OnInit not supported by services
-    this.headers = new Headers({ 'Content-Type': 'application/json' });
+    this.headers = new Headers({'Content-Type': 'application/json'});
     this.headers.append('Accept', 'application/json, text/xml');
     this.headers.append('X-Requested-With', 'XMLHttpRequest');
   }
 
-  sendRequest(url:string, model : any) : Observable<any> {
+  sendRequest(url: string, model: any): Observable<any> {
 
-    let options = new RequestOptions({ headers: this.headers });
+    let options = new RequestOptions({headers: this.headers});
     this.addAuthHeader(this.headers);
 
     return this.http
@@ -35,24 +39,24 @@ export class RequestService {
         let responseInfo = new ResponseInfo();
         responseInfo.status = response.status;
         if (response.text()) {
-            responseInfo.text = response.json();
+          responseInfo.text = response.json();
         } else {
           responseInfo.text = "";
         }
         responseInfo.error = false;
         return responseInfo;
       }).catch((error) =>
-         Observable.of(this.buildErrorAnswer(error))
+        Observable.of(this.buildErrorAnswer(error))
       );
   }
 
-  sendRequestForXML(url:string, model : any) : Observable<any> {
+  sendRequestForXML(url: string, model: any): Observable<any> {
 
-    let hXML = new Headers({ 'Content-Type': 'application/json' });
+    let hXML = new Headers({'Content-Type': 'application/json'});
     hXML.append('Accept', 'application/xml');
     hXML.append('X-Requested-With', 'XMLHttpRequest');
 
-    let options = new RequestOptions({ headers: hXML });
+    let options = new RequestOptions({headers: hXML});
     this.addAuthHeader(this.headers);
 
     return this.http
@@ -75,13 +79,15 @@ export class RequestService {
         Observable.of(this.buildErrorAnswerXML(error))
       );
   }
-  sendGet(url:string) : Observable<any> {
 
-    let options = new RequestOptions({ headers: this.headers });
+  sendGet(url: string, server?: string): Observable<any> {
+
+    let options = new RequestOptions({headers: this.headers});
     this.addAuthHeader(this.headers);
+    let urlEndpoint = server ? server + url : this.serverUrl + url;
 
     return this.http
-      .get(this.serverUrl + url, options)
+      .get(urlEndpoint, options)
       .map((response: Response) => {
         let responseInfo = new ResponseInfo();
         responseInfo.status = response.status;
@@ -97,13 +103,13 @@ export class RequestService {
       );
   }
 
-  sendGetForm(url:string, model: any) : Observable<any> {
+  sendGetForm(url: string, model: any): Observable<any> {
 
-    let options = new RequestOptions({ headers: this.headers });
+    let options = new RequestOptions({headers: this.headers});
     this.addAuthHeader(this.headers);
 
     return this.http
-      .get(this.serverUrl + url +'?' + model.toString(), options)
+      .get(this.serverUrl + url + '?' + model.toString(), options)
       .map((response: Response) => {
         let responseInfo = new ResponseInfo();
         responseInfo.status = response.status;
@@ -119,12 +125,12 @@ export class RequestService {
       );
   }
 
-  sendGetType(url:string, type : ResponseContentType) : Observable<any> {
-    let hOctet = new Headers({ 'Content-Type': 'application/json' });
+  sendGetType(url: string, type: ResponseContentType): Observable<any> {
+    let hOctet = new Headers({'Content-Type': 'application/json'});
     hOctet.append('Accept', 'application/octet-stream');
     hOctet.append('X-Requested-With', 'XMLHttpRequest');
 
-    let options = new RequestOptions({ headers: hOctet, responseType : type});
+    let options = new RequestOptions({headers: hOctet, responseType: type});
     this.addAuthHeader(this.headers);
 
     return this.http
@@ -136,10 +142,10 @@ export class RequestService {
       );
   }
 
-  simpleGet(url: string) : Observable<Response> {
+  simpleGet(url: string): Observable<Response> {
     console.log("simple get");
 
-    let options = new RequestOptions({ headers: this.headers });
+    let options = new RequestOptions({headers: this.headers});
     this.addAuthHeader(this.headers);
 
     return this.http
@@ -151,9 +157,9 @@ export class RequestService {
       );
   }
 
-  simpleGetJson(url: string) : Observable<any> {
+  simpleGetJson(url: string): Observable<any> {
 
-    let options = new RequestOptions({ headers: this.headers });
+    let options = new RequestOptions({headers: this.headers});
     this.addAuthHeader(this.headers);
 
     return this.http
@@ -165,8 +171,36 @@ export class RequestService {
       })
   }
 
+  getText(url: string): Observable<any> {
 
-  buildErrorAnswer(error) : ResponseInfo{
+    console.log('this.getText:', url);
+
+    const options = new RequestOptions({headers: this.headers});
+
+    return this.http
+      .get(this.documentsServerUrl + '/' + url, options)
+      .map((response: Response) => {
+        return response.text();
+      }).catch((error) =>
+        Observable.of(this.buildErrorAnswer(error))
+      );
+  }
+
+  getGitText(url: string): Observable<any> {
+
+    const options = new RequestOptions({headers: this.headers});
+
+    return this.http
+      .get(this.documentsServerUrl + '/' + url, options)
+      .map((response: Response) => {
+        console.log(response);
+        return response.text();
+      }).catch((error) =>
+        Observable.of(this.buildErrorAnswer(error))
+      );
+  }
+
+  buildErrorAnswer(error): ResponseInfo {
 
     let responseInfo = new ResponseInfo();
     responseInfo.status = error.status;
@@ -176,7 +210,7 @@ export class RequestService {
 
   }
 
-  buildErrorAnswerXML(error) : ResponseInfo{
+  buildErrorAnswerXML(error): ResponseInfo {
 
     let responseInfo = new ResponseInfo();
     responseInfo.status = error.status;
@@ -194,5 +228,11 @@ export class RequestService {
           this.authenticationService.authorization);
       }
     }
+  }
+
+  getRestData(url: string, server?: string): Observable<any> {
+    let urlEndpoint = server ? server + url : this.serverUrl + url;
+
+    return this.httpClient.get(urlEndpoint);
   }
 }

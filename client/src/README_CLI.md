@@ -1,3 +1,6 @@
+ng build -prod
+gsutil -m cp ./dist/* gs://www.angular.cafe
+
 # Main
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.1.

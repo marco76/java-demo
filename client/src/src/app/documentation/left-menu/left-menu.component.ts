@@ -11,7 +11,7 @@ import { LeftMenuService } from "./left-menu.service";
 })
 export class LeftMenuComponent {
 
-  isCollapsed: boolean[]=[false,true,true,true,true,true,true, true, true];
+  isCollapsed: boolean[]=[false,false,false,false,false,false,false, false, false];
 
   // the event is emitted and set to the parent
   @Output() onRouteClicked = new EventEmitter<String>();

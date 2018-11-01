@@ -1,0 +1,11 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="side" [opened]="category" style="max-width: 300px"  class="custom-sidenav">
+    <mat-accordion  class="content">
+    <router-outlet name="menuleft"> </router-outlet>
+      <app-lateral-menu [category]="category"></app-lateral-menu>
+    </mat-accordion>
+  </mat-sidenav>
+  <mat-sidenav-content style="padding-left: 30px">
+    <router-outlet name="main"></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

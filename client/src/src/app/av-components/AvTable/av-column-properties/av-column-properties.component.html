@@ -1,0 +1,85 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Edit table's properties</mat-card-title>
+    <mat-card-subtitle>Select the field you want to edit</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content style="height: 380px">
+    <div class="form-container">
+      <mat-select placeholder="Property" [(value)]="selectedProperty" (selectionChange)="onSelectionChange($event)"
+                  class="mat-select">
+        <mat-option *ngFor="let property of propertyDefinition" [value]="property">
+          {{property}}
+        </mat-option>
+      </mat-select>
+    </div>
+    <div class="form-container">
+
+      <div *ngIf="selectedProperty" class="form-container">
+        <div class="example-container">
+          <mat-table #table [dataSource]="dataSource">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="fieldName">
+              <th mat-header-cell *matHeaderCellDef> Field</th>
+              <td mat-cell *matCellDef="let element"> {{element.fieldName}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="label">
+              <th mat-header-cell *matHeaderCellDef> Label</th>
+              <td mat-cell *matCellDef="let element">
+                <input matInput [value]="element.label" [(ngModel)]="element.label"></td>
+            </ng-container>
+
+            <ng-container matColumnDef="hide">
+              <th mat-header-cell *matHeaderCellDef> Hide</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-slide-toggle [(ngModel)]="element.hide"></mat-slide-toggle>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="editable">
+              <th mat-header-cell *matHeaderCellDef> Editable</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-slide-toggle [(ngModel)]="element.editable"></mat-slide-toggle>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="required">
+              <th mat-header-cell *matHeaderCellDef> Required</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-slide-toggle [(ngModel)]="element.required"></mat-slide-toggle>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="type">
+              <th mat-header-cell *matHeaderCellDef> Type</th>
+              <td mat-cell *matCellDef="let element">
+                <mat-slide-toggle [(ngModel)]="element.type"></mat-slide-toggle>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> Id</th>
+              <td mat-cell *matCellDef="let element"> {{element.id}}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </mat-table>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onSave()">
+      Save
+    </button>
+    <button mat-raised-button color="primary" (click)="onExit()">
+      Cancel
+    </button>
+  </mat-card-actions>
+</mat-card>

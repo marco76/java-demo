@@ -9,7 +9,8 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "sitemap.txt"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -29,7 +30,8 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
-        "../src/assets/css/hl/highlight.pack.js"
+        "../src/assets/css/hl/highlight.pack.js",
+        "../src/assets/js/autotrack.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

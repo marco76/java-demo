@@ -4,9 +4,12 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  BACKEND_URL: window.location.protocol + '//' + window.location.hostname + ':' + 8080,
-  WS_BACKEND_URL: 'ws://' + window.location.hostname + ':' + 8080,
-  DOCUMENT_VALUES: {'BACKEND_URL': window.location.protocol + '//' + window.location.hostname + ':' + 8080},
-  GIT_DOCUMENTS_URL: 'https://github.com/marco76/java-demo/tree/master/server/src/main/resources/pages/'
+  production: true,
+  BACKEND_URL: 'http://localhost:8080',
+  WS_BACKEND_URL : 'ws://localhost:8080',
+  DOCUMENT_VALUES: {'BACKEND_URL': 'http://localhost:8080'},
+  GIT_DOCUMENTS_URL: 'https://github.com/marco76/java-demo/tree/master/server/src/main/resources/pages/',
+  DOCUMENTS_URL: 'http://spring-conferences.scapp.io',
+  SPRNG_DATA: 'http://spring-conferences.scapp.io',
+  CLOUD_DOCS: 'https://storage.cloud.google.com/javademo-166015.appspot.com/docs/'
 };
