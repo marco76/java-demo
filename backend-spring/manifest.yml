@@ -1,0 +1,9 @@
+---
+applications:
+- name: spring-conferences
+  memory: 400M
+  instances: 1
+  path: ./target/backend-spring-2.0.5.RELEASE.jar
+  env:
+    JAVA_OPTS: '-XX:MaxMetaspaceSize=80780K -Xss512k -Xmx220M -XX:ReservedCodeCacheSize=16M -XX:MaxDirectMemorySize=16M'
+    JBP_CONFIG_OPEN_JDK_JRE: '{ memory_calculator: { stack_threads: 50 } }'
