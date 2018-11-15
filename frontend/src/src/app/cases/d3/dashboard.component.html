@@ -1,0 +1,63 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="panel-title">Create a Dashboard with D3, JAX-RS, JSON-B, Bean Validaton</div>
+  </div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="panel panel-default">
+ <div class="panel-heading">Request</div>
+  <div class="panel-body">
+      <form (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="form-group">
+          <label for="maxValue">Rows (5-25)</label>
+          <input type="number" class="form-control" id="elements" placeholder="values (5-20)"
+                 [(ngModel)]="model.elements" name="elements">
+          </div>
+
+        <div class="form-group">
+          <label for="maxValue">Max value (5-100)</label>
+          <input type="number" class="form-control" id="maxValue" placeholder="max value (5-100)"
+                 [(ngModel)]="model.maxValue" name="maxValue">
+        </div><div class="form-group">
+        <div class="col-sm-1">
+      <button type="submit" class="btn btn-default">Generate chart</button>
+        </div></div>
+      </form>
+
+  </div></div></div>
+  <div class="col-md-6 col-md-offset-0">
+    <div class="panel panel-default">
+      <div class="panel-heading">Result</div>
+      <div class="panel-body">
+        <span [hidden]="error"><svg class="chart"></svg></span>
+        <span *ngIf="error"><div [innerHTML]="error" highlight-js-content=".highlight" ></div>
+        </span>
+
+      </div>
+    </div>
+  </div>
+<div class="col-md-2">
+
+</div>
+</div>
+<div class="row">
+  <div [innerHTML]="code" highlight-js-content=".highlight" class="col-md-6"></div>
+
+<div class="col-md-6">
+  The code realizes the following operations:
+  <ul>
+    <li><a href="https://jcp.org/en/jsr/detail?id=370" target="_blank">JAX-RS</a> creates a RESTful resource and handles requests</li>
+    <li><a href="http://beanvalidation.org/" target="_blank">BV</a> validates the 'size' parameter, the value must be an Integer between 5 and 20</li>
+    <li><a href="http://beanvalidation.org/" target="_blank">BV</a>  validates the 'maxValue' parameter, the value must be an Integer between 5 and 100</li>
+    <li><a href="https://jcp.org/en/jsr/detail?id=370" target="_blank">JAX-RS</a> assigns the parameters to the variables (@QueryParam)</li>
+    <li>Java creates a <a href="https://docs.oracle.com/javase/8/docs/io.javademo.api/java/util/Random.html" target="_blank">Random generator</a> with the parameters and <a href="https://docs.oracle.com/javase/8/docs/io.javademo.api/java/util/stream/IntStream.html" target="_blank"> streams (IntStream)</a> the result to an array</li>
+    <li><a href="http://json-b.net/" target="_blank">JSON-B</a> builds a JSON object
+    <li><a href="https://jcp.org/en/jsr/detail?id=370" target="_blank">JAX-RS</a> sends the JSON object with the response</li>
+  </ul>
+</div>
+<div>
+</div>
+
+</div>
+
