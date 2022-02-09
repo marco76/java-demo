@@ -1,3 +1,7 @@
+[Archived] This project was used as showroom for some new features of Java EE 8 (BeanValidation, CDI and WebSockets in particular) using Angular (v. 2) as frontend.
+
+The frameworks changed with the time and the project has been archived.
+
 # Java EE 8 + Spring Demo with Angular
 
 The scope of the application is to show some new features of the latest version of Java EE and Spring.
@@ -7,7 +11,6 @@ Java EE <--> REST Services <--> Angular (JS Framework)
 Spring <--> REST Services <--> Angular
 
 ## Features
-
 
 - Java EE 8 features
 - - Bean Validation 2.0 (alpha)
